@@ -1,0 +1,32 @@
+[
+  {
+    "id": "all",
+    "label": "All Commodities",
+    "icon": "select_all"
+  },
+  {
+    "id": "grains",
+    "label": "Grains & Pulses",
+    "icon": "grain"
+  },
+  {
+    "id": "fruits",
+    "label": "Fresh Fruits",
+    "icon": "nutrition"
+  },
+  {
+    "id": "spices",
+    "label": "Spices & Herbs",
+    "icon": "local_florist"
+  },
+  {
+    "id": "greens",
+    "label": "Organic Greens",
+    "icon": "psychiatry"
+  },
+  {
+    "id": "dairy",
+    "label": "Dairy & Oils",
+    "icon": "water_drop"
+  }
+]

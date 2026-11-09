@@ -1,0 +1,883 @@
+
+
+<div class="fixed top-5 right-5 z-[70] bg-gray-900 text-white text-xs font-semibold px-4 py-2.5 rounded-xl shadow-xl flex items-center gap-2 transform transition-all duration-300 pointer-events-none translate-y-[-100px] opacity-0" id="toast">
+<span class="material-symbols-outlined text-[18px] text-green-400" id="toast-icon">check_circle</span>
+<span class="" id="toast-msg">Switched view to Farmer Direct</span>
+</div>
+
+<header class="bg-white border-b border-gray-100 sticky top-0 z-40 shadow-xs">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-6">
+
+<div class="flex items-center gap-6 shrink-0">
+<a class="flex items-center gap-3 active:scale-95 transition-transform" href="#" id="brand-logo">
+<div class="w-10 h-10 rounded-2xl bg-green-700 flex items-center justify-center text-white shadow-sm hover:bg-green-800 transition-colors">
+<span class="material-symbols-outlined text-[24px]">eco</span>
+</div>
+<div class="flex flex-col">
+<span class="text-xl font-bold font-headline text-green-800 tracking-tight leading-none">Belpatri</span>
+<span class="text-[9.5px] font-semibold tracking-wider text-gray-400 mt-1 uppercase">SHOPPING, MADE SIMPLE.</span>
+</div>
+</a>
+</div>
+
+<div class="flex-1 max-w-xl mx-2">
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-4 text-gray-400 text-[20px] pointer-events-none">search</span>
+<input class="w-full h-10 pl-11 pr-10 rounded-full border border-gray-200 bg-gray-50/70 text-gray-800 text-sm placeholder:text-gray-400 focus:outline-none focus:border-green-600 focus:bg-white focus:ring-2 focus:ring-green-600/10 transition-all duration-150" id="search-input" placeholder="Search items (wheat, chilli) or verified vendor store" type="text"/>
+<button class="hidden absolute right-3 w-6 h-6 rounded-full bg-gray-200 hover:bg-gray-300 text-gray-600 items-center justify-center text-xs active:scale-95 transition-all" id="search-clear-btn" title="Clear Search">
+<span class="material-symbols-outlined text-[14px]">close</span>
+</button>
+</div>
+</div>
+
+<div class="flex items-center gap-2 sm:gap-3 shrink-0">
+<button class="hidden md:flex items-center gap-1.5 px-3 py-2 rounded-full border border-gray-200 hover:border-green-300 bg-gray-50/60 hover:bg-green-50 text-gray-700 hover:text-green-800 text-xs font-semibold transition-all shadow-2xs active:scale-95" id="open-orders-btn-header" title="My Orders">
+<span class="material-symbols-outlined text-[18px] text-green-700">receipt_long</span>
+<span>Orders</span>
+<span class="w-5 h-5 rounded-full bg-green-100 text-green-800 flex items-center justify-center text-[10px] font-bold ml-0.5">2</span>
+</button>
+<button class="hidden sm:flex items-center gap-1.5 px-3 py-2 rounded-full border border-green-200 bg-green-50/50 text-green-800 hover:bg-green-100 text-xs font-semibold transition-all shadow-2xs active:scale-95" id="open-cart-btn-header" title="Market Cart">
+<span class="material-symbols-outlined text-[18px] text-green-700">shopping_cart</span>
+<span class="">Cart</span>
+<span class="w-5 h-5 rounded-full bg-green-700 text-white flex items-center justify-center text-[10px] font-bold ml-0.5 transition-transform duration-200" id="cart-badge-header">1</span>
+</button>
+<button class="relative w-10 h-10 rounded-full flex items-center justify-center text-gray-600 hover:bg-gray-100 active:scale-95 transition-all" id="notifications-btn" title="Notifications">
+<span class="material-symbols-outlined text-[22px]">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-green-600 ring-2 ring-white" id="notif-dot"></span>
+</button>
+<div class="flex items-center gap-2 cursor-pointer pl-1 group active:scale-95 transition-transform" id="profile-btn" title="User Profile / Account">
+<img alt="User Profile Avatar" class="w-10 h-10 rounded-full object-cover border-2 border-transparent group-hover:border-green-600 shadow-2xs transition-all ring-1 ring-gray-200" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIJwq7ZUOMQMXsMJcVncbAQspuQtnyEDAl0br_BdLzn8nd7qBB705xc_vOdgoxANBo_bRLXVZXNs3Ir7klo0pzQDekvSK9HTt9nEEnpEcN8jsZXO8PW3PVmFWXNaNzY1vvseqjQYEj1YPeLDLvaVKwSxTksaCntiz3I1VEaYo19z2fQ-VlCeaDPYgnTJwzOv1ualfDg1AIgnvKL3rGX3ECglKondQUN-Vq_a_FhAk9"/>
+</div>
+</div>
+</div>
+</header>
+
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
+
+<section class="space-y-6" id="view-marketplace">
+
+<div class="flex justify-center sm:justify-start">
+<div class="inline-flex p-1 bg-gray-100/90 rounded-2xl border border-gray-200/80 shadow-2xs">
+<button class="mode-tab-btn flex items-center gap-2 px-6 py-2.5 rounded-xl text-gray-600 hover:text-green-800 font-medium text-sm transition-all duration-150 active:scale-95" data-mode="managed">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span class="">Managed</span>
+</button>
+<button class="mode-tab-btn flex items-center gap-2 px-6 py-2.5 rounded-xl text-gray-600 hover:text-green-800 font-medium text-sm transition-all duration-150 active:scale-95" data-mode="vendor">
+<span class="material-symbols-outlined text-[18px]">storefront</span>
+<span class="">Vendor Store</span>
+</button>
+<button class="mode-tab-btn flex items-center gap-2 px-6 py-2.5 rounded-xl bg-white text-green-800 font-bold text-sm shadow-xs transition-all duration-150 active:scale-95" data-mode="farmer">
+<span class="material-symbols-outlined text-[18px] text-green-700">agriculture</span>
+<span class="">Farmer Direct</span>
+</button>
+</div>
+</div>
+
+<div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-green-800 via-emerald-900 to-stone-900 text-white p-7 sm:p-9 shadow-md transition-all duration-300" id="hero-banner">
+<div class="absolute right-4 sm:right-10 -bottom-6 opacity-15 pointer-events-none select-none text-white">
+<svg class="w-64 h-64 sm:w-80 sm:h-80" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24">
+<path d="M3 21h18M3 10l9-7 9 7v11H3V10zm6 11V14h6v7M8 9h.01M16 9h.01M12 6.5h.01M5 13h2v2H5zm12 0h2v2h-2z" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M19 19a3 3 0 003-3M2 19a3 3 0 01-3-3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div class="max-w-2xl relative z-10 space-y-3.5">
+<h1 class="text-2xl sm:text-3xl font-extrabold font-headline tracking-tight text-white transition-opacity duration-200" id="hero-title">Farmer Direct Exchange</h1>
+<p class="text-green-100/90 text-sm sm:text-base leading-relaxed max-w-xl font-normal transition-opacity duration-200" id="hero-subtitle">Harvest lots directly negotiated at farm-gate with on-field moisture check and Belpatri weighbridge.</p>
+<div class="flex flex-wrap items-center gap-2.5 pt-1.5" id="hero-badges">
+<span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-xs font-semibold text-white">
+<span class="material-symbols-outlined text-[16px] text-green-200">check_circle</span>
+<span class="" id="hero-badge-1">Zero Brokerage</span>
+</span>
+<span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-xs font-semibold text-white">
+<span class="material-symbols-outlined text-[16px] text-green-200">schedule</span>
+<span class="" id="hero-badge-2">Direct Farm-gate Pickup</span>
+</span>
+</div>
+</div>
+</div>
+
+<div class="space-y-2.5 pt-1">
+<div class="flex items-center justify-between">
+<span class="text-xs font-semibold uppercase tracking-wider text-gray-400">Categories</span>
+<button class="text-xs font-semibold text-green-700 hover:text-green-800 transition-colors active:scale-95" id="view-all-cats-btn">View All</button>
+</div>
+<div class="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none" id="categories-container">
+<button class="category-chip inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-700 text-white text-xs sm:text-sm font-semibold shadow-xs shrink-0 transition-all active:scale-95" data-category="all">
+<span class="material-symbols-outlined text-[16px]">grid_view</span>
+<span class="">All Commodities</span>
+</button>
+<button class="category-chip inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white border border-gray-200 text-gray-700 hover:border-green-600 hover:text-green-800 text-xs sm:text-sm font-medium shrink-0 shadow-2xs transition-all active:scale-95" data-category="grains">
+<span class="">Grains &amp; Pulses</span>
+</button>
+<button class="category-chip inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white border border-gray-200 text-gray-700 hover:border-green-600 hover:text-green-800 text-xs sm:text-sm font-medium shrink-0 shadow-2xs transition-all active:scale-95" data-category="fruits">
+<span class="">Fresh Fruits</span>
+</button>
+<button class="category-chip inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white border border-gray-200 text-gray-700 hover:border-green-600 hover:text-green-800 text-xs sm:text-sm font-medium shrink-0 shadow-2xs transition-all active:scale-95" data-category="spices">
+<span class="">Spices &amp; Herbs</span>
+</button>
+<button class="category-chip inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white border border-gray-200 text-gray-700 hover:border-green-600 hover:text-green-800 text-xs sm:text-sm font-medium shrink-0 shadow-2xs transition-all active:scale-95" data-category="oilseeds">
+<span class="">Oilseeds</span>
+</button>
+</div>
+</div>
+
+<section class="space-y-4">
+<div class="flex items-center justify-between text-xs text-gray-500 font-medium px-0.5">
+<span class="" id="lots-counter-label">Showing 6 farm-gate lots</span>
+<div class="flex items-center gap-1 text-gray-500">
+<span class="">Sort by:</span>
+<button class="text-gray-800 font-semibold flex items-center gap-1 hover:text-green-800 cursor-pointer active:scale-95 transition-all" id="sort-selector-btn">
+<span class="" id="current-sort-label">Fastest Dispatch</span>
+<span class="material-symbols-outlined text-[16px]">expand_more</span>
+</button>
+</div>
+</div>
+
+<div class="hidden py-16 text-center bg-white rounded-2xl border border-gray-200 shadow-xs" id="no-results-msg">
+<span class="material-symbols-outlined text-4xl text-gray-400 mb-2">search_off</span>
+<h4 class="font-bold text-gray-700">No matching commodities found</h4>
+<p class="text-xs text-gray-400 mt-1">Try resetting your search query or choosing another category.</p>
+<button class="mt-4 px-4 py-2 rounded-xl bg-green-700 text-white text-xs font-semibold hover:bg-green-800 active:scale-95 transition-all" id="reset-filter-btn">Reset Filters</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" id="product-grid">
+
+<article class="product-card bg-white rounded-2xl border border-gray-200 shadow-xs hover:shadow-md transition-all duration-200 overflow-hidden flex flex-col justify-between p-4 group" data-category="grains" data-code="MP-9821" data-id="lot-1" data-name="Standard Sharbati Wheat" data-rate="3200" data-unit="Quintal">
+<div class="space-y-3">
+<div class="relative h-48 w-full rounded-xl overflow-hidden bg-gray-100">
+<img alt="Standard Sharbati Wheat" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEAoczbRXijlqwDa3QaPhS9_vmCkN0rPlvedDGx47g_K-khCQ9URHYeBhFAgBBVZr41xMDVJJ8UxXbq7Lf2iNPce7a9KIV3N64IUXjBiVtbQ21FDlCa6DIelReO0p-Et1ItADKOECKeKH2ivgCwkaVARkuK1tt0k-4bDDgM9YwhyHcQfLYI2to72QRoMLfKaV48uQ79w6R-d0ZqNC-RTV37B_-EE104j6v-UvobcwQ"/>
+<div class="absolute top-2.5 left-2.5">
+<span class="inline-flex items-center gap-1 bg-green-50 text-green-700 border border-green-200 font-medium text-xs px-2.5 py-1 rounded-full shadow-2xs">
+<span class="material-symbols-outlined text-[13px]">check_circle</span>
+Belpatri Mandi Certified
+</span>
+</div>
+<span class="absolute bottom-2.5 right-2.5 bg-black/60 backdrop-blur-xs text-white text-[11px] font-mono px-2 py-0.5 rounded">
+MP-9821
+</span>
+</div>
+<div class="space-y-1">
+<span class="text-[10.5px] font-semibold text-gray-400 uppercase tracking-wider block">GRAINS &amp; PULSES</span>
+<h3 class="product-title text-base font-bold text-gray-900 group-hover:text-green-800 transition-colors">Standard Sharbati Wheat</h3>
+<div class="flex items-center gap-1.5 text-xs text-green-700 pt-0.5 font-medium">
+<span class="material-symbols-outlined text-[15px]">verified</span>
+<span class="">Belpatri Mandi Certified</span>
+</div>
+</div>
+</div>
+<div class="pt-4 mt-3 border-t border-gray-100 flex items-center justify-between gap-3">
+<div>
+<div class="flex items-baseline gap-1">
+<span class="item-rate text-lg font-extrabold text-green-800 tabular-nums">₹3,200</span>
+<span class="text-xs text-gray-400">/Quintal</span>
+</div>
+<span class="inline-block text-[11px] text-gray-500 font-medium">Min: 2 Qtl</span>
+</div>
+<div class="action-container">
+<div class="stepper-wrap flex items-center border border-green-600 rounded-xl bg-green-50/50 p-0.5 shadow-2xs">
+<button class="step-btn minus-btn w-8 h-8 rounded-lg flex items-center justify-center text-green-800 hover:bg-green-100 font-bold active:scale-95 transition-all" title="Decrease Lot">-</button>
+<span class="count-val w-8 text-center text-sm font-bold font-mono text-green-900">1</span>
+<button class="step-btn plus-btn w-8 h-8 rounded-lg flex items-center justify-center text-green-800 hover:bg-green-100 font-bold active:scale-95 transition-all" title="Increase Lot">+</button>
+</div>
+<button class="add-lot-btn hidden bg-green-50 text-green-700 hover:bg-green-700 hover:text-white border border-green-600 font-semibold text-xs rounded-xl py-2 px-4 transition-all duration-150 flex items-center gap-1.5 active:scale-95 shadow-2xs">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span class="">+ Add Lot</span>
+</button>
+</div>
+</div>
+</article>
+
+<article class="product-card bg-white rounded-2xl border border-gray-200 shadow-xs hover:shadow-md transition-all duration-200 overflow-hidden flex flex-col justify-between p-4 group" data-category="grains" data-code="AP-3104" data-id="lot-2" data-name="Sona Masoori Raw Rice" data-rate="4250" data-unit="Quintal">
+<div class="space-y-3">
+<div class="relative h-48 w-full rounded-xl overflow-hidden bg-gray-100">
+<img alt="Sona Masoori Raw Rice" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsuBNYoca30ZuCaLkai-zfSsOLIwoWVl_YfzuTpNLK64MTmByhYAPmknf2yKfwFk62J5lHPkjcqh2K5S8KXZrLLWIR3T54HRuxgwJ_S0HMW2PpXHOZcmX7oJwXqsrJTJETtcJ1vTw0jDBVqBlBpRwAXMANtcQ90PFB91mkYoofSllYktmT7niOlfhSnibdtsle2_dsdeP8OWzAe21Kg3-6hVwxWsAMtpbtTKUUymMd"/>
+<div class="absolute top-2.5 left-2.5">
+<span class="inline-flex items-center gap-1 bg-green-50 text-green-700 border border-green-200 font-medium text-xs px-2.5 py-1 rounded-full shadow-2xs">
+<span class="material-symbols-outlined text-[13px]">check_circle</span>
+Grade A Export
+</span>
+</div>
+<span class="absolute bottom-2.5 right-2.5 bg-black/60 backdrop-blur-xs text-white text-[11px] font-mono px-2 py-0.5 rounded">
+AP-3104
+</span>
+</div>
+<div class="space-y-1">
+<span class="text-[10.5px] font-semibold text-gray-400 uppercase tracking-wider block">GRAINS &amp; PULSES</span>
+<h3 class="product-title text-base font-bold text-gray-900 group-hover:text-green-800 transition-colors">Sona Masoori Raw Rice</h3>
+<div class="flex items-center gap-1.5 text-xs text-green-700 pt-0.5 font-medium">
+<span class="material-symbols-outlined text-[15px]">verified</span>
+<span class="">Belpatri Mandi Certified</span>
+</div>
+</div>
+</div>
+<div class="pt-4 mt-3 border-t border-gray-100 flex items-center justify-between gap-3">
+<div>
+<div class="flex items-baseline gap-1">
+<span class="item-rate text-lg font-extrabold text-green-800 tabular-nums">₹4,250</span>
+<span class="text-xs text-gray-400">/Quintal</span>
+</div>
+<span class="inline-block text-[11px] text-gray-500 font-medium">Min: 1 Qtl</span>
+</div>
+<div class="action-container">
+<div class="stepper-wrap hidden flex items-center border border-green-600 rounded-xl bg-green-50/50 p-0.5 shadow-2xs">
+<button class="step-btn minus-btn w-8 h-8 rounded-lg flex items-center justify-center text-green-800 hover:bg-green-100 font-bold active:scale-95 transition-all" title="Decrease Lot">-</button>
+<span class="count-val w-8 text-center text-sm font-bold font-mono text-green-900">1</span>
+<button class="step-btn plus-btn w-8 h-8 rounded-lg flex items-center justify-center text-green-800 hover:bg-green-100 font-bold active:scale-95 transition-all" title="Increase Lot">+</button>
+</div>
+<button class="add-lot-btn bg-green-50 text-green-700 hover:bg-green-700 hover:text-white border border-green-600 font-semibold text-xs rounded-xl py-2 px-4 transition-all duration-150 flex items-center gap-1.5 active:scale-95 shadow-2xs">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span class="">+ Add Lot</span>
+</button>
+</div>
+</div>
+</article>
+
+<article class="product-card bg-white rounded-2xl border border-gray-200 shadow-xs hover:shadow-md transition-all duration-200 overflow-hidden flex flex-col justify-between p-4 group" data-category="spices" data-code="TN-4412" data-id="lot-3" data-name="Salem Curcumin Turmeric" data-rate="180" data-unit="kg">
+<div class="space-y-3">
+<div class="relative h-48 w-full rounded-xl overflow-hidden bg-gray-100">
+<img alt="Salem Curcumin Turmeric" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyNdA18Ngo7JEZ3Tspe8nGVnwf2VDcmwLYwa9uRin_FHOttbYNhUCbptGrgLpz83tnN1Hq8ALZ1KYeBpXn9UGWufVf31A-oLwjEZxLPFZHyTQJJvC-QDAaRrF6V0eKcXyIZRufUayYZYwo1D0qqp9Mmp-nk4ubzShwqA3JaWaITHC5BMkwSI4W9VV2I9eOOZJCIixG5M2ktvY2b0ViBGkQYHxIUgd_tdY684Jt51pv"/>
+<div class="absolute top-2.5 left-2.5">
+<span class="inline-flex items-center gap-1 bg-green-50 text-green-700 border border-green-200 font-medium text-xs px-2.5 py-1 rounded-full shadow-2xs">
+<span class="material-symbols-outlined text-[13px]">check_circle</span>
+Curcumin &gt; 3.8%
+</span>
+</div>
+<span class="absolute bottom-2.5 right-2.5 bg-black/60 backdrop-blur-xs text-white text-[11px] font-mono px-2 py-0.5 rounded">
+TN-4412
+</span>
+</div>
+<div class="space-y-1">
+<span class="text-[10.5px] font-semibold text-gray-400 uppercase tracking-wider block">SPICES &amp; HERBS</span>
+<h3 class="product-title text-base font-bold text-gray-900 group-hover:text-green-800 transition-colors">Salem Curcumin Turmeric</h3>
+<div class="flex items-center gap-1.5 text-xs text-green-700 pt-0.5 font-medium">
+<span class="material-symbols-outlined text-[15px]">verified</span>
+<span class="">Belpatri Mandi Certified</span>
+</div>
+</div>
+</div>
+<div class="pt-4 mt-3 border-t border-gray-100 flex items-center justify-between gap-3">
+<div>
+<div class="flex items-baseline gap-1">
+<span class="item-rate text-lg font-extrabold text-green-800 tabular-nums">₹180</span>
+<span class="text-xs text-gray-400">/kg</span>
+</div>
+<span class="inline-block text-[11px] text-gray-500 font-medium">Min: 25 kg</span>
+</div>
+<div class="action-container">
+<div class="stepper-wrap hidden flex items-center border border-green-600 rounded-xl bg-green-50/50 p-0.5 shadow-2xs">
+<button class="step-btn minus-btn w-8 h-8 rounded-lg flex items-center justify-center text-green-800 hover:bg-green-100 font-bold active:scale-95 transition-all" title="Decrease Lot">-</button>
+<span class="count-val w-8 text-center text-sm font-bold font-mono text-green-900">1</span>
+<button class="step-btn plus-btn w-8 h-8 rounded-lg flex items-center justify-center text-green-800 hover:bg-green-100 font-bold active:scale-95 transition-all" title="Increase Lot">+</button>
+</div>
+<button class="add-lot-btn bg-green-50 text-green-700 hover:bg-green-700 hover:text-white border border-green-600 font-semibold text-xs rounded-xl py-2 px-4 transition-all duration-150 flex items-center gap-1.5 active:scale-95 shadow-2xs">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span class="">+ Add Lot</span>
+</button>
+</div>
+</div>
+</article>
+
+<article class="product-card bg-white rounded-2xl border border-gray-200 shadow-xs hover:shadow-md transition-all duration-200 overflow-hidden flex flex-col justify-between p-4 group" data-category="fruits" data-code="MH-7751" data-id="lot-4" data-name="Thompson Seedless Grapes" data-rate="78" data-unit="kg">
+<div class="space-y-3">
+<div class="relative h-48 w-full rounded-xl overflow-hidden bg-gray-100">
+<img alt="Thompson Seedless Grapes" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4HsxSlN5pbntrZB2FPwix1LdTAS9baQPIlOOBTBSoVHcojD3UQscr-A0vhXp_whQRanklU3RVZCYqzUqo5_zGMV417fJsp5h8P_Ao7m5y7VW26zHQmqFUdgX7UeWnbMoVe-qIkhxnn54H4--d9zg_YupZ6wXgt90hjswKQYevWxEZgc0HGmW9eSNVyBaIBOt-JCvoJDZChev5xrCmEwnM6Zb6qwqPNi9Q-Ll4ZhiE"/>
+<div class="absolute top-2.5 left-2.5">
+<span class="inline-flex items-center gap-1 bg-green-50 text-green-700 border border-green-200 font-medium text-xs px-2.5 py-1 rounded-full shadow-2xs">
+<span class="material-symbols-outlined text-[13px]">check_circle</span>
+Cold-Chain Ready
+</span>
+</div>
+<span class="absolute bottom-2.5 right-2.5 bg-black/60 backdrop-blur-xs text-white text-[11px] font-mono px-2 py-0.5 rounded">
+MH-7751
+</span>
+</div>
+<div class="space-y-1">
+<span class="text-[10.5px] font-semibold text-gray-400 uppercase tracking-wider block">FRESH FRUITS</span>
+<h3 class="product-title text-base font-bold text-gray-900 group-hover:text-green-800 transition-colors">Thompson Seedless Grapes</h3>
+<div class="flex items-center gap-1.5 text-xs text-green-700 pt-0.5 font-medium">
+<span class="material-symbols-outlined text-[15px]">verified</span>
+<span class="">Belpatri Mandi Certified</span>
+</div>
+</div>
+</div>
+<div class="pt-4 mt-3 border-t border-gray-100 flex items-center justify-between gap-3">
+<div>
+<div class="flex items-baseline gap-1">
+<span class="item-rate text-lg font-extrabold text-green-800 tabular-nums">₹78</span>
+<span class="text-xs text-gray-400">/kg</span>
+</div>
+<span class="inline-block text-[11px] text-gray-500 font-medium">Min: 100 kg</span>
+</div>
+<div class="action-container">
+<div class="stepper-wrap hidden flex items-center border border-green-600 rounded-xl bg-green-50/50 p-0.5 shadow-2xs">
+<button class="step-btn minus-btn w-8 h-8 rounded-lg flex items-center justify-center text-green-800 hover:bg-green-100 font-bold active:scale-95 transition-all" title="Decrease Lot">-</button>
+<span class="count-val w-8 text-center text-sm font-bold font-mono text-green-900">1</span>
+<button class="step-btn plus-btn w-8 h-8 rounded-lg flex items-center justify-center text-green-800 hover:bg-green-100 font-bold active:scale-95 transition-all" title="Increase Lot">+</button>
+</div>
+<button class="add-lot-btn bg-green-50 text-green-700 hover:bg-green-700 hover:text-white border border-green-600 font-semibold text-xs rounded-xl py-2 px-4 transition-all duration-150 flex items-center gap-1.5 active:scale-95 shadow-2xs">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span class="">+ Add Lot</span>
+</button>
+</div>
+</div>
+</article>
+
+<article class="product-card bg-white rounded-2xl border border-gray-200 shadow-xs hover:shadow-md transition-all duration-200 overflow-hidden flex flex-col justify-between p-4 group" data-category="grains" data-code="MP-5593" data-id="lot-5" data-name="Sharbati Tukdi Wheat" data-rate="3450" data-unit="Quintal">
+<div class="space-y-3">
+<div class="relative h-48 w-full rounded-xl overflow-hidden bg-gray-100">
+<img alt="Sharbati Tukdi Wheat" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpOiSymu9jV0xC-zt1WgnYjjKVTGwP2dZaH9EaXDEC5oaSqP758ujExyXlxBUGNGthOwaJhUw1ALDCZ2mDI_ehCxViIRghTPB7v51nlNJUp7J7sv6p5ICkqK7stFLrWObtc0EQCOwrn3e-X5X9vHrAyxnpwGY0T15zJEGxKonCoKOOOkZMTucWwGbmz3SwPDFUiJRjF9xLdlHtE_0qX6z_uBe8SyPhXNVR3xQdqZ12"/>
+<div class="absolute top-2.5 left-2.5">
+<span class="inline-flex items-center gap-1 bg-green-50 text-green-700 border border-green-200 font-medium text-xs px-2.5 py-1 rounded-full shadow-2xs">
+<span class="material-symbols-outlined text-[13px]">check_circle</span>
+Belpatri Mandi Certified
+</span>
+</div>
+<span class="absolute bottom-2.5 right-2.5 bg-black/60 backdrop-blur-xs text-white text-[11px] font-mono px-2 py-0.5 rounded">
+MP-5593
+</span>
+</div>
+<div class="space-y-1">
+<span class="text-[10.5px] font-semibold text-gray-400 uppercase tracking-wider block">GRAINS &amp; PULSES</span>
+<h3 class="product-title text-base font-bold text-gray-900 group-hover:text-green-800 transition-colors">Sharbati Tukdi Wheat</h3>
+<div class="flex items-center gap-1.5 text-xs text-green-700 pt-0.5 font-medium">
+<span class="material-symbols-outlined text-[15px]">verified</span>
+<span class="">Belpatri Mandi Certified</span>
+</div>
+</div>
+</div>
+<div class="pt-4 mt-3 border-t border-gray-100 flex items-center justify-between gap-3">
+<div>
+<div class="flex items-baseline gap-1">
+<span class="item-rate text-lg font-extrabold text-green-800 tabular-nums">₹3,450</span>
+<span class="text-xs text-gray-400">/Quintal</span>
+</div>
+<span class="inline-block text-[11px] text-gray-500 font-medium">Min: 5 Qtl</span>
+</div>
+<div class="action-container">
+<div class="stepper-wrap hidden flex items-center border border-green-600 rounded-xl bg-green-50/50 p-0.5 shadow-2xs">
+<button class="step-btn minus-btn w-8 h-8 rounded-lg flex items-center justify-center text-green-800 hover:bg-green-100 font-bold active:scale-95 transition-all" title="Decrease Lot">-</button>
+<span class="count-val w-8 text-center text-sm font-bold font-mono text-green-900">1</span>
+<button class="step-btn plus-btn w-8 h-8 rounded-lg flex items-center justify-center text-green-800 hover:bg-green-100 font-bold active:scale-95 transition-all" title="Increase Lot">+</button>
+</div>
+<button class="add-lot-btn bg-green-50 text-green-700 hover:bg-green-700 hover:text-white border border-green-600 font-semibold text-xs rounded-xl py-2 px-4 transition-all duration-150 flex items-center gap-1.5 active:scale-95 shadow-2xs">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span class="">+ Add Lot</span>
+</button>
+</div>
+</div>
+</article>
+
+<article class="product-card bg-white rounded-2xl border border-gray-200 shadow-xs hover:shadow-md transition-all duration-200 overflow-hidden flex flex-col justify-between p-4 group" data-category="grains" data-code="RJ-1298" data-id="lot-6" data-name="Desi Chana / Chickpeas" data-rate="5600" data-unit="Quintal">
+<div class="space-y-3">
+<div class="relative h-48 w-full rounded-xl overflow-hidden bg-gray-100">
+<img alt="Desi Chana Chickpeas" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOZCj8NiZHxlXQD8STylOJM_LCFb_VJMLLaYP10QszkvlLeImUMZyxaw3v7ZS8Hqn54G1Wc0kp-33QM4ut7avkvb-R4Hq01kEvv98hNw6WtFkfW85V25_t-0-yGtiwaliQrMzH5nko9BwSaUrTimM6TPNMSXhQ0iefHT8ZQ6uQouyN8CoJjxd9dVyyvZL3IUvVnRl5sVqcq69JiY970uZV05YDlSHtfwunTljw4UK-"/>
+<div class="absolute top-2.5 left-2.5">
+<span class="inline-flex items-center gap-1 bg-green-50 text-green-700 border border-green-200 font-medium text-xs px-2.5 py-1 rounded-full shadow-2xs">
+<span class="material-symbols-outlined text-[13px]">check_circle</span>
+Belpatri Mandi Certified
+</span>
+</div>
+<span class="absolute bottom-2.5 right-2.5 bg-black/60 backdrop-blur-xs text-white text-[11px] font-mono px-2 py-0.5 rounded">
+RJ-1298
+</span>
+</div>
+<div class="space-y-1">
+<span class="text-[10.5px] font-semibold text-gray-400 uppercase tracking-wider block">GRAINS &amp; PULSES</span>
+<h3 class="product-title text-base font-bold text-gray-900 group-hover:text-green-800 transition-colors">Desi Chana / Chickpeas</h3>
+<div class="flex items-center gap-1.5 text-xs text-green-700 pt-0.5 font-medium">
+<span class="material-symbols-outlined text-[15px]">verified</span>
+<span class="">Belpatri Mandi Certified</span>
+</div>
+</div>
+</div>
+<div class="pt-4 mt-3 border-t border-gray-100 flex items-center justify-between gap-3">
+<div>
+<div class="flex items-baseline gap-1">
+<span class="item-rate text-lg font-extrabold text-green-800 tabular-nums">₹5,600</span>
+<span class="text-xs text-gray-400">/Quintal</span>
+</div>
+<span class="inline-block text-[11px] text-gray-500 font-medium">Min: 10 Qtl</span>
+</div>
+<div class="action-container">
+<div class="stepper-wrap hidden flex items-center border border-green-600 rounded-xl bg-green-50/50 p-0.5 shadow-2xs">
+<button class="step-btn minus-btn w-8 h-8 rounded-lg flex items-center justify-center text-green-800 hover:bg-green-100 font-bold active:scale-95 transition-all" title="Decrease Lot">-</button>
+<span class="count-val w-8 text-center text-sm font-bold font-mono text-green-900">1</span>
+<button class="step-btn plus-btn w-8 h-8 rounded-lg flex items-center justify-center text-green-800 hover:bg-green-100 font-bold active:scale-95 transition-all" title="Increase Lot">+</button>
+</div>
+<button class="add-lot-btn bg-green-50 text-green-700 hover:bg-green-700 hover:text-white border border-green-600 font-semibold text-xs rounded-xl py-2 px-4 transition-all duration-150 flex items-center gap-1.5 active:scale-95 shadow-2xs">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span class="">+ Add Lot</span>
+</button>
+</div>
+</div>
+</article>
+</div>
+</section>
+</section>
+
+<section class="hidden space-y-6" id="view-orders">
+
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-5 rounded-2xl border border-gray-200/80 shadow-xs">
+<div>
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center justify-center w-8 h-8 rounded-xl bg-green-100 text-green-800">
+<span class="material-symbols-outlined text-[20px]">receipt_long</span>
+</span>
+<h2 class="text-xl font-bold font-headline text-gray-900">Mandi Trade Orders &amp; Dispatches</h2>
+</div>
+<p class="text-xs text-gray-500 mt-1">Real-time APMC weighbridge records, cold logistics GPS tracking, and Belpatri Escrow settlements.</p>
+</div>
+<div class="flex items-center gap-2.5">
+<button class="return-to-market-btn px-4 py-2 rounded-xl border border-gray-200 hover:border-green-600 text-gray-700 hover:text-green-800 bg-gray-50 hover:bg-green-50 text-xs font-semibold flex items-center gap-1.5 transition-all active:scale-95 shadow-2xs">
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+<span>Back to Marketplace</span>
+</button>
+</div>
+</div>
+
+<div class="flex items-center gap-2 border-b border-gray-200 pb-2">
+<button class="order-filter-tab px-4 py-2 rounded-xl text-xs font-bold bg-green-700 text-white shadow-xs transition-all active:scale-95" data-filter="active">
+Active Trades (2)
+</button>
+<button class="order-filter-tab px-4 py-2 rounded-xl text-xs font-semibold bg-white border border-gray-200 text-gray-600 hover:text-green-800 transition-all active:scale-95" data-filter="delivered">
+Delivered / Completed (14)
+</button>
+<button class="order-filter-tab px-4 py-2 rounded-xl text-xs font-semibold bg-white border border-gray-200 text-gray-600 hover:text-green-800 transition-all active:scale-95" data-filter="invoices">
+Escrow Invoices &amp; Mandi Cess (16)
+</button>
+</div>
+
+<div class="bg-white rounded-2xl border border-gray-200 shadow-xs overflow-hidden transition-all hover:border-green-300">
+<div class="p-5 border-b border-gray-100 bg-gradient-to-r from-green-50/70 to-emerald-50/30 flex flex-wrap items-center justify-between gap-4">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="text-xs font-bold font-mono text-gray-500">ORDER #BPT-88219</span>
+<span class="inline-flex items-center gap-1 text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span>
+In Transit / Dispatched
+</span>
+</div>
+<h3 class="text-base font-bold text-gray-900">Standard Sharbati Wheat — 20 Quintals (Sehore Farm-Gate)</h3>
+</div>
+<div class="text-right">
+<div class="text-xs text-gray-500 font-medium">Escrow Stage Status</div>
+<div class="text-base font-extrabold font-mono text-green-800">Escrow Held ₹64,000</div>
+</div>
+</div>
+<div class="p-5 space-y-5">
+
+<div class="space-y-2">
+<div class="flex items-center justify-between text-xs font-semibold text-gray-600">
+<span class="text-green-800 flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">local_shipping</span> Cold Logistics Truck MH-15-DC-9210</span>
+<span class="text-gray-500 font-mono">ETA: Today, 6:30 PM (Nashik Central Hub)</span>
+</div>
+
+<div class="grid grid-cols-4 gap-2 pt-1 text-center">
+<div class="space-y-1">
+<div class="h-2 rounded-full bg-green-600"></div>
+<span class="text-[10px] font-semibold text-green-800 block">Weighbridge Signed</span>
+</div>
+<div class="space-y-1">
+<div class="h-2 rounded-full bg-green-600"></div>
+<span class="text-[10px] font-semibold text-green-800 block">Moisture Tested (11.8%)</span>
+</div>
+<div class="space-y-1">
+<div class="h-2 rounded-full bg-green-600 animate-pulse"></div>
+<span class="text-[10px] font-bold text-green-900 block">In Transit (NH 48)</span>
+</div>
+<div class="space-y-1">
+<div class="h-2 rounded-full bg-gray-200"></div>
+<span class="text-[10px] font-medium text-gray-400 block">Warehouse Inward</span>
+</div>
+</div>
+</div>
+
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-gray-50/80 p-3.5 rounded-xl border border-gray-100 text-xs">
+<div>
+<span class="text-gray-400 block text-[10.5px]">Vendor / Farmer Lot</span>
+<span class="font-bold text-gray-800">Ramesh Patel (FPO #419)</span>
+</div>
+<div>
+<span class="text-gray-400 block text-[10.5px]">APMC Gate Pass #</span>
+<span class="font-bold text-gray-800 font-mono">GP-SEH-90124</span>
+</div>
+<div>
+<span class="text-gray-400 block text-[10.5px]">Moisture &amp; Purity</span>
+<span class="font-bold text-green-700">11.8% / Grade A+</span>
+</div>
+<div>
+<span class="text-gray-400 block text-[10.5px]">Settlement Mandi</span>
+<span class="font-bold text-gray-800">Sehore Krishi Upaj Mandi</span>
+</div>
+</div>
+
+<div class="flex flex-wrap items-center justify-between gap-3 pt-2">
+<div class="flex flex-wrap items-center gap-2">
+<button class="order-action-btn px-3.5 py-2 rounded-xl bg-green-50 hover:bg-green-100 border border-green-200 text-green-800 font-semibold text-xs flex items-center gap-1.5 transition-all active:scale-95" data-action="APMC Gate Pass #GP-SEH-90124 verified by Mandi Inspector">
+<span class="material-symbols-outlined text-[16px]">receipt</span>
+<span>View APMC Gate Pass</span>
+</button>
+<button class="order-action-btn px-3.5 py-2 rounded-xl bg-white hover:bg-gray-50 border border-gray-200 text-gray-700 font-semibold text-xs flex items-center gap-1.5 transition-all active:scale-95" data-action="Live GPS Vehicle MH-15-DC-9210: 42 km from destination">
+<span class="material-symbols-outlined text-[16px] text-green-700">location_on</span>
+<span>Track Dispatch Vehicle</span>
+</button>
+<button class="order-action-btn px-3.5 py-2 rounded-xl bg-white hover:bg-gray-50 border border-gray-200 text-gray-700 font-semibold text-xs flex items-center gap-1.5 transition-all active:scale-95" data-action="Downloading GST Tax Invoice for Order #BPT-88219...">
+<span class="material-symbols-outlined text-[16px] text-gray-500">download</span>
+<span>Download Tax Invoice</span>
+</button>
+</div>
+<span class="text-[11px] text-gray-400">Escrow released within 4 hours of unloading signoff.</span>
+</div>
+</div>
+</div>
+
+<div class="bg-white rounded-2xl border border-gray-200 shadow-xs overflow-hidden transition-all hover:border-green-300">
+<div class="p-5 border-b border-gray-100 bg-gray-50/60 flex flex-wrap items-center justify-between gap-4">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="text-xs font-bold font-mono text-gray-500">ORDER #BPT-87902</span>
+<span class="inline-flex items-center gap-1 text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-blue-100 text-blue-800 border border-blue-200">
+<span class="material-symbols-outlined text-[13px]">inventory</span>
+Mandi Quality Inspection Clear
+</span>
+</div>
+<h3 class="text-base font-bold text-gray-900">Salem Curcumin Turmeric Fingers — 100 kg (Tamil Nadu Hub)</h3>
+</div>
+<div class="text-right">
+<div class="text-xs text-gray-500 font-medium">Escrow Stage Status</div>
+<div class="text-base font-extrabold font-mono text-green-800">Escrow Held ₹18,000</div>
+</div>
+</div>
+<div class="p-5 space-y-4">
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-gray-50/80 p-3.5 rounded-xl border border-gray-100 text-xs">
+<div>
+<span class="text-gray-400 block text-[10.5px]">Vendor / Spice Co.</span>
+<span class="font-bold text-gray-800">Erode Spices Consortium</span>
+</div>
+<div>
+<span class="text-gray-400 block text-[10.5px]">Lab Lab Test Certificate</span>
+<span class="font-bold text-green-700 font-mono">Curcumin 3.92% (Clear)</span>
+</div>
+<div>
+<span class="text-gray-400 block text-[10.5px]">Dispatch Hub</span>
+<span class="font-bold text-gray-800">Salem APMC Spice Yard</span>
+</div>
+<div>
+<span class="text-gray-400 block text-[10.5px]">Packaging</span>
+<span class="font-bold text-gray-800">Vacuum Food-Grade Jute</span>
+</div>
+</div>
+<div class="flex flex-wrap items-center justify-between gap-3 pt-1">
+<div class="flex items-center gap-2">
+<button class="order-action-btn px-3.5 py-2 rounded-xl bg-white hover:bg-gray-50 border border-gray-200 text-gray-700 font-semibold text-xs flex items-center gap-1.5 transition-all active:scale-95" data-action="Lab Certificate #LAB-ERD-441 verified">
+<span class="material-symbols-outlined text-[16px] text-green-700">verified</span>
+<span>View Lab Certificate</span>
+</button>
+<button class="order-action-btn px-3.5 py-2 rounded-xl bg-white hover:bg-gray-50 border border-gray-200 text-gray-700 font-semibold text-xs flex items-center gap-1.5 transition-all active:scale-95" data-action="Downloading Tax Invoice #BPT-87902">
+<span class="material-symbols-outlined text-[16px] text-gray-500">download</span>
+<span>Download Invoice</span>
+</button>
+</div>
+<button class="return-to-market-btn text-xs font-semibold text-green-700 hover:text-green-800 flex items-center gap-1">
+<span>Trade More Commodities</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+
+<section class="hidden space-y-6" id="view-account">
+
+<div class="bg-white rounded-3xl border border-gray-200 p-6 sm:p-8 shadow-xs">
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 pb-6 border-b border-gray-100">
+<div class="flex items-center gap-4">
+<div class="relative">
+<img alt="Trader Profile" class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl object-cover border-2 border-green-600 shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIJwq7ZUOMQMXsMJcVncbAQspuQtnyEDAl0br_BdLzn8nd7qBB705xc_vOdgoxANBo_bRLXVZXNs3Ir7klo0pzQDekvSK9HTt9nEEnpEcN8jsZXO8PW3PVmFWXNaNzY1vvseqjQYEj1YPeLDLvaVKwSxTksaCntiz3I1VEaYo19z2fQ-VlCeaDPYgnTJwzOv1ualfDg1AIgnvKL3rGX3ECglKondQUN-Vq_a_FhAk9"/>
+<span class="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-green-700 text-white flex items-center justify-center text-xs shadow-xs" title="KYB Verified">
+<span class="material-symbols-outlined text-[15px]">check</span>
+</span>
+</div>
+<div class="space-y-1">
+<div class="flex flex-wrap items-center gap-2">
+<h2 class="text-xl sm:text-2xl font-bold font-headline text-gray-900">Rahul Verma</h2>
+<span class="inline-flex items-center gap-1 bg-green-50 text-green-800 border border-green-200 text-[11px] font-bold px-2.5 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[13px]">verified</span>
+KYB Verified Trader
+</span>
+</div>
+<p class="text-xs text-gray-500 font-medium">Kisan Commercial Trade Pvt Ltd • Regional Trader ID #BPT-8821</p>
+<p class="text-xs text-gray-400">APMC Registered License • Tier 1 High-Volume Escrow</p>
+</div>
+</div>
+<div class="flex sm:flex-col items-center sm:items-end gap-2 shrink-0">
+<button class="return-to-market-btn px-4 py-2 rounded-xl bg-green-700 hover:bg-green-800 text-white text-xs font-bold transition-all shadow-xs active:scale-95 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">storefront</span>
+<span>Back to Marketplace</span>
+</button>
+<button class="profile-action-btn px-3 py-1.5 rounded-xl border border-gray-200 text-gray-600 hover:text-green-800 text-xs font-semibold hover:bg-gray-50 transition-all active:scale-95" data-action="Trader Profile Edit opened">
+Edit Profile
+</button>
+</div>
+</div>
+
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6">
+<div class="p-4 rounded-2xl bg-gradient-to-br from-green-50 to-emerald-50 border border-green-200">
+<span class="text-xs font-semibold text-green-900 block">Available Trade Credit</span>
+<div class="text-2xl font-extrabold font-mono text-green-800 mt-1">₹1,85,400</div>
+<div class="flex items-center justify-between mt-2 pt-2 border-t border-green-200/60">
+<span class="text-[11px] text-green-700">ICICI Escrow Account</span>
+<button class="profile-action-btn text-xs font-bold text-green-800 hover:underline" data-action="Add funds to Mandi Escrow">+ Add Funds</button>
+</div>
+</div>
+<div class="p-4 rounded-2xl bg-gray-50 border border-gray-200">
+<span class="text-xs font-semibold text-gray-600 block">Active Escrow Holdings</span>
+<div class="text-2xl font-extrabold font-mono text-gray-900 mt-1">₹64,000</div>
+<div class="flex items-center justify-between mt-2 pt-2 border-t border-gray-200">
+<span class="text-[11px] text-gray-500">2 In-transit Lots</span>
+<button class="nav-to-orders-btn text-xs font-bold text-green-700 hover:underline">View Trades</button>
+</div>
+</div>
+<div class="p-4 rounded-2xl bg-gray-50 border border-gray-200">
+<span class="text-xs font-semibold text-gray-600 block">30-Day Mandi Volume</span>
+<div class="text-2xl font-extrabold font-mono text-gray-900 mt-1">142 Quintals</div>
+<div class="flex items-center justify-between mt-2 pt-2 border-t border-gray-200">
+<span class="text-[11px] text-gray-500">0 Disputes logged</span>
+<button class="profile-action-btn text-xs font-bold text-green-700 hover:underline" data-action="Trade statement downloaded">Statement</button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+<div class="bg-white p-5 rounded-2xl border border-gray-200 hover:border-green-300 transition-colors flex items-center justify-between cursor-pointer profile-action-btn" data-action="KYB &amp; GST verification details: GSTIN 27AABCK8912M1Z0 active.">
+<div class="flex items-center gap-3.5">
+<div class="w-10 h-10 rounded-xl bg-green-50 text-green-700 flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">badge</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-gray-900">KYB &amp; GST Verification</h4>
+<p class="text-xs text-gray-400">GSTIN 27AABCK8912M1Z0 • Verified</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-gray-400 text-[18px]">chevron_right</span>
+</div>
+
+<div class="bg-white p-5 rounded-2xl border border-gray-200 hover:border-green-300 transition-colors flex items-center justify-between cursor-pointer profile-action-btn" data-action="Mandi License: MP-BPL-2023-882 Valid till March 2026.">
+<div class="flex items-center gap-3.5">
+<div class="w-10 h-10 rounded-xl bg-green-50 text-green-700 flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">policy</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-gray-900">Mandi License &amp; APMC Pass</h4>
+<p class="text-xs text-gray-400">MP-BPL-2023-882 • Valid till 2026</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-gray-400 text-[18px]">chevron_right</span>
+</div>
+
+<div class="bg-white p-5 rounded-2xl border border-gray-200 hover:border-green-300 transition-colors flex items-center justify-between cursor-pointer profile-action-btn" data-action="Bank &amp; Escrow: ICICI Corporate Agri-A/C #...8812 linked.">
+<div class="flex items-center gap-3.5">
+<div class="w-10 h-10 rounded-xl bg-green-50 text-green-700 flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">account_balance</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-gray-900">Bank &amp; Escrow Accounts</h4>
+<p class="text-xs text-gray-400">ICICI Corporate Mandi Settlement A/C</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-gray-400 text-[18px]">chevron_right</span>
+</div>
+
+<div class="bg-white p-5 rounded-2xl border border-gray-200 hover:border-green-300 transition-colors flex items-center justify-between cursor-pointer profile-action-btn" data-action="Delivery Warehouses: Primary Hub set to Nashik Central Silo #4.">
+<div class="flex items-center gap-3.5">
+<div class="w-10 h-10 rounded-xl bg-green-50 text-green-700 flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">warehouse</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-gray-900">Delivery Warehouses</h4>
+<p class="text-xs text-gray-400">Nashik Hub Silo #4 (Primary)</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-gray-400 text-[18px]">chevron_right</span>
+</div>
+
+<div class="bg-white p-5 rounded-2xl border border-gray-200 hover:border-green-300 transition-colors flex items-center justify-between cursor-pointer profile-action-btn" data-action="Notification settings: WhatsApp &amp; SMS Weighbridge alerts enabled.">
+<div class="flex items-center gap-3.5">
+<div class="w-10 h-10 rounded-xl bg-green-50 text-green-700 flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">notifications_active</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-gray-900">Dispatch &amp; Mandi Alerts</h4>
+<p class="text-xs text-gray-400">SMS, WhatsApp &amp; In-app alerts enabled</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-gray-400 text-[18px]">chevron_right</span>
+</div>
+
+<div class="bg-white p-5 rounded-2xl border border-gray-200 hover:border-green-300 transition-colors flex items-center justify-between cursor-pointer profile-action-btn" data-action="Belpatri Mandi Arbitrator helpline: Connected to APMC Dispute Board 1800-419-AGRI.">
+<div class="flex items-center gap-3.5">
+<div class="w-10 h-10 rounded-xl bg-green-50 text-green-700 flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">support_agent</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-gray-900">Support &amp; Mandi Arbitrator</h4>
+<p class="text-xs text-gray-400">24/7 Dedicated Escrow Officer</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-gray-400 text-[18px]">chevron_right</span>
+</div>
+</div>
+</section>
+</main>
+
+<aside class="fixed left-1/2 -translate-x-1/2 w-[92%] max-w-2xl z-50 bottom-24 sm:bottom-20 transition-all duration-300" id="floating-cart-bar">
+<div class="bg-green-900 text-white rounded-full px-5 py-3 shadow-2xl flex items-center justify-between border border-green-800/80 backdrop-blur-md hover:bg-green-950 transition-all cursor-pointer active:scale-[0.98]">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center font-bold text-xs" id="floating-cart-count">1</div>
+<div class="flex items-center gap-2">
+<span class="text-sm font-semibold tracking-wide">Managed Market Cart</span>
+<span class="text-xs text-green-300 hidden sm:inline" id="floating-cart-label">· 1 lot staged for trade</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-base font-extrabold font-mono tracking-tight text-white" id="floating-cart-total">₹3,200</span>
+<span class="material-symbols-outlined text-[20px] text-green-300">arrow_forward</span>
+</div>
+</div>
+</aside>
+
+<div class="fixed inset-0 bg-black/50 backdrop-blur-xs z-[80] hidden opacity-0 transition-opacity duration-300" id="cart-drawer-overlay">
+<div class="fixed right-0 top-0 bottom-0 w-full max-w-md bg-white shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300 ease-out z-[90]" id="cart-drawer-content">
+
+<div class="px-6 py-5 border-b border-gray-100 flex items-center justify-between bg-green-50/50">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-xl bg-green-700 text-white flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+</div>
+<div>
+<h2 class="text-base font-bold text-gray-900">Trade Lot Checkout</h2>
+<p class="text-xs text-green-800 font-medium" id="drawer-subtitle">1 commodity lot staged</p>
+</div>
+</div>
+<button class="w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-500 flex items-center justify-center active:scale-95 transition-all" id="close-drawer-btn">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+
+<div class="flex-1 overflow-y-auto p-6 space-y-4" id="drawer-items-list"><div class="flex items-center gap-3 p-3 rounded-xl border border-gray-200 bg-white hover:border-green-300 transition-colors">
+<img alt="Standard Sharbati Wheat" class="w-14 h-14 rounded-lg object-cover bg-gray-100 shrink-0 border border-gray-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEAoczbRXijlqwDa3QaPhS9_vmCkN0rPlvedDGx47g_K-khCQ9URHYeBhFAgBBVZr41xMDVJJ8UxXbq7Lf2iNPce7a9KIV3N64IUXjBiVtbQ21FDlCa6DIelReO0p-Et1ItADKOECKeKH2ivgCwkaVARkuK1tt0k-4bDDgM9YwhyHcQfLYI2to72QRoMLfKaV48uQ79w6R-d0ZqNC-RTV37B_-EE104j6v-UvobcwQ"/>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1">
+<h4 class="text-xs font-bold text-gray-900 truncate">Standard Sharbati Wheat</h4>
+<span class="text-[10px] font-mono text-gray-400 shrink-0">MP-9821</span>
+</div>
+<p class="text-[11px] text-gray-500">₹3,200 /Quintal</p>
+<div class="flex items-center justify-between mt-1.5">
+<div class="flex items-center border border-gray-200 rounded-lg bg-gray-50 p-0.5">
+<button class="drawer-minus w-6 h-5 flex items-center justify-center font-bold text-xs text-gray-700 hover:bg-white rounded active:scale-90" data-id="lot-1">-</button>
+<span class="w-6 text-center text-xs font-bold font-mono text-green-900">1</span>
+<button class="drawer-plus w-6 h-5 flex items-center justify-center font-bold text-xs text-gray-700 hover:bg-white rounded active:scale-90" data-id="lot-1">+</button>
+</div>
+<span class="text-xs font-bold font-mono text-green-800">₹3,200</span>
+</div>
+</div>
+</div></div>
+
+<div class="border-t border-gray-100 p-6 bg-gray-50/60 space-y-3">
+<div class="space-y-2 text-xs text-gray-600">
+<div class="flex justify-between">
+<span class="">Staged Commodity Subtotal</span>
+<span class="font-semibold text-gray-800 font-mono" id="drawer-subtotal">₹3,200</span>
+</div>
+<div class="flex justify-between">
+<span class="flex items-center gap-1">APMC &amp; Mandi Cess (1.5%) <span class="material-symbols-outlined text-[13px] text-gray-400" title="State APMC market development cess">info</span></span>
+<span class="font-semibold text-gray-800 font-mono" id="drawer-cess">₹48</span>
+</div>
+<div class="flex justify-between">
+<span class="">Cold Logistics &amp; Escrow Guarantee</span>
+<span class="font-semibold text-green-700 font-mono" id="drawer-logistics">Free</span>
+</div>
+<div class="border-t border-gray-200/80 pt-2 flex justify-between text-sm font-bold text-gray-900">
+<span class="">Total Payable (Escrow Staged)</span>
+<span class="text-base text-green-800 font-mono font-extrabold" id="drawer-total">₹3,248</span>
+</div>
+</div>
+<button class="w-full py-3.5 px-4 rounded-xl bg-green-700 hover:bg-green-800 text-white font-bold text-sm shadow-md flex items-center justify-center gap-2 active:scale-95 transition-all" id="checkout-dispatch-btn">
+<span class="">Proceed to Mandi Dispatch</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+<p class="text-[11px] text-center text-gray-400">Funds remain 100% in Belpatri Escrow until Mandi QA signoff.</p>
+</div>
+</div>
+</div>
+
+<nav class="sticky bottom-0 z-40 w-full bg-white/95 backdrop-blur-md border-t border-gray-200 shadow-lg py-1.5">
+<div class="max-w-md mx-auto px-4 h-14 flex items-center justify-around" id="bottom-nav">
+<button class="nav-tab-btn flex flex-col items-center justify-center flex-1 py-1 text-gray-500 hover:text-green-800 active:scale-95 transition-all" data-tab="home" title="Marketplace Home">
+<span class="material-symbols-outlined text-[22px]">home</span>
+<span class="text-[11px] font-medium mt-0.5">Home</span>
+</button>
+<button class="nav-tab-btn flex flex-col items-center justify-center flex-1 py-1 text-green-800 font-bold active:scale-95 transition-all" data-tab="markets" title="Commodity Markets">
+<div class="px-3 py-0.5 rounded-full bg-green-50/70 border border-green-200 shadow-2xs flex flex-col items-center tab-icon-wrap">
+<span class="material-symbols-outlined text-[22px] text-green-700">storefront</span>
+</div>
+<span class="text-[11px] font-bold text-green-800 mt-0.5 tab-label">Markets</span>
+</button>
+<button class="flex flex-col items-center justify-center flex-1 py-1 text-gray-500 hover:text-green-800 active:scale-95 transition-all relative" id="bottom-nav-cart-btn" title="View Cart">
+<div class="relative flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">shopping_cart</span>
+<span class="absolute -top-1.5 -right-2 min-w-4 h-4 px-1 rounded-full bg-green-700 text-white flex items-center justify-center text-[9.5px] font-bold ring-2 ring-white" id="bottom-nav-cart-badge">1</span>
+</div>
+<span class="text-[11px] font-medium mt-0.5">Cart</span>
+</button>
+<button class="nav-tab-btn flex flex-col items-center justify-center flex-1 py-1 text-gray-500 hover:text-green-800 active:scale-95 transition-all" data-tab="orders" title="Trade Orders">
+<span class="material-symbols-outlined text-[22px]">receipt_long</span>
+<span class="text-[11px] font-medium mt-0.5">Orders</span>
+</button>
+<button class="nav-tab-btn flex flex-col items-center justify-center flex-1 py-1 text-gray-500 hover:text-green-800 active:scale-95 transition-all" data-tab="account" title="Account &amp; Trader Profile">
+<span class="material-symbols-outlined text-[22px]">person</span>
+<span class="text-[11px] font-medium mt-0.5">Account</span>
+</button>
+</div>
+</nav>
+
+<footer class="bg-white border-t border-gray-200 pb-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-gray-500">
+<div class="flex items-center gap-3">
+<div class="w-7 h-7 rounded-xl bg-green-700 flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-[18px]">eco</span>
+</div>
+<span class="font-bold text-gray-800 text-sm">Belpatri</span>
+<span class="">• © 2024 Belpatri Agri-Commercial Technologies Inc.</span>
+</div>
+<div class="flex items-center gap-6">
+<a class="hover:text-green-700 transition-colors" href="#">Quality Standards</a>
+<a class="hover:text-green-700 transition-colors" href="#">Escrow Assurance</a>
+<a class="hover:text-green-700 transition-colors" href="#">Terms of Trade</a>
+<a class="hover:text-green-700 transition-colors" href="#">Privacy Policy</a>
+</div>
+</div>
+</footer>
+
+
+
+<div id="stitch-agent-cursor" data-stitch-injected style="left:-40px;top:-40px;">
+  <svg class="cursor-pointer" width="20" height="20" viewBox="0 0 34 34" fill="none">
+    <path d="M15.0624 32.3549L5.16251 5.48544L32.0324 15.3848L19.3046 19.6276L15.0624 32.3549Z" fill="#7168f6"/>
+    <path d="M4.80877 5.13207C4.94657 4.99427 5.15206 4.94886 5.33496 5.01606L32.205 14.9156C32.4041 14.9889 32.5354 15.1799 32.5323 15.392C32.529 15.6043 32.392 15.7924 32.1905 15.8595L19.6994 20.0227L15.5369 32.5131C15.4697 32.7145 15.2824 32.8509 15.0701 32.8542C14.8578 32.8575 14.6664 32.7268 14.5929 32.5276L4.69276 5.65826L4.67343 5.5892C4.63863 5.42535 4.68814 5.25283 4.80877 5.13207Z" stroke="rgba(255,255,255,0.15)" stroke-linejoin="round"/>
+  </svg>
+  <svg class="cursor-text" width="20" height="28" viewBox="0 0 20 28" fill="none">
+    <path d="M6 2h8M6 26h8M10 2v24" stroke="#7168f6" stroke-width="2.5" stroke-linecap="round"/>
+  </svg>
+  <svg class="cursor-paint" width="24" height="24" viewBox="0 0 24 24" fill="none">
+    <path d="M18.5 1.5c.8-.8 2.1-.8 2.8 0 .8.8.8 2.1 0 2.8L11 14.5l-3.5 1 1-3.5L18.5 1.5z" fill="#7168f6" stroke="#4f44e1" stroke-width="1" stroke-linejoin="round"/>
+    <path d="M7 14.5c-2 2-3.5 4-3.5 5.5 0 1.5 1 2.5 2.5 2.5 1.5 0 3.5-1.5 5.5-3.5" stroke="#7168f6" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M4 20c-.5.5-1.2 1-2 1.2" stroke="#6056f0" stroke-width="1" stroke-linecap="round"/>
+  </svg>
+  <svg id="stitch-cursor-label" width="28" height="14" viewBox="0 0 28 14" fill="none">
+    <rect width="28" height="14" rx="7" fill="#7168f6"/>
+    <circle cx="10.5" cy="7" r="1.8" fill="white"/>
+    <circle cx="17.5" cy="7" r="1.8" fill="white"/>
+  </svg>
+</div>

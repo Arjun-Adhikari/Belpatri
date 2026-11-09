@@ -1,0 +1,70 @@
+[
+  {
+    "id": "v-sahyadri",
+    "name": "Sahyadri Spices & Dry Fruits Hub",
+    "badge": "APMC-LIC-4412B",
+    "rating": "4.8",
+    "reviewsCount": 142,
+    "specializations": [
+      "Whole Spices",
+      "Dry Fruits",
+      "Turmeric & Chilli"
+    ],
+    "location": "APMC Spice Terminal Stall 14, Vashi Hub",
+    "leadTime": "Same Day Packing",
+    "minOrder": "₹5,000",
+    "avatar": "SS",
+    "avatarBg": "bg-emerald-900"
+  },
+  {
+    "id": "v-mahaagri",
+    "name": "Maha-Agri Grain Traders",
+    "badge": "APMC-LIC-1198A",
+    "rating": "4.9",
+    "reviewsCount": 280,
+    "specializations": [
+      "Basmati Lots",
+      "Milling Wheat",
+      "Export Pulses"
+    ],
+    "location": "Yard 7, Nashik Central APMC",
+    "leadTime": "24h Weighing",
+    "minOrder": "₹10,000",
+    "avatar": "MA",
+    "avatarBg": "bg-amber-900"
+  },
+  {
+    "id": "v-deccan",
+    "name": "Deccan Organic Cold Storage",
+    "badge": "APMC-LIC-8830C",
+    "rating": "4.7",
+    "reviewsCount": 95,
+    "specializations": [
+      "Cold-pressed Oils",
+      "Bio Millets",
+      "Jaggery Blocks"
+    ],
+    "location": "Cold Silo 2, Pune Market Yard",
+    "leadTime": "Temperature-Controlled",
+    "minOrder": "₹3,500",
+    "avatar": "DO",
+    "avatarBg": "bg-teal-900"
+  },
+  {
+    "id": "v-konkan",
+    "name": "Konkan Agro Produce Co-op",
+    "badge": "APMC-LIC-6510D",
+    "rating": "4.9",
+    "reviewsCount": 164,
+    "specializations": [
+      "Cashew W320",
+      "Black Pepper",
+      "Desi Coconut Oil"
+    ],
+    "location": "Shop 29, Ratnagiri APMC Exchange",
+    "leadTime": "Certified Origin",
+    "minOrder": "₹4,000",
+    "avatar": "KA",
+    "avatarBg": "bg-blue-900"
+  }
+]

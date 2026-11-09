@@ -1,0 +1,55 @@
+import Link from "next/link";
+import { ShieldCheck, Store, Tractor } from "lucide-react";
+
+import { markets } from "@/lib/data";
+import type { MarketId } from "@/lib/types";
+import { cn } from "@/lib/utils";
+
+const icons = {
+  managed: ShieldCheck,
+  vendor: Store,
+  farmer: Tractor,
+} as const;
+
+export function MarketTabs({
+  active,
+  q,
+  category,
+}: {
+  active: MarketId;
+  q?: string;
+  category?: string;
+}) {
+  return (
+    <div className="flex justify-center sm:justify-start">
+      <div className="inline-flex flex-wrap gap-1 rounded-2xl border border-slate-200/80 bg-slate-100/90 p-1 shadow-2xs">
+        {markets.map((market) => {
+          const Icon = icons[market.id];
+          const isActive = market.id === active;
+          const params = new URLSearchParams({ market: market.id });
+          if (q) params.set("q", q);
+          if (category && category !== "all") params.set("category", category);
+
+          return (
+            <Link
+              key={market.id}
+              href={`/?${params.toString()}`}
+              className={cn(
+                "flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium transition-all active:scale-95 sm:px-6",
+                isActive
+                  ? "bg-white font-bold text-green-800 shadow-xs"
+                  : "text-slate-600 hover:text-green-800",
+              )}
+              aria-current={isActive ? "page" : undefined}
+            >
+              <Icon
+                className={cn("size-[18px]", isActive ? "text-green-700" : "text-slate-500")}
+              />
+              {market.label}
+            </Link>
+          );
+        })}
+      </div>
+    </div>
+  );
+}

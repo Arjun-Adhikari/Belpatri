@@ -1,0 +1,1113 @@
+
+
+<div class="max-w-md mx-auto min-h-[884px] bg-surface-container-lowest shadow-2xl relative flex flex-col pb-24 overflow-x-hidden" data-stitch-vh="min-h-[884px]===min-h-screen">
+
+<header class="sticky top-0 z-40 bg-surface-container-lowest shadow-sm"><div class="px-space-md pt-3 pb-2 bg-surface-container-lowest"><div class="flex items-center justify-between mb-2.5"><div class="flex flex-col"><div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-2xl font-bold">psychiatry</span><span class="font-headline-md text-lg font-bold text-primary tracking-tight">Belpatri</span></div><span class="text-[9px] font-bold text-outline tracking-wider uppercase mt-0.5">SHOPPING, MADE SIMPLE.</span></div><div class="flex items-center gap-2"><button class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-outline hover:text-on-surface" onclick="showToast('Language set to English / Marathi')"><span class="material-symbols-outlined text-base">translate</span></button><button class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-outline hover:text-on-surface relative" onclick="openCartModal()"></button></div></div><div class="relative"><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-3 text-outline text-lg pointer-events-none">search</span><input class="w-full text-xs pl-9 pr-8 py-2 rounded-xl border border-outline-variant bg-surface-container-low text-on-surface placeholder:text-outline focus:border-primary focus:outline-none transition-all shadow-sm" id="searchInput" oninput="handleSearch(this.value)" placeholder="Search items (wheat, chilli) or verified vendor store..." type="text"><button class="absolute right-2.5 text-outline hover:text-on-surface hidden" id="clearSearchBtn" onclick="clearSearch()"><span class="material-symbols-outlined text-sm">cancel</span></button></div><div class="absolute left-0 right-0 top-full mt-1 bg-surface-container-lowest rounded-2xl shadow-2xl border border-outline-variant p-2 z-50 hidden space-y-2 max-h-72 overflow-y-auto" id="searchDropdown"><div class="space-y-1" id="searchVendorResults"></div><div class="space-y-1" id="searchProductResults"></div></div></div></div><div class="px-space-md pb-2.5 pt-0.5"><div class="p-1 bg-surface-container-low rounded-xl flex items-center justify-between border border-outline-variant text-center"><button class="flex-1 py-1.5 px-2 rounded-lg text-xs font-label-md transition-all text-outline hover:text-on-surface" id="tab-managed" onclick="switchMarket('managed')">Managed</button><button class="flex-1 py-1.5 px-2 rounded-lg text-xs font-label-md transition-all text-outline hover:text-on-surface" id="tab-vendor" onclick="switchMarket('vendor')">Vendor Store</button><button class="flex-1 py-1.5 px-2 rounded-lg text-xs font-label-md transition-all bg-surface-container-lowest text-primary font-bold shadow-sm" id="tab-farmer" onclick="switchMarket('farmer')">Farmer Direct</button></div></div></header>
+
+<main class="flex-1" id="mainContainer">
+
+<section class="block" id="view-marketplace">
+
+<div class="px-space-md pt-2">
+<div class="rounded-2xl p-4 text-on-primary shadow-sm relative overflow-hidden bg-primary-container" id="marketBannerContainer">
+          <div class="relative z-10">
+            <span class="bg-surface-container-lowest/20 text-on-primary text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
+              Wholesale Mandi Hub
+            </span>
+            <h2 class="font-headline-sm text-headline-sm font-bold mt-1">Managed Direct Supply</h2>
+            <p class="text-xs text-on-primary-container mt-0.5 max-w-[260px]">
+              Aggregated lots with verified quality certificate and zero individual middleman disputes.
+            </p>
+            <div class="mt-2.5 flex items-center gap-3 text-[11px]">
+              <span class="flex items-center gap-1 font-semibold"><span class="material-symbols-outlined text-sm">verified</span> Escrow Protected</span>
+              <span class="flex items-center gap-1 font-semibold"><span class="material-symbols-outlined text-sm">speed</span> 24h Cold Dispatch</span>
+            </div>
+          </div>
+          <div class="absolute -right-6 -bottom-6 opacity-15 text-white">
+            <span class="material-symbols-outlined text-9xl">warehouse</span>
+          </div>
+        </div>
+</div>
+
+
+
+<div class="pt-3 px-space-md hidden" id="vendorDirectorySection">
+
+<div class="flex items-center justify-between mb-2">
+<div>
+<span class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider block">Verified Wholesale Vendors</span>
+<span class="text-[11px] text-outline">APMC registered merchants &amp; co-ops</span>
+</div>
+<span class="text-[11px] font-semibold text-primary" id="vendorCountBadge">4 Vendors</span>
+</div>
+
+<div class="space-y-3 mb-4" id="vendorListContainer">
+          <div class="bg-surface-container-lowest border border-outline-variant hover:border-primary/50 rounded-2xl p-3.5 shadow-sm transition-all">
+            <div class="flex items-start justify-between">
+              <div class="flex items-start gap-2.5">
+                <div class="w-10 h-10 rounded-xl bg-emerald-900 text-white flex items-center justify-center font-bold text-sm shadow-sm flex-shrink-0">
+                  SS
+                </div>
+                <div>
+                  <div class="flex items-center gap-1">
+                    <h3 class="font-headline-sm text-xs font-bold text-on-surface line-clamp-1">Sahyadri Spices &amp; Dry Fruits Hub</h3>
+                    <span class="material-symbols-outlined text-xs text-primary fill-icon">verified</span>
+                  </div>
+                  <p class="text-[11px] text-outline line-clamp-1">APMC Spice Terminal Stall 14, Vashi Hub</p>
+                  
+                  <div class="flex items-center gap-2 mt-1">
+                    <span class="text-[10px] font-bold text-amber-700 bg-amber-50 px-1.5 py-0.5 rounded flex items-center gap-0.5 border border-amber-200">
+                      <span class="material-symbols-outlined text-[10px] fill-icon">star</span>
+                      4.8 (142)
+                    </span>
+                    <span class="text-[10px] text-outline font-medium">Min: ₹5,000</span>
+                    <span class="text-[10px] bg-surface-container text-on-surface-variant px-1.5 py-0.5 rounded font-mono">APMC-LIC-4412B</span>
+                  </div>
+                </div>
+              </div>
+
+              <button onclick="openVendorStore('v-sahyadri')" class="px-2.5 py-1.5 bg-primary hover:bg-primary-container text-on-primary rounded-xl text-xs font-bold flex items-center gap-1 shadow-sm whitespace-nowrap">
+                <span class="">Enter Store</span>
+                <span class="material-symbols-outlined text-xs">arrow_forward</span>
+              </button>
+            </div>
+
+            
+            <div class="flex flex-wrap gap-1 mt-2.5 pt-2 border-t border-outline-variant/60">
+              
+                <span class="text-[10px] bg-surface-container-low text-on-surface px-2 py-0.5 rounded-full border border-outline-variant">
+                  Whole Spices
+                </span>
+              
+                <span class="text-[10px] bg-surface-container-low text-on-surface px-2 py-0.5 rounded-full border border-outline-variant">
+                  Dry Fruits
+                </span>
+              
+                <span class="text-[10px] bg-surface-container-low text-on-surface px-2 py-0.5 rounded-full border border-outline-variant">
+                  Turmeric &amp; Chilli
+                </span>
+              
+            </div>
+
+            
+            <div class="mt-2.5 pt-2 flex items-center justify-between gap-2">
+              <span class="text-[10px] text-outline uppercase font-semibold">Store Varieties:</span>
+              <div class="flex items-center gap-1.5 overflow-hidden">
+                
+                  <span onclick="openVendorStore('v-sahyadri')" class="cursor-pointer text-[10px] bg-secondary-container/60 hover:bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-lg truncate max-w-[110px]">
+                    Guntur Teja
+                  </span>
+                
+                  <span onclick="openVendorStore('v-sahyadri')" class="cursor-pointer text-[10px] bg-secondary-container/60 hover:bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-lg truncate max-w-[110px]">
+                    Unpolished Nizamabad
+                  </span>
+                
+                  <span onclick="openVendorStore('v-sahyadri')" class="cursor-pointer text-[10px] bg-secondary-container/60 hover:bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-lg truncate max-w-[110px]">
+                    Cumin Seeds
+                  </span>
+                
+                <span onclick="openVendorStore('v-sahyadri')" class="cursor-pointer text-[10px] font-bold text-primary hover:underline ml-1">
+                  +4 more
+                </span>
+              </div>
+            </div>
+          </div>
+        
+          <div class="bg-surface-container-lowest border border-outline-variant hover:border-primary/50 rounded-2xl p-3.5 shadow-sm transition-all">
+            <div class="flex items-start justify-between">
+              <div class="flex items-start gap-2.5">
+                <div class="w-10 h-10 rounded-xl bg-amber-900 text-white flex items-center justify-center font-bold text-sm shadow-sm flex-shrink-0">
+                  MA
+                </div>
+                <div>
+                  <div class="flex items-center gap-1">
+                    <h3 class="font-headline-sm text-xs font-bold text-on-surface line-clamp-1">Maha-Agri Grain Traders</h3>
+                    <span class="material-symbols-outlined text-xs text-primary fill-icon">verified</span>
+                  </div>
+                  <p class="text-[11px] text-outline line-clamp-1">Yard 7, Nashik Central APMC</p>
+                  
+                  <div class="flex items-center gap-2 mt-1">
+                    <span class="text-[10px] font-bold text-amber-700 bg-amber-50 px-1.5 py-0.5 rounded flex items-center gap-0.5 border border-amber-200">
+                      <span class="material-symbols-outlined text-[10px] fill-icon">star</span>
+                      4.9 (280)
+                    </span>
+                    <span class="text-[10px] text-outline font-medium">Min: ₹10,000</span>
+                    <span class="text-[10px] bg-surface-container text-on-surface-variant px-1.5 py-0.5 rounded font-mono">APMC-LIC-1198A</span>
+                  </div>
+                </div>
+              </div>
+
+              <button onclick="openVendorStore('v-mahaagri')" class="px-2.5 py-1.5 bg-primary hover:bg-primary-container text-on-primary rounded-xl text-xs font-bold flex items-center gap-1 shadow-sm whitespace-nowrap">
+                <span class="">Enter Store</span>
+                <span class="material-symbols-outlined text-xs">arrow_forward</span>
+              </button>
+            </div>
+
+            
+            <div class="flex flex-wrap gap-1 mt-2.5 pt-2 border-t border-outline-variant/60">
+              
+                <span class="text-[10px] bg-surface-container-low text-on-surface px-2 py-0.5 rounded-full border border-outline-variant">
+                  Basmati Lots
+                </span>
+              
+                <span class="text-[10px] bg-surface-container-low text-on-surface px-2 py-0.5 rounded-full border border-outline-variant">
+                  Milling Wheat
+                </span>
+              
+                <span class="text-[10px] bg-surface-container-low text-on-surface px-2 py-0.5 rounded-full border border-outline-variant">
+                  Export Pulses
+                </span>
+              
+            </div>
+
+            
+            <div class="mt-2.5 pt-2 flex items-center justify-between gap-2">
+              <span class="text-[10px] text-outline uppercase font-semibold">Store Varieties:</span>
+              <div class="flex items-center gap-1.5 overflow-hidden">
+                
+                  <span onclick="openVendorStore('v-mahaagri')" class="cursor-pointer text-[10px] bg-secondary-container/60 hover:bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-lg truncate max-w-[110px]">
+                    1121 Traditional
+                  </span>
+                
+                  <span onclick="openVendorStore('v-mahaagri')" class="cursor-pointer text-[10px] bg-secondary-container/60 hover:bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-lg truncate max-w-[110px]">
+                    Polished Yellow
+                  </span>
+                
+                  <span onclick="openVendorStore('v-mahaagri')" class="cursor-pointer text-[10px] bg-secondary-container/60 hover:bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-lg truncate max-w-[110px]">
+                    Milling Lokwan
+                  </span>
+                
+                <span onclick="openVendorStore('v-mahaagri')" class="cursor-pointer text-[10px] font-bold text-primary hover:underline ml-1">
+                  +3 more
+                </span>
+              </div>
+            </div>
+          </div>
+        
+          <div class="bg-surface-container-lowest border border-outline-variant hover:border-primary/50 rounded-2xl p-3.5 shadow-sm transition-all">
+            <div class="flex items-start justify-between">
+              <div class="flex items-start gap-2.5">
+                <div class="w-10 h-10 rounded-xl bg-teal-900 text-white flex items-center justify-center font-bold text-sm shadow-sm flex-shrink-0">
+                  DO
+                </div>
+                <div>
+                  <div class="flex items-center gap-1">
+                    <h3 class="font-headline-sm text-xs font-bold text-on-surface line-clamp-1">Deccan Organic Cold Storage</h3>
+                    <span class="material-symbols-outlined text-xs text-primary fill-icon">verified</span>
+                  </div>
+                  <p class="text-[11px] text-outline line-clamp-1">Cold Silo 2, Pune Market Yard</p>
+                  
+                  <div class="flex items-center gap-2 mt-1">
+                    <span class="text-[10px] font-bold text-amber-700 bg-amber-50 px-1.5 py-0.5 rounded flex items-center gap-0.5 border border-amber-200">
+                      <span class="material-symbols-outlined text-[10px] fill-icon">star</span>
+                      4.7 (95)
+                    </span>
+                    <span class="text-[10px] text-outline font-medium">Min: ₹3,500</span>
+                    <span class="text-[10px] bg-surface-container text-on-surface-variant px-1.5 py-0.5 rounded font-mono">APMC-LIC-8830C</span>
+                  </div>
+                </div>
+              </div>
+
+              <button onclick="openVendorStore('v-deccan')" class="px-2.5 py-1.5 bg-primary hover:bg-primary-container text-on-primary rounded-xl text-xs font-bold flex items-center gap-1 shadow-sm whitespace-nowrap">
+                <span class="">Enter Store</span>
+                <span class="material-symbols-outlined text-xs">arrow_forward</span>
+              </button>
+            </div>
+
+            
+            <div class="flex flex-wrap gap-1 mt-2.5 pt-2 border-t border-outline-variant/60">
+              
+                <span class="text-[10px] bg-surface-container-low text-on-surface px-2 py-0.5 rounded-full border border-outline-variant">
+                  Cold-pressed Oils
+                </span>
+              
+                <span class="text-[10px] bg-surface-container-low text-on-surface px-2 py-0.5 rounded-full border border-outline-variant">
+                  Bio Millets
+                </span>
+              
+                <span class="text-[10px] bg-surface-container-low text-on-surface px-2 py-0.5 rounded-full border border-outline-variant">
+                  Jaggery Blocks
+                </span>
+              
+            </div>
+
+            
+            <div class="mt-2.5 pt-2 flex items-center justify-between gap-2">
+              <span class="text-[10px] text-outline uppercase font-semibold">Store Varieties:</span>
+              <div class="flex items-center gap-1.5 overflow-hidden">
+                
+                  <span onclick="openVendorStore('v-deccan')" class="cursor-pointer text-[10px] bg-secondary-container/60 hover:bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-lg truncate max-w-[110px]">
+                    Cold-Pressed Raw
+                  </span>
+                
+                  <span onclick="openVendorStore('v-deccan')" class="cursor-pointer text-[10px] bg-secondary-container/60 hover:bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-lg truncate max-w-[110px]">
+                    Deccan Pearl
+                  </span>
+                
+                <span onclick="openVendorStore('v-deccan')" class="cursor-pointer text-[10px] font-bold text-primary hover:underline ml-1">
+                  +2 more
+                </span>
+              </div>
+            </div>
+          </div>
+        
+          <div class="bg-surface-container-lowest border border-outline-variant hover:border-primary/50 rounded-2xl p-3.5 shadow-sm transition-all">
+            <div class="flex items-start justify-between">
+              <div class="flex items-start gap-2.5">
+                <div class="w-10 h-10 rounded-xl bg-blue-900 text-white flex items-center justify-center font-bold text-sm shadow-sm flex-shrink-0">
+                  KA
+                </div>
+                <div>
+                  <div class="flex items-center gap-1">
+                    <h3 class="font-headline-sm text-xs font-bold text-on-surface line-clamp-1">Konkan Agro Produce Co-op</h3>
+                    <span class="material-symbols-outlined text-xs text-primary fill-icon">verified</span>
+                  </div>
+                  <p class="text-[11px] text-outline line-clamp-1">Shop 29, Ratnagiri APMC Exchange</p>
+                  
+                  <div class="flex items-center gap-2 mt-1">
+                    <span class="text-[10px] font-bold text-amber-700 bg-amber-50 px-1.5 py-0.5 rounded flex items-center gap-0.5 border border-amber-200">
+                      <span class="material-symbols-outlined text-[10px] fill-icon">star</span>
+                      4.9 (164)
+                    </span>
+                    <span class="text-[10px] text-outline font-medium">Min: ₹4,000</span>
+                    <span class="text-[10px] bg-surface-container text-on-surface-variant px-1.5 py-0.5 rounded font-mono">APMC-LIC-6510D</span>
+                  </div>
+                </div>
+              </div>
+
+              <button onclick="openVendorStore('v-konkan')" class="px-2.5 py-1.5 bg-primary hover:bg-primary-container text-on-primary rounded-xl text-xs font-bold flex items-center gap-1 shadow-sm whitespace-nowrap">
+                <span class="">Enter Store</span>
+                <span class="material-symbols-outlined text-xs">arrow_forward</span>
+              </button>
+            </div>
+
+            
+            <div class="flex flex-wrap gap-1 mt-2.5 pt-2 border-t border-outline-variant/60">
+              
+                <span class="text-[10px] bg-surface-container-low text-on-surface px-2 py-0.5 rounded-full border border-outline-variant">
+                  Cashew W320
+                </span>
+              
+                <span class="text-[10px] bg-surface-container-low text-on-surface px-2 py-0.5 rounded-full border border-outline-variant">
+                  Black Pepper
+                </span>
+              
+                <span class="text-[10px] bg-surface-container-low text-on-surface px-2 py-0.5 rounded-full border border-outline-variant">
+                  Desi Coconut Oil
+                </span>
+              
+            </div>
+
+            
+            <div class="mt-2.5 pt-2 flex items-center justify-between gap-2">
+              <span class="text-[10px] text-outline uppercase font-semibold">Store Varieties:</span>
+              <div class="flex items-center gap-1.5 overflow-hidden">
+                
+                  <span onclick="openVendorStore('v-konkan')" class="cursor-pointer text-[10px] bg-secondary-container/60 hover:bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-lg truncate max-w-[110px]">
+                    W320 White
+                  </span>
+                
+                  <span onclick="openVendorStore('v-konkan')" class="cursor-pointer text-[10px] bg-secondary-container/60 hover:bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-lg truncate max-w-[110px]">
+                    Malabar Bold
+                  </span>
+                
+                <span onclick="openVendorStore('v-konkan')" class="cursor-pointer text-[10px] font-bold text-primary hover:underline ml-1">
+                  +2 more
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+</div>
+
+<div class="px-space-md pt-2 hidden" id="vendorStoreCatalogView">
+
+<div class="bg-surface-container-low border border-outline-variant rounded-2xl p-3.5 mb-3 relative overflow-hidden">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-xl bg-teal-900 text-white flex items-center justify-center font-bold text-lg shadow-sm" id="storeAvatar">DO</div>
+<div>
+<div class="flex items-center gap-1.5">
+<h3 class="font-headline-sm text-sm font-bold text-on-surface" id="storeName">Deccan Organic Cold Storage</h3>
+<span class="material-symbols-outlined text-xs text-primary fill-icon">verified</span>
+</div>
+<p class="text-[11px] text-outline" id="storeLocation">Cold Silo 2, Pune Market Yard</p>
+<div class="flex items-center gap-2 mt-1 text-[10px]">
+<span class="bg-amber-100 text-amber-900 font-bold px-1.5 py-0.5 rounded flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[11px] fill-icon">star</span>
+<span class="" id="storeRating">4.7 (95 reviews)</span>
+</span>
+<span class="bg-secondary-container text-on-secondary-container font-semibold px-1.5 py-0.5 rounded" id="storeLicense">APMC-LIC-8830C</span>
+</div>
+</div>
+</div>
+<button class="w-7 h-7 rounded-full bg-surface-container flex items-center justify-center text-outline hover:text-on-surface" onclick="closeVendorStoreView()">
+<span class="material-symbols-outlined text-sm">close</span>
+</button>
+</div>
+
+<div class="mt-2.5 pt-2 border-t border-outline-variant/60 flex items-center justify-between text-[11px] text-outline">
+<span class="flex items-center gap-1 text-slate-700">
+<span class="material-symbols-outlined text-sm text-primary">lock_clock</span>
+<span class="">Single-Vendor Store Cart Isolation Active</span>
+</span>
+<span class="font-semibold text-primary" id="storeVarietyCount">2 Commodities Available</span>
+</div>
+</div>
+
+<div class="flex items-center justify-between mb-2">
+<button class="text-xs font-semibold text-primary flex items-center gap-1 hover:underline" onclick="closeVendorStoreView()">
+<span class="material-symbols-outlined text-sm">arrow_back</span>
+<span class="">Back to All Vendors</span>
+</button>
+<span class="text-[11px] text-outline">Direct Stalls</span>
+</div>
+</div>
+
+<div class="pt-3 pb-1" id="categoryPillSection">
+<div class="flex items-center justify-between px-space-md mb-1.5">
+<span class="font-label-sm text-label-sm text-primary cursor-pointer" onclick="setCategoryFilter('all')">View All</span>
+</div>
+<div class="flex gap-2 overflow-x-auto no-scrollbar px-space-md py-1" id="categoryPillList">
+          <button onclick="setCategoryFilter('all')" class="flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all bg-primary text-on-primary shadow-sm">
+            <span class="material-symbols-outlined text-sm">select_all</span>
+            <span class="">All Commodities</span>
+          </button>
+        
+          <button onclick="setCategoryFilter('grains')" class="flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all bg-surface-container-low text-on-surface border border-outline-variant hover:bg-surface-container">
+            <span class="material-symbols-outlined text-sm">grain</span>
+            <span class="">Grains &amp; Pulses</span>
+          </button>
+        
+          <button onclick="setCategoryFilter('fruits')" class="flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all bg-surface-container-low text-on-surface border border-outline-variant hover:bg-surface-container">
+            <span class="material-symbols-outlined text-sm">nutrition</span>
+            <span class="">Fresh Fruits</span>
+          </button>
+        
+          <button onclick="setCategoryFilter('spices')" class="flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all bg-surface-container-low text-on-surface border border-outline-variant hover:bg-surface-container">
+            <span class="material-symbols-outlined text-sm">local_florist</span>
+            <span class="">Spices &amp; Herbs</span>
+          </button>
+        
+          <button onclick="setCategoryFilter('greens')" class="flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all bg-surface-container-low text-on-surface border border-outline-variant hover:bg-surface-container">
+            <span class="material-symbols-outlined text-sm">psychiatry</span>
+            <span class="">Organic Greens</span>
+          </button>
+        
+          <button onclick="setCategoryFilter('dairy')" class="flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all bg-surface-container-low text-on-surface border border-outline-variant hover:bg-surface-container">
+            <span class="material-symbols-outlined text-sm">water_drop</span>
+            <span class="">Dairy &amp; Oils</span>
+          </button>
+        </div>
+</div>
+
+<div class="px-space-md py-2 flex items-center justify-between text-xs text-outline" id="filterStatsBar">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm">tune</span>
+<span class="" id="resultsCountText">Showing 4 Lots</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-full text-[10px] font-semibold" id="activeCategoryBadge">All Commodities</span>
+</div>
+</div>
+
+<div class="px-space-md pb-6" id="productGridSection">
+<div class="grid grid-cols-2 gap-3" id="productGrid">
+          <div class="bg-surface-container-lowest border border-outline-variant rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+            <div class="cursor-pointer" onclick="openProductModal('m-1')">
+              
+              <div class="relative aspect-4/3 w-full bg-slate-100 overflow-hidden">
+                <img src="placeholder" data-alt="A high-angle photograph of pristine golden wheat grains filled in a clean commercial burlap sack under soft morning studio illumination with agricultural clarity and crisp focus" class="w-full h-full object-cover">
+                <span class="absolute top-2 left-2 text-[9px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-900 border border-emerald-200">
+                  Belpatri Certified
+                </span>
+              </div>
+
+              
+              <div class="p-2.5">
+                <div class="text-[10px] text-outline uppercase tracking-wider font-semibold">Grains &amp; Pulses</div>
+                <h3 class="font-headline-sm text-xs font-bold text-on-surface mt-0.5 line-clamp-1">Standard Sharbati Wheat</h3>
+                
+                
+            <div class="flex items-center gap-1 text-[10px] text-tertiary-container font-semibold mt-1">
+              <span class="material-symbols-outlined text-xs">verified</span>
+              <span class="">Belpatri Mandi Certified</span>
+            </div>
+          
+
+                <div class="mt-2 flex items-baseline justify-between">
+                  <div>
+                    <span class="font-headline-md text-sm font-bold text-primary">₹3,200</span>
+                    <span class="text-[10px] text-outline">/Quintal</span>
+                  </div>
+                  <span class="text-[9px] text-outline bg-surface-container px-1.5 py-0.5 rounded font-medium">2 Qtl</span>
+                </div>
+              </div>
+            </div>
+
+            
+            <div class="p-2.5 pt-0">
+              
+                <div class="flex items-center justify-between bg-primary-container text-on-primary rounded-xl px-1 py-1">
+                  <button onclick="updateCartItem('m-1', -1)" class="w-6 h-6 flex items-center justify-center active:scale-90">
+                    <span class="material-symbols-outlined text-sm font-bold">remove</span>
+                  </button>
+                  <span class="text-xs font-bold">1</span>
+                  <button onclick="updateCartItem('m-1', 1)" class="w-6 h-6 flex items-center justify-center active:scale-90">
+                    <span class="material-symbols-outlined text-sm font-bold">add</span>
+                  </button>
+                </div>
+              
+            </div>
+          </div>
+        
+          <div class="bg-surface-container-lowest border border-outline-variant rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+            <div class="cursor-pointer" onclick="openProductModal('m-2')">
+              
+              <div class="relative aspect-4/3 w-full bg-slate-100 overflow-hidden">
+                <img src="placeholder" data-alt="A modern commercial photo of pure aged long-grain white rice poured into a neat measurement wooden container against an organic sage green backdrop" class="w-full h-full object-cover">
+                <span class="absolute top-2 left-2 text-[9px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-900 border border-emerald-200">
+                  Grade A Export
+                </span>
+              </div>
+
+              
+              <div class="p-2.5">
+                <div class="text-[10px] text-outline uppercase tracking-wider font-semibold">Grains &amp; Pulses</div>
+                <h3 class="font-headline-sm text-xs font-bold text-on-surface mt-0.5 line-clamp-1">Sona Masoori Raw Rice</h3>
+                
+                
+            <div class="flex items-center gap-1 text-[10px] text-tertiary-container font-semibold mt-1">
+              <span class="material-symbols-outlined text-xs">verified</span>
+              <span class="">Belpatri Mandi Certified</span>
+            </div>
+          
+
+                <div class="mt-2 flex items-baseline justify-between">
+                  <div>
+                    <span class="font-headline-md text-sm font-bold text-primary">₹4,250</span>
+                    <span class="text-[10px] text-outline">/Quintal</span>
+                  </div>
+                  <span class="text-[9px] text-outline bg-surface-container px-1.5 py-0.5 rounded font-medium">1 Qtl</span>
+                </div>
+              </div>
+            </div>
+
+            
+            <div class="p-2.5 pt-0">
+              
+                <button onclick="updateCartItem('m-2', 1)" class="w-full py-1.5 bg-surface-container-low hover:bg-primary hover:text-on-primary text-primary font-bold text-xs rounded-xl border border-primary/30 transition-all flex items-center justify-center gap-1">
+                  <span class="material-symbols-outlined text-sm">add</span>
+                  <span class="">Add Lot</span>
+                </button>
+              
+            </div>
+          </div>
+        
+          <div class="bg-surface-container-lowest border border-outline-variant rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+            <div class="cursor-pointer" onclick="openProductModal('m-3')">
+              
+              <div class="relative aspect-4/3 w-full bg-slate-100 overflow-hidden">
+                <img src="placeholder" data-alt="A warm and crisp macro photograph of vibrant yellow turmeric finger roots and powdered spices on clean slate background under soft commercial lighting" class="w-full h-full object-cover">
+                <span class="absolute top-2 left-2 text-[9px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-900 border border-emerald-200">
+                  Curcumin &gt; 3.8%
+                </span>
+              </div>
+
+              
+              <div class="p-2.5">
+                <div class="text-[10px] text-outline uppercase tracking-wider font-semibold">Spices &amp; Herbs</div>
+                <h3 class="font-headline-sm text-xs font-bold text-on-surface mt-0.5 line-clamp-1">Salem Curcumin Turmeric</h3>
+                
+                
+            <div class="flex items-center gap-1 text-[10px] text-tertiary-container font-semibold mt-1">
+              <span class="material-symbols-outlined text-xs">verified</span>
+              <span class="">Belpatri Mandi Certified</span>
+            </div>
+          
+
+                <div class="mt-2 flex items-baseline justify-between">
+                  <div>
+                    <span class="font-headline-md text-sm font-bold text-primary">₹180</span>
+                    <span class="text-[10px] text-outline">/kg</span>
+                  </div>
+                  <span class="text-[9px] text-outline bg-surface-container px-1.5 py-0.5 rounded font-medium">25 kg</span>
+                </div>
+              </div>
+            </div>
+
+            
+            <div class="p-2.5 pt-0">
+              
+                <button onclick="updateCartItem('m-3', 1)" class="w-full py-1.5 bg-surface-container-low hover:bg-primary hover:text-on-primary text-primary font-bold text-xs rounded-xl border border-primary/30 transition-all flex items-center justify-center gap-1">
+                  <span class="material-symbols-outlined text-sm">add</span>
+                  <span class="">Add Lot</span>
+                </button>
+              
+            </div>
+          </div>
+        
+          <div class="bg-surface-container-lowest border border-outline-variant rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+            <div class="cursor-pointer" onclick="openProductModal('m-4')">
+              
+              <div class="relative aspect-4/3 w-full bg-slate-100 overflow-hidden">
+                <img src="placeholder" data-alt="A vibrant close-up shot of fresh green crisp grapes with water droplets resting in an eco-friendly cardboard crate in a modern bright cold storage setting" class="w-full h-full object-cover">
+                <span class="absolute top-2 left-2 text-[9px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-900 border border-emerald-200">
+                  Cold-Chain Ready
+                </span>
+              </div>
+
+              
+              <div class="p-2.5">
+                <div class="text-[10px] text-outline uppercase tracking-wider font-semibold">Fresh Fruits</div>
+                <h3 class="font-headline-sm text-xs font-bold text-on-surface mt-0.5 line-clamp-1">Thompson Seedless Grapes</h3>
+                
+                
+            <div class="flex items-center gap-1 text-[10px] text-tertiary-container font-semibold mt-1">
+              <span class="material-symbols-outlined text-xs">verified</span>
+              <span class="">Belpatri Mandi Certified</span>
+            </div>
+          
+
+                <div class="mt-2 flex items-baseline justify-between">
+                  <div>
+                    <span class="font-headline-md text-sm font-bold text-primary">₹78</span>
+                    <span class="text-[10px] text-outline">/kg</span>
+                  </div>
+                  <span class="text-[9px] text-outline bg-surface-container px-1.5 py-0.5 rounded font-medium">100 kg</span>
+                </div>
+              </div>
+            </div>
+
+            
+            <div class="p-2.5 pt-0">
+              
+                <button onclick="updateCartItem('m-4', 1)" class="w-full py-1.5 bg-surface-container-low hover:bg-primary hover:text-on-primary text-primary font-bold text-xs rounded-xl border border-primary/30 transition-all flex items-center justify-center gap-1">
+                  <span class="material-symbols-outlined text-sm">add</span>
+                  <span class="">Add Lot</span>
+                </button>
+              
+            </div>
+          </div>
+        </div>
+<div class="py-12 text-center hidden" id="emptyState">
+<span class="material-symbols-outlined text-4xl text-outline mb-2">content_paste_off</span>
+<p class="font-headline-sm text-headline-sm text-on-surface">No commodities match query</p>
+<p class="text-body-sm text-outline mt-1">Try switching market modes or clear the category filters.</p>
+<button class="mt-4 px-4 py-2 bg-primary text-on-primary rounded-xl text-xs font-semibold" onclick="resetFilters()">Reset Search</button>
+</div>
+</div>
+</section>
+
+<section class="px-space-md pt-4 pb-8 hidden" id="view-orders">
+<div class="flex items-center justify-between mb-4">
+<div>
+<h1 class="font-headline-lg text-headline-lg font-bold text-on-surface">Trade Dispatches</h1>
+<p class="text-body-sm text-outline">Active mandi gate passes &amp; farm fulfillments</p>
+</div>
+<button class="px-2.5 py-1 bg-surface-container text-primary rounded-lg text-xs font-semibold border border-outline-variant flex items-center gap-1" onclick="simulateNewOrderDemo()">
+<span class="material-symbols-outlined text-sm">refresh</span> Re-check
+</button>
+</div>
+
+<div class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-4 shadow-sm mb-4">
+<div class="flex items-center justify-between pb-3 border-b border-outline-variant">
+<div>
+<span class="text-[10px] font-bold uppercase tracking-wider text-outline">Order #BPT-8849-ND</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Sona Masoori Rice (10 Qtl)</h2>
+</div>
+<span class="bg-secondary-container text-on-secondary-container text-[11px] font-bold px-2 py-0.5 rounded-full">In Transit</span>
+</div>
+
+<div class="py-4">
+<div class="relative pl-6 space-y-4">
+<div class="absolute left-2.5 top-2 bottom-2 w-0.5 bg-secondary-container"></div>
+
+<div class="relative flex items-start gap-3">
+<div class="absolute -left-6 top-0.5 w-5 h-5 rounded-full bg-primary text-on-primary flex items-center justify-center text-xs">
+<span class="material-symbols-outlined text-[13px] fill-icon">check</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface font-semibold">Order Placed &amp; Escrow Secured</p>
+<p class="text-body-sm text-outline text-[11px]">Today, 09:15 AM · ₹42,500 held in Mandi escrow</p>
+</div>
+</div>
+
+<div class="relative flex items-start gap-3">
+<div class="absolute -left-6 top-0.5 w-5 h-5 rounded-full bg-primary text-on-primary flex items-center justify-center text-xs">
+<span class="material-symbols-outlined text-[13px] fill-icon">check</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface font-semibold">Mandi QC &amp; Moisture Test Passed</p>
+<p class="text-body-sm text-outline text-[11px]">Today, 11:30 AM · Moisture 11.2% (Grade A Verified)</p>
+</div>
+</div>
+
+<div class="relative flex items-start gap-3">
+<div class="absolute -left-6 top-0.5 w-5 h-5 rounded-full bg-primary-container text-on-primary flex items-center justify-center text-xs animate-pulse">
+<span class="material-symbols-outlined text-[13px]">local_shipping</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-primary font-bold">Cold-Chain Truck Dispatched</p>
+<p class="text-body-sm text-outline text-[11px]">MH-15-EG-4412 · Driver: Santosh Patil (+91 98402 33100)</p>
+</div>
+</div>
+
+<div class="relative flex items-start gap-3 opacity-50">
+<div class="absolute -left-6 top-0.5 w-5 h-5 rounded-full bg-surface-dim text-outline flex items-center justify-center text-xs">
+<span class="material-symbols-outlined text-[13px]">warehouse</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Final Delivery at Destination Hub</p>
+<p class="text-body-sm text-outline text-[11px]">Est. Today, 05:30 PM (Nashik Central Warehouse 3)</p>
+</div>
+</div>
+</div>
+</div>
+<div class="pt-2 border-t border-outline-variant flex gap-2">
+<button class="flex-1 py-2 bg-surface-container rounded-xl text-xs font-semibold text-on-surface flex items-center justify-center gap-1" onclick="showToast('Dispatch consignment receipt downloaded')">
+<span class="material-symbols-outlined text-sm">download</span> Gate Pass Slip
+</button>
+<button class="flex-1 py-2 bg-primary text-on-primary rounded-xl text-xs font-semibold flex items-center justify-center gap-1" onclick="showToast('Connecting with Logistics Fleet Desk...')">
+<span class="material-symbols-outlined text-sm">call</span> Call Driver
+</button>
+</div>
+</div>
+
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2 mt-4">Past Procurements</h3>
+<div class="space-y-2.5">
+<div class="bg-surface-container-lowest border border-outline-variant p-3.5 rounded-xl flex items-center justify-between">
+<div>
+<p class="font-label-md text-label-md font-semibold text-on-surface">Sharbati Wheat (Grade A)</p>
+<p class="text-body-sm text-outline text-xs">Delivered 2 days ago · Farmer: Rameshwar Khot</p>
+<p class="font-label-sm text-label-sm text-primary font-bold mt-1">₹18,400 (5 Quintal)</p>
+</div>
+<button class="px-3 py-1.5 bg-surface-container text-primary font-semibold text-xs rounded-lg border border-outline-variant" onclick="reorderFast()">
+  Reorder
+</button>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-3.5 rounded-xl flex items-center justify-between">
+<div>
+<p class="font-label-md text-label-md font-semibold text-on-surface">Guntur Teja Dry Red Chilli</p>
+<p class="text-body-sm text-outline text-xs">Delivered 12 Nov · Spices Hub APMC</p>
+<p class="font-label-sm text-label-sm text-primary font-bold mt-1">₹7,200 (40 kg)</p>
+</div>
+<button class="px-3 py-1.5 bg-surface-container text-primary font-semibold text-xs rounded-lg border border-outline-variant" onclick="reorderFast()">
+  Reorder
+</button>
+</div>
+</div>
+</section>
+
+<section class="px-space-md pt-4 pb-8 hidden" id="view-account">
+<div class="flex items-center gap-3 p-4 bg-surface-container-low rounded-2xl border border-outline-variant mb-4">
+<div class="w-14 h-14 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-bold text-lg shadow-sm">
+  KC
+</div>
+<div>
+<div class="flex items-center gap-1">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Kisan Commercial Trade</h2>
+<span class="material-symbols-outlined text-primary text-base fill-icon">verified</span>
+</div>
+<p class="text-body-sm text-outline text-xs">Verified Regional Trader #BPT-8821</p>
+<span class="inline-block mt-1 bg-secondary-container text-on-secondary-container text-[10px] font-bold px-2 py-0.5 rounded-full">
+  Tier 1 Commercial Account
+</span>
+</div>
+</div>
+<div class="space-y-3">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl divide-y divide-outline-variant overflow-hidden">
+<div class="p-3.5 flex items-center justify-between cursor-pointer hover:bg-surface-container" onclick="showToast('Mandi Cess Exemption is active until 2026')">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary">verified_user</span>
+<div>
+<p class="text-xs font-semibold text-on-surface">APMC License &amp; GSTIN</p>
+<p class="text-[11px] text-outline">GST: 27AABCK8901L1Z9 (Verified)</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline text-sm">chevron_right</span>
+</div>
+<div class="p-3.5 flex items-center justify-between cursor-pointer hover:bg-surface-container" onclick="showToast('Direct Farm Escrow balance: ₹2,40,000')">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary">account_balance_wallet</span>
+<div>
+<p class="text-xs font-semibold text-on-surface">Escrow Trade Wallet</p>
+<p class="text-[11px] text-outline">Available: ₹2,40,000.00</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline text-sm">chevron_right</span>
+</div>
+<div class="p-3.5 flex items-center justify-between cursor-pointer hover:bg-surface-container" onclick="showToast('Cold-storage warehouse in Nashik is linked')">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary">warehouse</span>
+<div>
+<p class="text-xs font-semibold text-on-surface">Default Unloading Silo</p>
+<p class="text-[11px] text-outline">Bay 4, Nashik APMC Yard</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline text-sm">chevron_right</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-3.5">
+<div class="flex items-center justify-between mb-2">
+<span class="text-xs font-bold text-on-surface uppercase tracking-wider">Language &amp; Mandi Region</span>
+<span class="text-[11px] font-semibold text-primary">English / Marathi</span>
+</div>
+<p class="text-body-sm text-outline text-xs">Notifications received on SMS and WhatsApp for real-time auction bids and farmer dispatch updates.</p>
+</div>
+</div>
+</section>
+</main>
+
+<div class="fixed bottom-16 left-0 right-0 max-w-md mx-auto px-4 z-40" id="floatingCartPill">
+<button class="w-full bg-primary hover:bg-primary-container text-on-primary py-3 px-4 rounded-2xl shadow-xl flex items-center justify-between transform active:scale-[0.98] transition-all" onclick="openCartModal()">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-lg bg-surface-container-lowest/20 flex items-center justify-center font-bold text-xs">
+<span class="" id="floatingItemCount">1</span>
+</div>
+<div class="text-left leading-tight">
+<div class="text-xs font-bold" id="floatingCartMarketTitle">Managed Market Cart</div>
+<div class="text-[10px] text-on-primary-container" id="floatingCartSubtitle">1 lots staged for trade</div>
+</div>
+</div>
+<div class="flex items-center gap-1.5 font-bold text-sm">
+<span class="" id="floatingCartTotal">₹3,200</span>
+<span class="material-symbols-outlined text-base">arrow_forward</span>
+</div>
+</button>
+</div>
+
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-space-sm py-space-xs bg-surface-container-lowest dark:bg-inverse-surface border-t border-outline-variant dark:border-outline shadow-sm max-w-md mx-auto left-0 right-0">
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-3 py-1.5 transition-all hover:bg-surface-container-low" id="nav-btn-Home" onclick="navigateTab('Home')">
+<span class="material-symbols-outlined text-xl">storefront</span>
+<span class="font-label-sm text-[10px] mt-0.5">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-xl px-3 py-1.5 transition-all" id="nav-btn-Markets" onclick="navigateTab('Markets')">
+<span class="material-symbols-outlined text-xl">grid_view</span>
+<span class="font-label-sm text-[10px] mt-0.5">Markets</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-3 py-1.5 relative transition-all hover:bg-surface-container-low" id="nav-btn-Cart" onclick="openCartModal()">
+<span class="material-symbols-outlined text-xl">shopping_cart</span>
+<span class="font-label-sm text-[10px] mt-0.5">Cart</span>
+<span class="absolute top-1 right-2 w-4 h-4 rounded-full bg-primary text-on-primary text-[9px] font-bold flex items-center justify-center" id="navCartBadge">1</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-3 py-1.5 transition-all hover:bg-surface-container-low" id="nav-btn-Orders" onclick="navigateTab('Orders')">
+<span class="material-symbols-outlined text-xl">receipt_long</span>
+<span class="font-label-sm text-[10px] mt-0.5">Orders</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-3 py-1.5 transition-all hover:bg-surface-container-low" id="nav-btn-Account" onclick="navigateTab('Account')">
+<span class="material-symbols-outlined text-xl">person</span>
+<span class="font-label-sm text-[10px] mt-0.5">Account</span>
+</button>
+</nav>
+</div>
+
+<div class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-end justify-center" id="cartModal">
+<div class="bg-surface-container-lowest w-full max-w-md rounded-t-3xl max-h-[795px] flex flex-col shadow-2xl overflow-hidden animate-in slide-in-from-bottom duration-300">
+<div class="p-4 border-b border-outline-variant bg-surface-container-low">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-2xl">shopping_cart</span>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Your Mandi Carts</h2>
+<p class="text-[11px] text-outline">3 Isolated Sourcing Channels</p>
+</div>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-outline hover:text-on-surface" onclick="closeCartModal()">
+<span class="material-symbols-outlined text-lg">close</span>
+</button>
+</div>
+
+<div class="grid grid-cols-3 gap-1.5 p-1 bg-surface-container rounded-xl">
+<button class="py-1.5 text-center text-xs font-semibold rounded-lg bg-surface-container-lowest text-primary shadow-sm relative" id="cart-pill-managed" onclick="switchActiveCart('managed')" style="animation-delay: 0ms;">
+  Managed
+  <span class="ml-1 text-[10px] bg-secondary-container text-on-secondary-container px-1 rounded-full" id="badge-count-managed">1</span>
+</button>
+<button class="py-1.5 text-center text-xs font-semibold rounded-lg text-outline relative" id="cart-pill-vendor" onclick="switchActiveCart('vendor')" style="animation-delay: 0ms;">
+  Vendor
+  <span class="ml-1 text-[10px] bg-surface-container-high px-1 rounded-full" id="badge-count-vendor">0</span>
+</button>
+<button class="py-1.5 text-center text-xs font-semibold rounded-lg text-outline relative" id="cart-pill-farmer" onclick="switchActiveCart('farmer')" style="animation-delay: 0ms;">
+  Farmer
+  <span class="ml-1 text-[10px] bg-surface-container-high px-1 rounded-full" id="badge-count-farmer">0</span>
+</button>
+</div>
+</div>
+
+<div class="hidden bg-amber-50 border-b border-amber-200 px-4 py-2 text-xs text-amber-900 flex items-center justify-between" id="vendorIsolationNotice">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-amber-600 text-sm">store</span>
+<span class="">Vendor Cart locked to: <strong id="lockedVendorName">Sahyadri Spices</strong></span>
+</div>
+<span class="text-[10px] bg-amber-200 text-amber-800 px-1.5 py-0.5 rounded font-bold">Single-Vendor Rule</span>
+</div>
+
+<div class="flex-1 overflow-y-auto p-4 space-y-3" id="cartItemsContainer">
+          <div class="bg-surface-container-lowest border border-outline-variant p-3 rounded-2xl flex items-center justify-between gap-2">
+            <div class="flex items-center gap-3">
+              <img src="placeholder" data-alt="A high-angle photograph of pristine golden wheat grains filled in a clean commercial burlap sack under soft morning studio illumination with agricultural clarity and crisp focus" class="w-12 h-12 rounded-xl object-cover bg-slate-100 border border-outline-variant">
+              <div>
+                <h4 class="text-xs font-bold text-on-surface line-clamp-1">Standard Sharbati Wheat</h4>
+                <p class="text-[11px] text-outline">₹3,200 / Quintal</p>
+                <span class="text-[10px] text-primary font-semibold font-mono">Sub: ₹3,200</span>
+              </div>
+            </div>
+
+            <div class="flex items-center border border-outline-variant rounded-xl bg-surface-container-low">
+              <button onclick="updateCartItem('m-1', -1)" class="w-7 h-7 flex items-center justify-center text-on-surface active:bg-surface-container">
+                <span class="material-symbols-outlined text-sm">remove</span>
+              </button>
+              <span class="w-6 text-center text-xs font-bold">1</span>
+              <button onclick="updateCartItem('m-1', 1)" class="w-7 h-7 flex items-center justify-center text-on-surface active:bg-surface-container">
+                <span class="material-symbols-outlined text-sm">add</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+<div class="p-4 border-t border-outline-variant bg-surface-container-lowest">
+<div class="space-y-1.5 text-xs text-outline mb-3">
+<div class="flex justify-between">
+<span class="">Commodity Subtotal</span>
+<span class="font-semibold text-on-surface" id="cartSubtotalText">₹3,200</span>
+</div>
+<div class="flex justify-between">
+<span class="">Mandi Cess &amp; APMC Fee (1.5%)</span>
+<span class="font-semibold text-on-surface" id="cartCessText">₹48</span>
+</div>
+<div class="flex justify-between">
+<span class="">Cold-Chain Logistics</span>
+<span class="font-semibold text-on-surface" id="cartLogisticsText">₹450</span>
+</div>
+<div class="flex justify-between pt-1 border-t border-outline-variant text-sm font-bold text-on-surface">
+<span class="">Payable Amount</span>
+<span class="text-primary text-base" id="cartTotalPayableText">₹3,698</span>
+</div>
+</div>
+<button class="w-full py-3 bg-primary hover:bg-primary-container text-on-primary font-bold rounded-xl shadow-md text-sm transition-all flex items-center justify-center gap-2" id="cartCheckoutBtn" onclick="openCheckoutModal()">
+<span class="">Proceed to Mandi Dispatch</span>
+<span class="material-symbols-outlined text-base">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+
+<div class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-end justify-center" id="productDetailModal">
+<div class="bg-surface-container-lowest w-full max-w-md rounded-t-3xl max-h-[813px] flex flex-col shadow-2xl overflow-hidden animate-in slide-in-from-bottom duration-300">
+<div class="relative h-64 w-full bg-slate-200">
+<img class="w-full h-full object-cover" data-alt="Agricultural produce" id="detailImg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNy4vezonW3N4iW62I_n2PJRlei8AfJ1EUOSGL2k6Y21XHO3-thxlpfiaNaeTwCKqiUsCr9Jw3REyVbMcYXhnzDLfKnemfX8foBEl2sbgrvNbW35Aw4tINKgz5LADDzHeFdqZP-lwekaz6x38nRgxIs5LTjlE0t4gCRNGz0O8uMtbmfibPctOqdjkusF9KdTkezZXw2cvyp3dGQWRP3BbNyfb9NVfWYeQTXmsQx6FB">
+<button class="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/40 text-white backdrop-blur-md flex items-center justify-center" onclick="closeProductModal()">
+<span class="material-symbols-outlined text-lg">close</span>
+</button>
+<span class="absolute bottom-4 left-4 bg-surface-container-lowest/90 backdrop-blur-md text-primary font-bold text-xs px-2.5 py-1 rounded-full shadow-sm" id="detailBadge">
+  Certified Organic
+</span>
+</div>
+<div class="p-5 flex-1 overflow-y-auto space-y-4">
+<div>
+<div class="flex items-center justify-between">
+<span class="text-xs uppercase tracking-wider text-outline font-bold" id="detailCategory">Grains &amp; Pulses</span>
+<span class="text-xs text-primary font-semibold flex items-center gap-1" id="detailStock">
+<span class="w-2 h-2 rounded-full bg-primary inline-block"></span> In APMC Stock
+</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg font-bold text-on-surface mt-0.5" id="detailTitle">Sharbati Gold Wheat</h2>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-headline-lg text-headline-lg text-primary font-bold" id="detailPrice">₹3,400 / Qtl</span>
+<span class="text-xs text-outline font-medium" id="detailMoq">MOQ: 2 Quintals</span>
+</div>
+</div>
+
+<div class="p-3 bg-surface-container-low rounded-xl border border-outline-variant flex items-center gap-3" id="detailSupplierCard">
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-bold text-sm" id="detailSupplierAvatar">
+  FK
+</div>
+<div>
+<h4 class="text-xs font-bold text-on-surface" id="detailSupplierName">Farmer Kisan Rameshwar</h4>
+<p class="text-[11px] text-outline" id="detailSupplierLocation">Dindori Tehsil, Nashik (14 km from Mandi)</p>
+</div>
+</div>
+
+<div class="grid grid-cols-3 gap-2 text-center">
+<div class="p-2.5 bg-surface-container-low rounded-xl">
+<span class="text-[10px] text-outline block font-medium">Harvest Batch</span>
+<span class="text-xs font-bold text-on-surface mt-0.5 block" id="detailHarvest">Nov 2024</span>
+</div>
+<div class="p-2.5 bg-surface-container-low rounded-xl">
+<span class="text-[10px] text-outline block font-medium">Moisture Content</span>
+<span class="text-xs font-bold text-on-surface mt-0.5 block" id="detailMoisture">10.8% Dry</span>
+</div>
+<div class="p-2.5 bg-surface-container-low rounded-xl">
+<span class="text-[10px] text-outline block font-medium">Shelf Life</span>
+<span class="text-xs font-bold text-on-surface mt-0.5 block" id="detailShelf">9 Months</span>
+</div>
+</div>
+
+<div>
+<h4 class="text-xs font-bold text-on-surface uppercase tracking-wider mb-1">Mandi Commodity Notes</h4>
+<p class="text-xs text-outline leading-relaxed" id="detailDesc">
+  Grade tested grains. Sun dried on clean tarpaulins without chemical fumigants.
+</p>
+</div>
+</div>
+
+<div class="p-4 border-t border-outline-variant bg-surface-container-lowest flex items-center gap-3">
+<div class="flex items-center border border-outline-variant rounded-xl bg-surface-container-low">
+<button class="w-10 h-10 flex items-center justify-center text-on-surface active:bg-surface-container" onclick="adjustDetailQty(-1)">
+<span class="material-symbols-outlined text-base">remove</span>
+</button>
+<span class="w-8 text-center text-xs font-bold" id="detailQuantityCount">1</span>
+<button class="w-10 h-10 flex items-center justify-center text-on-surface active:bg-surface-container" onclick="adjustDetailQty(1)">
+<span class="material-symbols-outlined text-base">add</span>
+</button>
+</div>
+<button class="flex-1 py-3 bg-primary hover:bg-primary-container text-on-primary rounded-xl font-bold text-xs flex items-center justify-center gap-2 shadow-md" id="detailAddToCartBtn" onclick="addDetailItemToCart()">
+<span class="material-symbols-outlined text-base">add_shopping_cart</span>
+<span class="">Add to Cart</span>
+</button>
+</div>
+</div>
+</div>
+
+<div class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-end justify-center" id="checkoutModal">
+<div class="bg-surface-container-lowest w-full max-w-md rounded-t-3xl max-h-[813px] flex flex-col shadow-2xl overflow-hidden animate-in slide-in-from-bottom duration-300">
+<div class="p-4 border-b border-outline-variant bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-2">
+<button class="text-outline hover:text-on-surface" onclick="closeCheckoutModal()">
+<span class="material-symbols-outlined text-lg">arrow_back</span>
+</button>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Mandi Logistics Checkout</h2>
+<p class="text-[11px] text-outline">Verified Escrow &amp; Gate-Pass Clearance</p>
+</div>
+</div>
+<span class="text-xs font-bold text-primary bg-secondary-container px-2 py-0.5 rounded-full">Step 2 of 2</span>
+</div>
+<div class="flex-1 overflow-y-auto p-4 space-y-4">
+<div class="space-y-3">
+<h3 class="text-xs font-bold uppercase tracking-wider text-on-surface">1. Delivery Location</h3>
+<div>
+<label class="block text-[11px] text-outline mb-1">Commercial Firm / Trader Name</label>
+<input class="w-full text-xs p-2.5 rounded-xl border border-outline-variant bg-surface-container-low text-on-surface focus:border-primary focus:outline-none" type="text" value="Kisan Commercial Trade">
+</div>
+<div>
+<label class="block text-[11px] text-outline mb-1">Destination Mandi / Warehouse Bay</label>
+<input class="w-full text-xs p-2.5 rounded-xl border border-outline-variant bg-surface-container-low text-on-surface focus:border-primary focus:outline-none" type="text" value="Silo Yard 4, Nashik Central APMC, Maharashtra 422003">
+</div>
+<div>
+<label class="block text-[11px] text-outline mb-1">Contact Phone (Driver Updates)</label>
+<input class="w-full text-xs p-2.5 rounded-xl border border-outline-variant bg-surface-container-low text-on-surface focus:border-primary focus:outline-none" type="text" value="+91 98220 44581">
+</div>
+</div>
+
+<div class="space-y-3 pt-2 border-t border-outline-variant">
+<h3 class="text-xs font-bold uppercase tracking-wider text-on-surface">2. Payment Responsibility</h3>
+<div class="grid grid-cols-2 gap-2">
+<button class="p-3 rounded-xl border-2 border-primary bg-secondary-container text-left transition-all" id="btn-pay-self" onclick="setPaymentMode('self')" type="button">
+<span class="material-symbols-outlined text-primary text-xl block mb-1">payments</span>
+<span class="text-xs font-bold text-on-surface block">Pay Myself</span>
+<span class="text-[10px] text-outline block">Escrow / UPI / NetBanking</span>
+</button>
+<button class="p-3 rounded-xl border-2 border-outline-variant bg-surface-container-low text-left transition-all" id="btn-pay-invite" onclick="setPaymentMode('invite')" type="button">
+<span class="material-symbols-outlined text-outline text-xl block mb-1">share</span>
+<span class="text-xs font-bold text-on-surface block">Invite Payer</span>
+<span class="text-[10px] text-outline block">Send link to financier/partner</span>
+</button>
+</div>
+
+<div class="hidden bg-surface-container-low p-3.5 rounded-xl border border-outline-variant space-y-2.5" id="invitePayBox">
+<div class="flex items-center gap-2 text-xs font-semibold text-primary">
+<span class="material-symbols-outlined text-base">link</span>
+<span class="">Shareable Escrow Payment Link</span>
+</div>
+<p class="text-[11px] text-outline">
+  The order reservation remains locked for 90 minutes. Mandi dispatch begins once the invoice is cleared.
+</p>
+<div class="flex gap-1.5">
+<input class="flex-1 text-[11px] bg-surface-container-lowest p-2 rounded-lg border border-outline-variant text-outline select-all" id="inviteLinkInput" readonly="" type="text" value="https://belpatri.trade/pay/inv-88219x">
+<button class="px-3 py-2 bg-surface-container hover:bg-surface-container-high text-on-surface text-xs font-semibold rounded-lg border border-outline-variant flex items-center gap-1" onclick="copyInviteLink()">
+<span class="material-symbols-outlined text-sm">content_copy</span> Copy
+</button>
+</div>
+</div>
+</div>
+
+<div class="bg-surface-container-low p-3 rounded-xl border border-outline-variant space-y-1 text-xs">
+<div class="flex justify-between text-outline">
+<span class="">Market Division:</span>
+<span class="font-bold text-on-surface capitalize" id="chkMarketDivision">Managed Market</span>
+</div>
+<div class="flex justify-between text-outline">
+<span class="">Final Dispatch Total:</span>
+<span class="font-bold text-primary text-sm" id="chkTotalPayable">₹0</span>
+</div>
+</div>
+</div>
+
+<div class="p-4 border-t border-outline-variant bg-surface-container-lowest">
+<button class="w-full py-3 bg-primary hover:bg-primary-container text-on-primary font-bold rounded-xl shadow-md text-sm transition-all flex items-center justify-center gap-2" onclick="executeOrderPlacement()">
+<span class="material-symbols-outlined text-base">check_circle</span>
+<span class="" id="submitOrderBtnText">Authorize Mandi Gate Pass &amp; Place Order</span>
+</button>
+</div>
+</div>
+</div>
+
+<div class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4" id="orderSuccessModal">
+<div class="bg-surface-container-lowest w-full max-w-sm rounded-3xl p-5 shadow-2xl text-center animate-in zoom-in-95 duration-200">
+<div class="w-16 h-16 rounded-full bg-secondary-container text-on-secondary-container mx-auto flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-3xl font-bold">task_alt</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold">Mandi Order Verified!</h3>
+<p class="text-xs text-outline mt-1 mb-4" id="orderSuccessSub">
+  Your trade pass #BPT-9044 has been generated and dispatched to the weighing yard.
+</p>
+<div class="bg-surface-container-low p-3 rounded-xl text-left text-xs mb-4 space-y-1 border border-outline-variant">
+<div class="flex justify-between">
+<span class="text-outline">Mandi Gate:</span>
+<span class="font-semibold text-on-surface">Nashik Central APMC Bay 2</span>
+</div>
+<div class="flex justify-between">
+<span class="text-outline">Escrow State:</span>
+<span class="font-semibold text-primary" id="successEscrowState">Verified &amp; Held</span>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<button class="w-full py-2.5 bg-primary text-on-primary text-xs font-bold rounded-xl shadow-sm" onclick="viewTrackingFromSuccess()">
+  Track Live Dispatch
+</button>
+<button class="w-full py-2 bg-surface-container text-on-surface text-xs font-semibold rounded-xl border border-outline-variant" onclick="closeSuccessModal()">
+  Back to Marketplace
+</button>
+</div>
+</div>
+</div>
+
+<div class="fixed top-5 left-1/2 -translate-x-1/2 z-50 max-w-xs bg-slate-900 text-white text-xs px-4 py-2.5 rounded-full shadow-2xl flex items-center gap-2 transform transition-all duration-300 pointer-events-none -translate-y-20 opacity-0" id="toastNotification">
+<span class="material-symbols-outlined text-sm text-primary-fixed">info</span>
+<span class="" id="toastMessage">Browsing Deccan Organic Cold Storage</span>
+</div>
+
+
+
+
+
+<div id="stitch-agent-cursor" data-stitch-injected style="left:-40px;top:-40px;">
+  <svg class="cursor-pointer" width="20" height="20" viewBox="0 0 34 34" fill="none">
+    <path d="M15.0624 32.3549L5.16251 5.48544L32.0324 15.3848L19.3046 19.6276L15.0624 32.3549Z" fill="#7168f6"/>
+    <path d="M4.80877 5.13207C4.94657 4.99427 5.15206 4.94886 5.33496 5.01606L32.205 14.9156C32.4041 14.9889 32.5354 15.1799 32.5323 15.392C32.529 15.6043 32.392 15.7924 32.1905 15.8595L19.6994 20.0227L15.5369 32.5131C15.4697 32.7145 15.2824 32.8509 15.0701 32.8542C14.8578 32.8575 14.6664 32.7268 14.5929 32.5276L4.69276 5.65826L4.67343 5.5892C4.63863 5.42535 4.68814 5.25283 4.80877 5.13207Z" stroke="rgba(255,255,255,0.15)" stroke-linejoin="round"/>
+  </svg>
+  <svg class="cursor-text" width="20" height="28" viewBox="0 0 20 28" fill="none">
+    <path d="M6 2h8M6 26h8M10 2v24" stroke="#7168f6" stroke-width="2.5" stroke-linecap="round"/>
+  </svg>
+  <svg class="cursor-paint" width="24" height="24" viewBox="0 0 24 24" fill="none">
+    <path d="M18.5 1.5c.8-.8 2.1-.8 2.8 0 .8.8.8 2.1 0 2.8L11 14.5l-3.5 1 1-3.5L18.5 1.5z" fill="#7168f6" stroke="#4f44e1" stroke-width="1" stroke-linejoin="round"/>
+    <path d="M7 14.5c-2 2-3.5 4-3.5 5.5 0 1.5 1 2.5 2.5 2.5 1.5 0 3.5-1.5 5.5-3.5" stroke="#7168f6" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M4 20c-.5.5-1.2 1-2 1.2" stroke="#6056f0" stroke-width="1" stroke-linecap="round"/>
+  </svg>
+  <svg id="stitch-cursor-label" width="28" height="14" viewBox="0 0 28 14" fill="none">
+    <rect width="28" height="14" rx="7" fill="#7168f6"/>
+    <circle cx="10.5" cy="7" r="1.8" fill="white"/>
+    <circle cx="17.5" cy="7" r="1.8" fill="white"/>
+  </svg>
+</div>
