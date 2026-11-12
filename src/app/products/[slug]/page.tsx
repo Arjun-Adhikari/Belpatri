@@ -209,12 +209,12 @@ export default async function ProductPage({
                 </div>
               </div>
               <span className="rounded-full border border-green-300 bg-white/70 px-3 py-1 text-[11px] font-bold text-green-800">
-                MOQ: {product.moq}
+                MOQ: {product.moq} {product.unit}
               </span>
             </div>
             <p className="mt-2 text-[11px] leading-relaxed text-green-900/60">
-              Rate excludes 1.5% APMC market cess. Cold logistics and escrow
-              guarantee included at checkout.
+              Rate excludes the 1.5% Belpatri facilitation fee. Cold logistics
+              and the escrow guarantee are included at checkout.
             </p>
           </div>
 
@@ -296,7 +296,7 @@ export default async function ProductPage({
           <ul className="mt-3 space-y-2.5 text-xs text-slate-600">
             {[
               "Payment held in Belpatri Escrow until unloading signoff.",
-              "APMC weighbridge slip and gate pass issued for every lot.",
+              "Weighbridge slip and gate pass issued for every lot.",
               "Moisture and purity retested at the destination hub.",
               "Cold-chain logistics included for all verified lots.",
             ].map((term) => (

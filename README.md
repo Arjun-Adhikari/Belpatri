@@ -39,7 +39,7 @@ There is no lint or test script configured yet; Biome is installed as a dev depe
 | Components | shadcn/ui primitives built on Base UI (`@base-ui/react`) |
 | Icons | Lucide (`lucide-react`) |
 | Fonts | Inter + Noto Sans Devanagari fallback (for the `रू` glyph) |
-| Extras | `sonner` (toasts), `zod` (available, unused so far) |
+| Extras | `sonner` (toasts), `zustand` (persisted cart store), `zod` (available, unused so far) |
 
 ---
 
@@ -72,15 +72,22 @@ Carts are never mixed across marketplaces or sellers.
 
 **Marketplace**
 - Category pills, search, sorting, responsive product grid.
+- Mobile layout: the market tabs stay in one horizontal row, and the Managed and Farmer Direct listings render two cards per row; Vendor Store rows stay full-width.
 - 19 commodity lots across grains, fruits, spices, greens, dairy and oilseeds.
 - 4 vendor storefronts with lead time, minimum order and licence details.
 - Product pages with escrow callouts, "In Stock" / "Out of Stock" status and related lots.
 - Vendor store category filtering is client-side (`VendorCatalogue`) and derives categories from the vendor's own lots.
 
 **Cart, checkout and orders**
-- Tabbed carts per marketplace with quantity steppers and per-cart totals.
-- Market cess (1.5 %) and cold-logistics handling, `cartTotals()` helper.
-- Checkout with delivery details, payment responsibility and shareable escrow link.
+- Three isolated carts per marketplace, backed by a persisted Zustand store (`belpatri-cart-v1`) — quantities survive reloads.
+- Server-safe hydration (`CartHydrator`): server HTML renders an empty cart, then localStorage is applied after mount.
+- **Enforced in the store, not the UI:**
+  - **Stock** — out-of-stock lots cannot be added; buy buttons render disabled.
+  - **MOQ** — every lot has a numeric minimum (`moq` in its own `unit`); steppers clamp to it.
+  - **Single seller** — vendor and farmer carts reject lots from a second seller, with a "Replace cart" toast action.
+- Live cart badges in the desktop header and the mobile tab bar.
+- Belpatri facilitation fee (1.5 %) and cold-logistics handling, `cartTotals()` helper.
+- Checkout with delivery details, payment responsibility and shareable escrow link; placing an order clears that marketplace's cart.
 - Order list with filters, dispatch progress and order detail timeline.
 
 **Account**
@@ -98,10 +105,10 @@ Carts are never mixed across marketplaces or sellers.
 ## Not implemented (by design)
 
 - Real authentication — the Google step is a simulated 700 ms delay, and the form does not submit anywhere.
-- Persistence — cart quantities, login state and contact details reset on reload.
+- Server-side persistence — carts live in `localStorage`; login state and contact details reset on reload.
 - Search backend, filtering by price/sort beyond the UI control, product reviews.
 - Payments, escrow, invoices, notifications.
-- Header badge counts are static.
+- Order badge counts are derived from mock orders, not a live API.
 
 ---
 
@@ -125,6 +132,7 @@ src/
     marketplace/           # hero, tabs, cards, grids, filters, checkout, orders
     ui/                    # shadcn/ui primitives (Base UI)
   lib/
+    cart-store.ts          # Zustand + localStorage carts, stock/MOQ/seller guards
     data.ts                # mock products, vendors, markets, orders, account
     format.ts              # NPR currency + cart totals
     icons.ts               # Lucide icon maps
@@ -139,6 +147,8 @@ design/reference/          # original Stitch HTML exports + QA scripts (not ship
 ## Conventions
 
 **Currency.** Everything is in Nepali Rupees, rendered as `रू 3,200` via `npr()` / `nprPrecise()` in `src/lib/format.ts`. Digit grouping uses `en-IN` so values read `1,85,400`; the amounts themselves were not converted from another currency.
+
+**Market.** The catalogue is Nepal-based: PAN/VAT instead of GSTIN, trade licences instead of APMC, `+977` numbers, Bagmati/Koshi/Gandaki locations, and eSewa/Khalti alongside bank transfer. The 1.5 % line item is labelled *Belpatri facilitation fee*.
 
 **Stock labels.** Always `In Stock` / `Out of Stock` — no yard or committee names inside stock wording.
 
@@ -170,6 +180,6 @@ These scripts require Chrome running with `--remote-debugging-port=9222`. The fo
 ## Next steps
 
 1. Wire the login flow and profile to a real auth provider.
-2. Persist carts and orders (state store + API routes).
+2. Move cart and order state to API routes and a database (carts are client-side only today).
 3. Connect the marketplace to a product/vendor API instead of `src/lib/data.ts`.
-4. Replace static header counts and mock notifications with live data.
+4. Replace mock orders and notifications with live data.

@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 
 import { cn } from "@/lib/utils";
+import { useCartCount, useCartHydrated } from "@/lib/cart-store";
 
 const tabs: { href: string; label: string; icon: LucideIcon; match: string[] }[] = [
   { href: "/", label: "Home", icon: Home, match: ["/"] },
@@ -21,6 +22,8 @@ const tabs: { href: string; label: string; icon: LucideIcon; match: string[] }[]
 
 export function MobileTabBar() {
   const pathname = usePathname();
+  const cartCount = useCartCount();
+  const hydrated = useCartHydrated();
 
   return (
     <nav className="fixed inset-x-0 bottom-0 z-40 border-t border-slate-200 bg-white/95 pb-[env(safe-area-inset-bottom)] shadow-[0_-4px_20px_rgba(15,23,42,0.08)] backdrop-blur-md md:hidden">
@@ -42,11 +45,16 @@ export function MobileTabBar() {
             >
               <span
                 className={cn(
-                  "flex size-9 items-center justify-center rounded-full border border-transparent transition",
+                  "relative flex size-9 items-center justify-center rounded-full border border-transparent transition",
                   active && "border-green-200 bg-green-50/80",
                 )}
               >
                 <tab.icon className={cn("size-[22px]", active && "text-green-700")} />
+                {tab.href === "/cart" && hydrated && cartCount > 0 ? (
+                  <span className="absolute -top-0.5 -right-1 flex min-w-4 items-center justify-center rounded-full bg-green-700 px-1 text-[9px] leading-4 font-bold text-white ring-2 ring-white">
+                    {cartCount}
+                  </span>
+                ) : null}
               </span>
               <span className={cn(active && "font-bold")}>{tab.label}</span>
             </Link>

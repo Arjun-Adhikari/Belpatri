@@ -44,7 +44,8 @@ export interface Product {
   description: string;
   price: number;
   unit: string;
-  moq: string;
+  /** Minimum order quantity, expressed in `unit`. */
+  moq: number;
   badge: string;
   stock: boolean;
   image?: string;
@@ -57,6 +58,7 @@ export interface Product {
   reviews?: number;
   vendorId?: string;
   vendorName?: string;
+  farmerId?: string;
   farmerName?: string;
   village?: string;
 }

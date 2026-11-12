@@ -4,13 +4,17 @@ import { SearchX } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ProductCard } from "@/components/marketplace/product-card";
 import type { Product } from "@/lib/types";
+import { cn } from "@/lib/utils";
 
 export function ProductGrid({
   items,
   resetHref = "/",
+  denseOnMobile = false,
 }: {
   items: Product[];
   resetHref?: string;
+  /** Two-up cards on phones. Vendor storefronts keep full-width rows. */
+  denseOnMobile?: boolean;
 }) {
   if (items.length === 0) {
     return (
@@ -28,9 +32,21 @@ export function ProductGrid({
   }
 
   return (
-    <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+    <div
+      className={cn(
+        "grid md:grid-cols-2 lg:grid-cols-3",
+        denseOnMobile
+          ? "grid-cols-2 gap-3 sm:gap-5"
+          : "grid-cols-1 gap-5",
+      )}
+    >
       {items.map((product, index) => (
-        <ProductCard key={product.id} product={product} priority={index < 2} />
+        <ProductCard
+          key={product.id}
+          product={product}
+          priority={index < 2}
+          dense={denseOnMobile}
+        />
       ))}
     </div>
   );

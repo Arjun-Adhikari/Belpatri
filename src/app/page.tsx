@@ -147,7 +147,7 @@ export default async function HomePage({
               <SortSelect />
             </div>
 
-            <ProductGrid items={filtered} resetHref={resetHref} />
+            <ProductGrid items={filtered} resetHref={resetHref} denseOnMobile />
           </section>
         </>
       )}

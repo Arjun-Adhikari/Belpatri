@@ -9,6 +9,7 @@ import {
   Info,
   ShoppingCart,
   Store,
+  Tractor,
   Trash2,
   Truck,
   Wallet,
@@ -19,18 +20,16 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { LotStepper } from "@/components/marketplace/lot-stepper";
 import { ProductImage } from "@/components/marketplace/product-image";
-import { markets, products } from "@/lib/data";
+import {
+  productById,
+  sellerLabelOf,
+  useCartHydrated,
+  useCartStore,
+} from "@/lib/cart-store";
+import { markets } from "@/lib/data";
 import { npr } from "@/lib/format";
-import type { CartLine, MarketId } from "@/lib/types";
+import type { MarketId } from "@/lib/types";
 import { cn } from "@/lib/utils";
-
-const initialCarts: Record<MarketId, CartLine[]> = {
-  managed: [{ productId: "m-1", qty: 2 }],
-  vendor: [{ productId: "v-s-1", qty: 1 }],
-  farmer: [{ productId: "f-1", qty: 1 }],
-};
-
-const productIndex = Object.fromEntries(products.map((product) => [product.id, product]));
 
 const marketMeta = {
   managed: {
@@ -41,7 +40,7 @@ const marketMeta = {
   },
   vendor: {
     title: "Vendor Store Cart",
-    description: "Locked to a single verified APMC vendor store.",
+    description: "Locked to a single verified vendor store.",
     accent: "bg-emerald-800",
     icon: Store,
   },
@@ -56,8 +55,16 @@ const marketMeta = {
 const order = markets.map((market) => market.id);
 
 export default function CartPage() {
-  const [carts, setCarts] = useState<Record<MarketId, CartLine[]>>(initialCarts);
-  const [active, setActive] = useState<MarketId>("managed");
+  const hydrated = useCartHydrated();
+  const carts = useCartStore((state) => state.carts);
+  const setQty = useCartStore((state) => state.setQty);
+  const remove = useCartStore((state) => state.remove);
+  const clear = useCartStore((state) => state.clear);
+  const [selected, setSelected] = useState<MarketId | null>(null);
+
+  // Open on the first cart that actually holds lots, unless the shopper has
+  // already picked a tab.
+  const active = selected ?? order.find((market) => carts[market].length > 0) ?? "managed";
 
   const counts = useMemo(
     () => ({
@@ -68,21 +75,15 @@ export default function CartPage() {
     [carts],
   );
 
-  const updateQty = (market: MarketId, productId: string, next: number) => {
-    setCarts((prev) => ({
-      ...prev,
-      [market]: prev[market].map((line) =>
-        line.productId === productId ? { ...line, qty: Math.max(1, next) } : line,
-      ),
-    }));
-  };
-
-  const removeLine = (market: MarketId, productId: string) => {
-    setCarts((prev) => ({
-      ...prev,
-      [market]: prev[market].filter((line) => line.productId !== productId),
-    }));
-  };
+  if (!hydrated) {
+    return (
+      <Container className="space-y-6 pt-5 pb-12">
+        <div className="h-10 w-48 animate-pulse rounded-xl bg-slate-200/70" />
+        <div className="h-14 animate-pulse rounded-2xl bg-slate-100" />
+        <div className="h-64 animate-pulse rounded-2xl bg-slate-100" />
+      </Container>
+    );
+  }
 
   return (
     <Container className="space-y-6 pt-5 pb-12">
@@ -113,7 +114,7 @@ export default function CartPage() {
 
       <Tabs
         value={active}
-        onValueChange={(value) => setActive(value as MarketId)}
+        onValueChange={(value) => setSelected(value as MarketId)}
         className="gap-4"
       >
         <TabsList className="grid h-auto! w-full grid-cols-3 items-stretch gap-1 rounded-2xl border border-slate-200 bg-slate-100/80 p-1.5 text-slate-500 shadow-2xs">
@@ -153,26 +154,35 @@ export default function CartPage() {
         {order.map((market) => {
           const lines = carts[market];
           const meta = marketMeta[market];
+          const sellerName =
+            lines.length > 0 && productById[lines[0].productId]
+              ? sellerLabelOf(productById[lines[0].productId])
+              : null;
           const subtotal = lines.reduce((total, line) => {
-            const product = productIndex[line.productId];
+            const product = productById[line.productId];
             return total + (product ? product.price * line.qty : 0);
           }, 0);
           const cess = Math.round(subtotal * 0.015);
 
           return (
             <TabsContent key={market} value={market} className="space-y-4">
-              {market === "vendor" && (
+              {market !== "managed" && sellerName ? (
                 <div className="flex flex-wrap items-center justify-between gap-2 rounded-xl border border-amber-200 bg-amber-50 px-4 py-2.5 text-xs text-amber-950">
                   <span className="flex items-center gap-2">
-                    <Store className="size-4 text-amber-700" />
-                    Vendor Cart locked to{" "}
-                    <strong>Sahyadri Spices &amp; Dry Fruits Hub</strong>
+                    {market === "vendor" ? (
+                      <Store className="size-4 text-amber-700" />
+                    ) : (
+                      <Tractor className="size-4 text-amber-700" />
+                    )}
+                    {market === "vendor" ? "Vendor" : "Farmer"} cart locked to{" "}
+                    <strong>{sellerName}</strong>
                   </span>
                   <span className="rounded-full bg-amber-200 px-2 py-0.5 text-[10px] font-bold text-amber-900">
-                    Single-Vendor Rule
+                    Single-
+                    {market === "vendor" ? "Vendor" : "Farmer"} Rule
                   </span>
                 </div>
-              )}
+              ) : null}
 
               <div className="grid gap-4 lg:grid-cols-[minmax(0,1.55fr)_minmax(0,1fr)]">
                 <section className="space-y-3">
@@ -195,9 +205,20 @@ export default function CartPage() {
                         </p>
                       </div>
                     </div>
-                    <span className="text-[11px] font-semibold text-slate-400">
-                      {lines.length} lot{lines.length === 1 ? "" : "s"}
-                    </span>
+                    <div className="flex shrink-0 items-center gap-3">
+                      <span className="text-[11px] font-semibold whitespace-nowrap text-slate-400">
+                        {lines.length} lot{lines.length === 1 ? "" : "s"}
+                      </span>
+                      {lines.length > 0 ? (
+                        <button
+                          type="button"
+                          onClick={() => clear(market)}
+                          className="text-[11px] font-semibold whitespace-nowrap text-slate-400 transition hover:text-red-600"
+                        >
+                          Clear
+                        </button>
+                      ) : null}
+                    </div>
                   </div>
 
                   {lines.length === 0 ? (
@@ -219,7 +240,7 @@ export default function CartPage() {
                     </div>
                   ) : (
                     lines.map((line) => {
-                      const product = productIndex[line.productId];
+                      const product = productById[line.productId];
                       if (!product) return null;
                       return (
                         <article
@@ -250,12 +271,12 @@ export default function CartPage() {
                                   </h3>
                                   <p className="mt-0.5 text-[11px] text-slate-500">
                                     {npr(product.price)} / {product.unit} · MOQ{" "}
-                                    {product.moq}
+                                    {product.moq} {product.unit}
                                   </p>
                                 </div>
                                 <button
                                   type="button"
-                                  onClick={() => removeLine(market, line.productId)}
+                                  onClick={() => remove(market, line.productId)}
                                   className="flex size-7 shrink-0 items-center justify-center rounded-lg text-slate-400 transition hover:bg-red-50 hover:text-red-600"
                                   aria-label={`Remove ${product.title}`}
                                 >
@@ -269,8 +290,9 @@ export default function CartPage() {
                                 </span>
                                 <LotStepper
                                   quantity={line.qty}
+                                  min={product.moq}
                                   onQuantityChange={(next) =>
-                                    updateQty(market, line.productId, next)
+                                    setQty(market, line.productId, next)
                                   }
                                 />
                               </div>
@@ -314,7 +336,7 @@ export default function CartPage() {
                     </div>
                     <div className="flex justify-between">
                       <dt className="text-slate-500">
-                        Market cess &amp; APMC fee (1.5%)
+                        Belpatri facilitation fee (1.5%)
                       </dt>
                       <dd className="font-mono font-semibold text-slate-800">
                         {npr(cess)}
@@ -354,8 +376,7 @@ export default function CartPage() {
 
                   <div className="mt-4 flex items-center gap-2 rounded-xl bg-slate-50 p-3 text-[11px] text-slate-500">
                     <Wallet className="size-4 shrink-0 text-green-700" />
-                    Payable by escrow, UPI, net-banking or by inviting a
-                    financier.
+                    Payable by escrow, eSewa, Khalti or by inviting a financier.
                   </div>
                 </aside>
               </div>

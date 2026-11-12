@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import {
   ArrowLeft,
   ArrowRight,
@@ -22,6 +23,7 @@ import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { useCartStore } from "@/lib/cart-store";
 import { npr } from "@/lib/format";
 import type { MarketId } from "@/lib/types";
 import { cn } from "@/lib/utils";
@@ -42,6 +44,13 @@ export function CheckoutForm({
   const [mode, setMode] = useState<"self" | "invite">("self");
   const total = subtotal + cess;
   const inviteLink = `https://belpatri.trade/pay/inv-${market}-88219x`;
+  const router = useRouter();
+  const clearCart = useCartStore((state) => state.clear);
+
+  const placeOrder = () => {
+    clearCart(market);
+    router.push(`/checkout/success?market=${market}&mode=${mode}&total=${total}`);
+  };
 
   const copyLink = async () => {
     try {
@@ -88,7 +97,7 @@ export function CheckoutForm({
                 <Building2 className="pointer-events-none absolute top-1/2 left-3.5 size-4 -translate-y-1/2 text-slate-400" />
                 <Input
                   id="firm"
-                  defaultValue="Kisan Commercial Trade Pvt Ltd"
+                  defaultValue="Himalayan Commercial Trade Pvt Ltd"
                   className="h-11 rounded-xl pl-10"
                 />
               </div>
@@ -100,7 +109,7 @@ export function CheckoutForm({
               </Label>
               <Input
                 id="destination"
-                defaultValue="Silo Yard 4, Nashik Central APMC, Maharashtra 422003"
+                defaultValue="Silo Yard 4, Kalimati Trade Hub, Bagmati 44600"
                 className="h-11 rounded-xl"
               />
             </div>
@@ -111,18 +120,18 @@ export function CheckoutForm({
               </Label>
               <Input
                 id="phone"
-                defaultValue="+91 98220 44581"
+                defaultValue="+977 9841 234 567"
                 className="h-11 rounded-xl"
               />
             </div>
 
             <div className="space-y-1.5">
               <Label htmlFor="gst" className="text-[11px] text-slate-500">
-                GSTIN for tax invoice
+                PAN / VAT for tax invoice
               </Label>
               <Input
                 id="gst"
-                defaultValue="27AABCK8912M1Z0"
+                defaultValue="601234567"
                 className="h-11 rounded-xl font-mono text-xs"
               />
             </div>
@@ -178,7 +187,7 @@ export function CheckoutForm({
                   Pay myself
                 </span>
                 <span className="mt-0.5 block text-[10px] text-slate-500">
-                  Escrow / UPI / Net-banking
+                  Escrow / eSewa / Khalti
                 </span>
               </button>
 
@@ -239,7 +248,7 @@ export function CheckoutForm({
               <div className="flex items-center gap-2.5 rounded-xl border border-slate-200 bg-slate-50/70 p-3.5 text-[11px] text-slate-600">
                 <Lock className="size-4 shrink-0 text-green-700" />
                 <span>
-                  A payment mandate will be raised on your verified ICICI escrow
+                  A payment mandate will be raised on your verified Nabil Bank escrow
                   account ending 8812.
                 </span>
               </div>
@@ -292,7 +301,7 @@ export function CheckoutForm({
               </dd>
             </div>
             <div className="flex justify-between">
-              <dt className="text-slate-500">Market cess (1.5%)</dt>
+              <dt className="text-slate-500">Belpatri facilitation fee (1.5%)</dt>
               <dd className="font-mono font-semibold text-slate-800">
                 {npr(cess)}
               </dd>
@@ -311,11 +320,7 @@ export function CheckoutForm({
 
           <Button
             className="mt-4 h-12 w-full rounded-xl text-sm font-bold shadow-md"
-            render={
-              <Link
-                href={`/checkout/success?market=${market}&mode=${mode}&total=${total}`}
-              />
-            }
+            onClick={placeOrder}
           >
             <CheckCircle2 className="size-4" />
             Authorize &amp; Place Order

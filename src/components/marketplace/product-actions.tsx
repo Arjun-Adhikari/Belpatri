@@ -2,11 +2,13 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { ShoppingCart } from "lucide-react";
 import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
 import { LotStepper } from "@/components/marketplace/lot-stepper";
+import { useCartStore } from "@/lib/cart-store";
 import { npr } from "@/lib/format";
 import type { Product } from "@/lib/types";
 
@@ -17,28 +19,65 @@ export function ProductActions({
   product: Product;
   marketLabel: string;
 }) {
-  const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(product.moq);
+  const add = useCartStore((state) => state.add);
+  const router = useRouter();
+
+  const handleAdd = () => {
+    const result = add(product.id, quantity);
+
+    if (result.ok) {
+      toast.success("Lot staged", {
+        description: `${quantity} ${product.unit} of ${product.title} added to the ${marketLabel} cart.`,
+        action: { label: "View cart", onClick: () => router.push("/cart") },
+      });
+      return;
+    }
+
+    if (result.reason === "vendor-lock") {
+      toast.error("Single-seller cart", {
+        description: `Your ${marketLabel} cart is locked to another seller. Clear it from the cart page first.`,
+      });
+      return;
+    }
+
+    if (result.reason === "moq") {
+      toast.error("Below minimum order", {
+        description: `${product.title} starts at ${result.min} ${product.unit}.`,
+      });
+      return;
+    }
+
+    toast.error("Out of stock", {
+      description: `${product.title} is not available right now.`,
+    });
+  };
 
   return (
     <div className="space-y-3">
-      <div className="flex items-center gap-3">
-        <LotStepper quantity={quantity} onQuantityChange={setQuantity} size="md" />
+      <div className="flex flex-wrap items-center gap-3">
+        <LotStepper
+          quantity={quantity}
+          onQuantityChange={setQuantity}
+          min={product.moq}
+          size="md"
+          tone={product.stock ? "outline" : "solid"}
+        />
         <span className="text-xs font-medium text-slate-500">
-          {quantity} × {product.moq} minimum lot
+          {quantity} {product.unit} selected · MOQ {product.moq} {product.unit}
         </span>
       </div>
 
       <div className="flex flex-col gap-2 sm:flex-row">
         <Button
           className="h-12 flex-1 rounded-xl text-sm font-bold shadow-md"
-          onClick={() =>
-            toast.success("Lot staged", {
-              description: `${quantity} × ${product.title} added to the ${marketLabel} cart.`,
-            })
-          }
+          onClick={handleAdd}
+          disabled={!product.stock}
         >
           <ShoppingCart className="size-4" />
-          Add Lot to {marketLabel} Cart
+          {product.stock
+            ? `Add Lot to ${marketLabel} Cart`
+            : "Out of Stock"}
         </Button>
         <Button
           variant="outline"

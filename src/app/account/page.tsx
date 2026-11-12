@@ -26,28 +26,28 @@ import { npr } from "@/lib/format";
 export const metadata: Metadata = {
   title: "Trader Account — Belpatri",
   description:
-    "KYB, APMC licence, escrow accounts, warehouses and dispatch alerts for your Belpatri trader profile.",
+    "KYB, PAN/VAT records, escrow accounts, warehouses and dispatch alerts for your Belpatri trader profile.",
 };
 
 const profileTiles = [
   {
-    title: "KYB & GST Verification",
-    description: "GSTIN 27AABCK8912M1Z0 • Verified",
+    title: "KYB & PAN / VAT Verification",
+    description: "PAN 601234567 • Verified",
     icon: BadgeCheck,
   },
   {
-    title: "Trade License & APMC Pass",
-    description: "MP-BPL-2023-882 • Valid till 2026",
+    title: "Trade Licence & Dispatch Pass",
+    description: "BAG-2023-882 • Valid till 2026",
     icon: ScrollText,
   },
   {
     title: "Bank & Escrow Accounts",
-    description: "ICICI Corporate Trade Settlement A/C",
+    description: "Nabil Bank Corporate Settlement A/C",
     icon: Landmark,
   },
   {
     title: "Delivery Warehouses",
-    description: "Nashik Hub Silo #4 (Primary)",
+    description: "Kathmandu Hub Silo #4 (Primary)",
     icon: Warehouse,
   },
   {
@@ -136,7 +136,7 @@ export default function AccountPage() {
             </div>
             <div className="mt-2 flex items-center justify-between border-t border-green-200/60 pt-2">
               <span className="text-[11px] text-green-700">
-                ICICI Escrow Account
+                Nabil Bank Escrow Account
               </span>
               <button
                 type="button"

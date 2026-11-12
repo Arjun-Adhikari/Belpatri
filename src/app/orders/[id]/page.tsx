@@ -54,7 +54,7 @@ export default async function OrderDetailPage({
 
   const facts = [
     { label: "Vehicle", value: order.vehicle, icon: Truck },
-    { label: "APMC gate pass", value: order.gatePass, icon: FileCheck2 },
+    { label: "Gate pass", value: order.gatePass, icon: FileCheck2 },
     { label: "Quality check", value: order.quality, icon: BadgeCheck },
     { label: "Settlement market", value: order.settlement, icon: ReceiptText },
     { label: "Placed at", value: order.placedAt, icon: CalendarClock },
@@ -208,7 +208,7 @@ export default async function OrderDetailPage({
                 {order.settlement.split(",")[0]}
               </span>
               <span className="absolute top-0 right-0 text-[10px] font-semibold text-slate-500">
-                Nashik Hub
+                Kathmandu Hub
               </span>
             </div>
 
@@ -218,7 +218,7 @@ export default async function OrderDetailPage({
             </p>
             <p className="mt-1 flex items-center gap-1 text-[11px] text-green-900/60">
               <MapPin className="size-3" />
-              NH 48 corridor, 42 km from destination
+              Prithvi Highway, 42 km from destination
             </p>
           </section>
 

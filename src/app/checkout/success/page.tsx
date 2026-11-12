@@ -62,7 +62,7 @@ export default async function CheckoutSuccessPage({
                 Delivery gate
               </span>
               <span className="text-right font-semibold text-slate-800">
-                Nashik Central APMC Bay 2
+                Kalimati Trade Hub, Bay 2
               </span>
             </div>
             <div className="flex items-center justify-between gap-3">

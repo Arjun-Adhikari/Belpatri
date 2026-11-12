@@ -42,18 +42,13 @@ type Audience = "customer" | "business";
 type Step = "audience" | "business" | "google" | "details" | "done";
 
 const STATES = [
-  "Andhra Pradesh",
-  "Delhi",
-  "Gujarat",
-  "Karnataka",
-  "Madhya Pradesh",
-  "Maharashtra",
-  "Punjab",
-  "Rajasthan",
-  "Tamil Nadu",
-  "Telangana",
-  "Uttar Pradesh",
-  "West Bengal",
+  "Koshi",
+  "Madhesh",
+  "Bagmati",
+  "Gandaki",
+  "Lumbini",
+  "Karnali",
+  "Sudurpashchim",
 ];
 
 const COPY: Record<Step, { title: string; description: string }> = {
@@ -110,7 +105,7 @@ export function LoginFlow({ className }: { className?: string }) {
   function connectGoogle() {
     setPending(true);
     timer.current = setTimeout(() => {
-      setEmail("rahul.verma@gmail.com");
+      setEmail("rajesh.shrestha@gmail.com");
       setPending(false);
       setStep("details");
     }, 700);
@@ -351,7 +346,7 @@ export function LoginFlow({ className }: { className?: string }) {
                         <Input
                           id="login-name"
                           required
-                          defaultValue="Rahul Verma"
+                          defaultValue="Rajesh Shrestha"
                           className="h-10 rounded-lg border-slate-200 bg-white px-3 text-sm"
                         />
                       </Field>
@@ -369,7 +364,7 @@ export function LoginFlow({ className }: { className?: string }) {
                           id="login-phone"
                           type="tel"
                           required
-                          placeholder="+91 98220 44581"
+                          placeholder="+977 9841 234 567"
                           className="h-10 rounded-lg border-slate-200 bg-white px-3 text-sm"
                         />
                       </Field>
@@ -395,7 +390,7 @@ export function LoginFlow({ className }: { className?: string }) {
                         <Input
                           id="login-business"
                           required
-                          placeholder="Kisan Commercial Trade Pvt Ltd"
+                          placeholder="Himalayan Commercial Trade Pvt Ltd"
                           className="h-10 rounded-lg border-slate-200 bg-white px-3 text-sm"
                         />
                       </Field>
@@ -403,7 +398,7 @@ export function LoginFlow({ className }: { className?: string }) {
                         <Input
                           id="login-contact"
                           required
-                          defaultValue="Rahul Verma"
+                          defaultValue="Rajesh Shrestha"
                           className="h-10 rounded-lg border-slate-200 bg-white px-3 text-sm"
                         />
                       </Field>
@@ -421,14 +416,14 @@ export function LoginFlow({ className }: { className?: string }) {
                           id="login-business-phone"
                           type="tel"
                           required
-                          placeholder="+91 98220 44581"
+                          placeholder="+977 9841 234 567"
                           className="h-10 rounded-lg border-slate-200 bg-white px-3 text-sm"
                         />
                       </Field>
-                      <Field label="GSTIN" htmlFor="login-gstin" optional>
+                      <Field label="PAN / VAT" htmlFor="login-panvat" optional>
                         <Input
-                          id="login-gstin"
-                          placeholder="27AABCK8912M1Z0"
+                          id="login-panvat"
+                          placeholder="601234567"
                           className="h-10 rounded-lg border-slate-200 bg-white px-3 font-mono text-sm"
                         />
                       </Field>
@@ -442,14 +437,14 @@ export function LoginFlow({ className }: { className?: string }) {
                       <Input
                         id="login-store"
                         required
-                        placeholder="Sahyadri Spices Hub"
+                        placeholder="Himalayan Spice Hub"
                         className="h-10 rounded-lg border-slate-200 bg-white px-3 text-sm"
                       />
                     </Field>
-                    <Field label="APMC licence number" htmlFor="login-licence" optional>
+                    <Field label="Trade licence number" htmlFor="login-licence" optional>
                       <Input
                         id="login-licence"
-                        placeholder="APMC-LIC-4412B"
+                        placeholder="LIC-4412/BAG"
                         className="h-10 rounded-lg border-slate-200 bg-white px-3 font-mono text-sm"
                       />
                     </Field>
@@ -462,14 +457,14 @@ export function LoginFlow({ className }: { className?: string }) {
                       <Input
                         id="login-farm"
                         required
-                        placeholder="Patel Farm, Sehore"
+                        placeholder="Khadka Farm, Kavre"
                         className="h-10 rounded-lg border-slate-200 bg-white px-3 text-sm"
                       />
                     </Field>
                     <Field label="Village / taluka" htmlFor="login-village" optional>
                       <Input
                         id="login-village"
-                        placeholder="Dindori, Nashik"
+                        placeholder="Dhulikhel, Kavre"
                         className="h-10 rounded-lg border-slate-200 bg-white px-3 text-sm"
                       />
                     </Field>
@@ -490,7 +485,7 @@ export function LoginFlow({ className }: { className?: string }) {
                   <Field label="Landmark" htmlFor="login-landmark" optional>
                     <Input
                       id="login-landmark"
-                      placeholder="Near Nashik APMC gate"
+                      placeholder="Near Kalimati gate"
                       className="h-10 rounded-lg border-slate-200 bg-white px-3 text-sm"
                     />
                   </Field>
@@ -498,12 +493,12 @@ export function LoginFlow({ className }: { className?: string }) {
                     <Input
                       id="login-city"
                       required
-                      defaultValue="Nashik"
+                      defaultValue="Kathmandu"
                       className="h-10 rounded-lg border-slate-200 bg-white px-3 text-sm"
                     />
                   </Field>
                   <Field label="State" htmlFor="login-state">
-                    <Select defaultValue="Maharashtra">
+                    <Select defaultValue="Bagmati">
                       <SelectTrigger
                         id="login-state"
                         className="h-10 w-full justify-between rounded-lg border-slate-200 bg-white px-3 text-sm text-slate-800"

@@ -19,7 +19,7 @@ export const markets: Market[] = [
     subtitle:
       "Aggregated lots with verified quality certificate and zero individual middleman disputes.",
     description:
-      "Belpatri aggregates certified lots from multiple APMC yards, runs moisture and purity checks, and holds every payment in escrow until unloading is signed off.",
+      "Belpatri aggregates certified lots from multiple trade yards, runs moisture and purity checks, and holds every payment in escrow until unloading is signed off.",
     features: ["Escrow Protected", "24h Cold Dispatch"],
     gradient: "from-green-800 via-emerald-900 to-stone-900",
   },
@@ -29,10 +29,10 @@ export const markets: Market[] = [
     eyebrow: "Verified Vendor Stores",
     title: "Vendor Store Network",
     subtitle:
-      "Shop directly from APMC-registered merchants and co-operatives with transparent storefronts.",
+      "Shop directly from licensed merchants and co-operatives with transparent storefronts.",
     description:
       "Each vendor store carries its own catalogue, minimum order value and dispatch lead time. Products from different vendors are never mixed in one cart.",
-    features: ["APMC Registered", "Direct Storefronts"],
+    features: ["Licensed Stores", "Direct Storefronts"],
     gradient: "from-emerald-800 via-green-900 to-teal-950",
   },
   {
@@ -57,10 +57,10 @@ export const marketById = Object.fromEntries(markets.map((m) => [m.id, m])) as R
 export const vendors: Vendor[] = [
   {
     "id": "v-sahyadri",
-    "slug": "sahyadri-spices-and-dry-fruits-hub",
-    "name": "Sahyadri Spices & Dry Fruits Hub",
-    "initials": "SS",
-    "badge": "APMC-LIC-4412B",
+    "slug": "himalayan-spice-and-dry-fruit-hub",
+    "name": "Himalayan Spice & Dry Fruit Hub",
+    "initials": "HS",
+    "badge": "LIC-4412/BAG",
     "rating": 4.8,
     "reviews": 142,
     "specializations": [
@@ -68,18 +68,18 @@ export const vendors: Vendor[] = [
       "Dry Fruits",
       "Turmeric & Chilli"
     ],
-    "location": "APMC Spice Terminal Stall 14, Vashi Hub",
+    "location": "Kalimati Spice Terminal, Stall 14, Kathmandu",
     "leadTime": "Same Day Packing",
     "minOrder": "रू 5,000",
     "avatarBg": "bg-emerald-900",
-    "description": "Sahyadri Spices & Dry Fruits Hub is an APMC-registered merchant network specialising in whole spices, dry fruits, turmeric & chilli. Lots are quality-checked, escrow protected and dispatched with a signed gate pass."
+    "description": "Himalayan Spice & Dry Fruit Hub is a licensed merchant network specialising in whole spices, dry fruits, turmeric & chilli. Lots are quality-checked, escrow protected and dispatched with a signed gate pass."
   },
   {
     "id": "v-mahaagri",
-    "slug": "maha-agri-grain-traders",
-    "name": "Maha-Agri Grain Traders",
-    "initials": "MA",
-    "badge": "APMC-LIC-1198A",
+    "slug": "gandaki-grain-traders",
+    "name": "Gandaki Grain Traders",
+    "initials": "GG",
+    "badge": "LIC-1198/BAG",
     "rating": 4.9,
     "reviews": 280,
     "specializations": [
@@ -87,18 +87,18 @@ export const vendors: Vendor[] = [
       "Milling Wheat",
       "Export Pulses"
     ],
-    "location": "Yard 7, Nashik Central APMC",
+    "location": "Yard 7, Bharatpur Trade Yard, Chitwan",
     "leadTime": "24h Weighing",
     "minOrder": "रू 10,000",
     "avatarBg": "bg-amber-900",
-    "description": "Maha-Agri Grain Traders is an APMC-registered merchant network specialising in basmati lots, milling wheat, export pulses. Lots are quality-checked, escrow protected and dispatched with a signed gate pass."
+    "description": "Gandaki Grain Traders is a licensed merchant network specialising in basmati lots, milling wheat and export pulses. Lots are quality-checked, escrow protected and dispatched with a signed gate pass."
   },
   {
     "id": "v-deccan",
-    "slug": "deccan-organic-cold-storage",
-    "name": "Deccan Organic Cold Storage",
-    "initials": "DO",
-    "badge": "APMC-LIC-8830C",
+    "slug": "annapurna-organic-cold-storage",
+    "name": "Annapurna Organic Cold Storage",
+    "initials": "AO",
+    "badge": "LIC-8830/GAN",
     "rating": 4.7,
     "reviews": 95,
     "specializations": [
@@ -106,18 +106,18 @@ export const vendors: Vendor[] = [
       "Bio Millets",
       "Jaggery Blocks"
     ],
-    "location": "Cold Silo 2, Pune Market Yard",
+    "location": "Cold Silo 2, Pokhara Trade Yard, Kaski",
     "leadTime": "Temperature-Controlled",
     "minOrder": "रू 3,500",
     "avatarBg": "bg-teal-900",
-    "description": "Deccan Organic Cold Storage is an APMC-registered merchant network specialising in cold-pressed oils, bio millets, jaggery blocks. Lots are quality-checked, escrow protected and dispatched with a signed gate pass."
+    "description": "Annapurna Organic Cold Storage is a licensed merchant network specialising in cold-pressed oils, bio millets and jaggery blocks. Lots are quality-checked, escrow protected and dispatched with a signed gate pass."
   },
   {
     "id": "v-konkan",
-    "slug": "konkan-agro-produce-co-op",
-    "name": "Konkan Agro Produce Co-op",
+    "slug": "koshi-agro-produce-co-op",
+    "name": "Koshi Agro Produce Co-op",
     "initials": "KA",
-    "badge": "APMC-LIC-6510D",
+    "badge": "LIC-6510/KOS",
     "rating": 4.9,
     "reviews": 164,
     "specializations": [
@@ -125,11 +125,11 @@ export const vendors: Vendor[] = [
       "Black Pepper",
       "Desi Coconut Oil"
     ],
-    "location": "Shop 29, Ratnagiri APMC Exchange",
+    "location": "Shop 29, Biratnagar Agro Exchange, Morang",
     "leadTime": "Certified Origin",
     "minOrder": "रू 4,000",
     "avatarBg": "bg-blue-900",
-    "description": "Konkan Agro Produce Co-op is an APMC-registered merchant network specialising in cashew w320, black pepper, desi coconut oil. Lots are quality-checked, escrow protected and dispatched with a signed gate pass."
+    "description": "Koshi Agro Produce Co-op is a licensed merchant network specialising in cashew w320, black pepper and desi coconut oil. Lots are quality-checked, escrow protected and dispatched with a signed gate pass."
   }
 ];
 
@@ -145,7 +145,7 @@ export const products: Product[] = [
     "description": "Grade-A laboratory certified milling wheat. Zero weed seed contamination with guaranteed standard moisture.",
     "price": 3200,
     "unit": "Quintal",
-    "moq": "2 Qtl",
+    "moq": 2,
     "badge": "Belpatri Certified",
     "stock": true,
     "image": "/images/wheat.jpg",
@@ -153,7 +153,7 @@ export const products: Product[] = [
     "harvest": "Nov 2024",
     "moisture": "10.4%",
     "shelf": "12 Months",
-    "origin": "Nashik APMC Aggregation Yard"
+    "origin": "Kathmandu Aggregation Yard"
   },
   {
     "id": "m-2",
@@ -166,7 +166,7 @@ export const products: Product[] = [
     "description": "Year-old aged rice grains. High grain elongation upon cooking with guaranteed pest-free warehouse storage.",
     "price": 4250,
     "unit": "Quintal",
-    "moq": "1 Qtl",
+    "moq": 1,
     "badge": "Grade A Export",
     "stock": true,
     "image": "/images/rice.jpg",
@@ -178,16 +178,16 @@ export const products: Product[] = [
   },
   {
     "id": "m-3",
-    "slug": "salem-curcumin-turmeric",
+    "slug": "ilam-curcumin-turmeric",
     "code": "TN-4412",
     "market": "managed",
     "category": "spices",
     "categoryName": "Spices & Herbs",
-    "title": "Salem Curcumin Turmeric",
+    "title": "Ilam Curcumin Turmeric",
     "description": "Lab verified curcumin content over 3.8%. Washed and polished root fingers ready for processing.",
     "price": 180,
     "unit": "kg",
-    "moq": "25 kg",
+    "moq": 25,
     "badge": "Curcumin > 3.8%",
     "stock": true,
     "image": "/images/turmeric.jpg",
@@ -195,7 +195,7 @@ export const products: Product[] = [
     "harvest": "Sep 2024",
     "moisture": "9.1%",
     "shelf": "24 Months",
-    "origin": "Spice Testing Terminal"
+    "origin": "Kalimati Spice Testing Terminal"
   },
   {
     "id": "m-4",
@@ -208,7 +208,7 @@ export const products: Product[] = [
     "description": "Export grade brix 18+ sugar levels. Maintained in continuous pre-cooling at 1.5°C.",
     "price": 78,
     "unit": "kg",
-    "moq": "100 kg",
+    "moq": 100,
     "badge": "Cold-Chain Ready",
     "stock": true,
     "image": "/images/grapes.jpg",
@@ -216,7 +216,7 @@ export const products: Product[] = [
     "harvest": "Fresh Picked",
     "moisture": "N/A",
     "shelf": "14 Days",
-    "origin": "Nashik Export Cluster Pre-Cooler"
+    "origin": "Kavre Export Cluster Pre-Cooler"
   },
   {
     "id": "v-s-1",
@@ -226,10 +226,10 @@ export const products: Product[] = [
     "category": "spices",
     "categoryName": "Spices & Herbs",
     "title": "Guntur Teja Dry Chilli (Stemless)",
-    "description": "Stemless hot dry chillies with certified capsaicin levels. Standard APMC grade.",
+    "description": "Stemless hot dry chillies with certified capsaicin levels. Standard trade grade.",
     "price": 215,
     "unit": "kg",
-    "moq": "30 kg",
+    "moq": 30,
     "badge": "Extra Hot SHU 45k",
     "stock": true,
     "image": "/images/turmeric.jpg",
@@ -237,11 +237,11 @@ export const products: Product[] = [
     "harvest": "Oct 2024",
     "moisture": "8.5%",
     "shelf": "12 Months",
-    "origin": "Vashi Spice Hub Stall 14",
+    "origin": "Kalimati Spice Terminal Stall 14",
     "rating": 4.8,
     "reviews": 142,
     "vendorId": "v-sahyadri",
-    "vendorName": "Sahyadri Spices & Dry Fruits Hub"
+    "vendorName": "Himalayan Spice & Dry Fruit Hub"
   },
   {
     "id": "v-s-2",
@@ -250,11 +250,11 @@ export const products: Product[] = [
     "market": "vendor",
     "category": "spices",
     "categoryName": "Spices & Herbs",
-    "title": "Unpolished Nizamabad Turmeric",
+    "title": "Unpolished Terai Turmeric",
     "description": "High aroma whole dried turmeric fingers without added dye or polish.",
     "price": 165,
     "unit": "kg",
-    "moq": "50 kg",
+    "moq": 50,
     "badge": "Curcumin 4.1%",
     "stock": true,
     "image": "/images/turmeric.jpg",
@@ -262,11 +262,11 @@ export const products: Product[] = [
     "harvest": "Nov 2024",
     "moisture": "9.0%",
     "shelf": "24 Months",
-    "origin": "Vashi Spice Hub Stall 14",
+    "origin": "Kalimati Spice Terminal Stall 14",
     "rating": 4.8,
     "reviews": 142,
     "vendorId": "v-sahyadri",
-    "vendorName": "Sahyadri Spices & Dry Fruits Hub"
+    "vendorName": "Himalayan Spice & Dry Fruit Hub"
   },
   {
     "id": "v-s-3",
@@ -276,10 +276,10 @@ export const products: Product[] = [
     "category": "spices",
     "categoryName": "Spices & Herbs",
     "title": "Cumin Seeds (Jeera Bold Machine Clean)",
-    "description": "Machine cleaned Gujarat Unjha bold cumin seeds with low volatile oil loss.",
+    "description": "Machine cleaned bold cumin seeds from the western terai with low volatile oil loss.",
     "price": 310,
     "unit": "kg",
-    "moq": "20 kg",
+    "moq": 20,
     "badge": "99.5% Purity",
     "stock": true,
     "image": "/images/turmeric.jpg",
@@ -287,11 +287,11 @@ export const products: Product[] = [
     "harvest": "Oct 2024",
     "moisture": "8.2%",
     "shelf": "18 Months",
-    "origin": "Vashi Spice Hub Stall 14",
+    "origin": "Kalimati Spice Terminal Stall 14",
     "rating": 4.8,
     "reviews": 142,
     "vendorId": "v-sahyadri",
-    "vendorName": "Sahyadri Spices & Dry Fruits Hub"
+    "vendorName": "Himalayan Spice & Dry Fruit Hub"
   },
   {
     "id": "v-s-4",
@@ -301,10 +301,10 @@ export const products: Product[] = [
     "category": "fruits",
     "categoryName": "Fresh Fruits",
     "title": "Premium Jumbo Green Raisins (Kishmish)",
-    "description": "Long-cut tender green raisins naturally shade-dried in Nashik grape belts.",
+    "description": "Long-cut tender green raisins naturally shade-dried in Kaski grape belts.",
     "price": 240,
     "unit": "kg",
-    "moq": "15 kg",
+    "moq": 15,
     "badge": "Grade AAA",
     "stock": true,
     "image": "/images/grapes.jpg",
@@ -312,11 +312,11 @@ export const products: Product[] = [
     "harvest": "Sep 2024",
     "moisture": "12%",
     "shelf": "12 Months",
-    "origin": "Vashi Spice Hub Stall 14",
+    "origin": "Kalimati Spice Terminal Stall 14",
     "rating": 4.8,
     "reviews": 142,
     "vendorId": "v-sahyadri",
-    "vendorName": "Sahyadri Spices & Dry Fruits Hub"
+    "vendorName": "Himalayan Spice & Dry Fruit Hub"
   },
   {
     "id": "v-m-1",
@@ -329,7 +329,7 @@ export const products: Product[] = [
     "description": "Extra-long grain Basmati with 8.4mm average uncooked grain length.",
     "price": 6800,
     "unit": "Quintal",
-    "moq": "2 Qtl",
+    "moq": 2,
     "badge": "2-Yr Aged Steam",
     "stock": true,
     "image": "/images/rice.jpg",
@@ -337,11 +337,11 @@ export const products: Product[] = [
     "harvest": "Nov 2023",
     "moisture": "11.0%",
     "shelf": "24 Months",
-    "origin": "Nashik Central APMC Yard 7",
+    "origin": "Bharatpur Trade Yard 7",
     "rating": 4.9,
     "reviews": 280,
     "vendorId": "v-mahaagri",
-    "vendorName": "Maha-Agri Grain Traders"
+    "vendorName": "Gandaki Grain Traders"
   },
   {
     "id": "v-m-2",
@@ -354,7 +354,7 @@ export const products: Product[] = [
     "description": "Natural water-milled split yellow pigeon peas. High cooking yield.",
     "price": 156,
     "unit": "kg",
-    "moq": "50 kg",
+    "moq": 50,
     "badge": "Water Polished",
     "stock": true,
     "image": "/images/chickpeas.jpg",
@@ -362,11 +362,11 @@ export const products: Product[] = [
     "harvest": "Nov 2024",
     "moisture": "10.0%",
     "shelf": "9 Months",
-    "origin": "Nashik Central APMC Yard 7",
+    "origin": "Bharatpur Trade Yard 7",
     "rating": 4.9,
     "reviews": 280,
     "vendorId": "v-mahaagri",
-    "vendorName": "Maha-Agri Grain Traders"
+    "vendorName": "Gandaki Grain Traders"
   },
   {
     "id": "v-m-3",
@@ -379,19 +379,19 @@ export const products: Product[] = [
     "description": "Lokwan heavy bold grain wheat suitable for commercial flour mills and chakki mills.",
     "price": 2950,
     "unit": "Quintal",
-    "moq": "3 Qtl",
+    "moq": 3,
     "badge": "Protein 12.2%",
     "stock": true,
     "image": "/images/wheat.jpg",
-    "imageAlt": "Heavy sacks of golden wheat grains in an APMC wholesale depot",
+    "imageAlt": "Heavy sacks of golden wheat grains in a wholesale grain depot",
     "harvest": "Nov 2024",
     "moisture": "10.5%",
     "shelf": "12 Months",
-    "origin": "Nashik Central APMC Yard 7",
+    "origin": "Bharatpur Trade Yard 7",
     "rating": 4.9,
     "reviews": 280,
     "vendorId": "v-mahaagri",
-    "vendorName": "Maha-Agri Grain Traders"
+    "vendorName": "Gandaki Grain Traders"
   },
   {
     "id": "v-d-1",
@@ -404,18 +404,18 @@ export const products: Product[] = [
     "description": "Wood churned lakdi ghana unfiltered groundnut oil with aromatic roasting.",
     "price": 195,
     "unit": "Litre",
-    "moq": "15 Litres",
+    "moq": 15,
     "badge": "Wood Churned Ghana",
     "stock": true,
     "imageAlt": "Clear glass amber bottles of pure golden peanut oil alongside raw shelled peanuts",
     "harvest": "Nov 2024",
     "moisture": "N/A",
     "shelf": "9 Months",
-    "origin": "Pune Cold Silo 2",
+    "origin": "Pokhara Cold Silo 2",
     "rating": 4.7,
     "reviews": 95,
     "vendorId": "v-deccan",
-    "vendorName": "Deccan Organic Cold Storage"
+    "vendorName": "Annapurna Organic Cold Storage"
   },
   {
     "id": "v-d-2",
@@ -428,7 +428,7 @@ export const products: Product[] = [
     "description": "Unpolished dietary-fiber rich foxtail millet from dryland farm collectives.",
     "price": 88,
     "unit": "kg",
-    "moq": "25 kg",
+    "moq": 25,
     "badge": "Unpolished Ancient Grain",
     "stock": true,
     "image": "/images/rice.jpg",
@@ -436,11 +436,11 @@ export const products: Product[] = [
     "harvest": "Oct 2024",
     "moisture": "9.8%",
     "shelf": "12 Months",
-    "origin": "Pune Cold Silo 2",
+    "origin": "Pokhara Cold Silo 2",
     "rating": 4.7,
     "reviews": 95,
     "vendorId": "v-deccan",
-    "vendorName": "Deccan Organic Cold Storage"
+    "vendorName": "Annapurna Organic Cold Storage"
   },
   {
     "id": "v-k-1",
@@ -453,7 +453,7 @@ export const products: Product[] = [
     "description": "Even-sized whole white cashew nuts, steam peeled and nitrogen flushed.",
     "price": 720,
     "unit": "kg",
-    "moq": "10 kg",
+    "moq": 10,
     "badge": "Export Standard W320",
     "stock": true,
     "image": "/images/chickpeas.jpg",
@@ -461,11 +461,11 @@ export const products: Product[] = [
     "harvest": "Nov 2024",
     "moisture": "5.0%",
     "shelf": "12 Months",
-    "origin": "Ratnagiri APMC Shop 29",
+    "origin": "Biratnagar Agro Shop 29",
     "rating": 4.9,
     "reviews": 164,
     "vendorId": "v-konkan",
-    "vendorName": "Konkan Agro Produce Co-op"
+    "vendorName": "Koshi Agro Produce Co-op"
   },
   {
     "id": "v-k-2",
@@ -478,7 +478,7 @@ export const products: Product[] = [
     "description": "Large 4.75mm+ bold peppercorns rich in piperine content.",
     "price": 640,
     "unit": "kg",
-    "moq": "15 kg",
+    "moq": 15,
     "badge": "Tellicherry Garbled Extra",
     "stock": true,
     "image": "/images/chickpeas.jpg",
@@ -486,35 +486,36 @@ export const products: Product[] = [
     "harvest": "Nov 2024",
     "moisture": "10.1%",
     "shelf": "24 Months",
-    "origin": "Ratnagiri APMC Shop 29",
+    "origin": "Biratnagar Agro Shop 29",
     "rating": 4.9,
     "reviews": 164,
     "vendorId": "v-konkan",
-    "vendorName": "Konkan Agro Produce Co-op"
+    "vendorName": "Koshi Agro Produce Co-op"
   },
   {
     "id": "f-1",
-    "slug": "organic-nashik-red-onions",
+    "slug": "organic-kavre-red-onions",
     "code": "RJ-1298",
     "market": "farmer",
     "category": "greens",
     "categoryName": "Organic Greens",
-    "title": "Organic Nashik Red Onions",
+    "title": "Organic Kavre Red Onions",
     "description": "Chemical fertilizer-free red onions grown with Jeevamrut organic inputs. Dense rings and great storability.",
     "price": 38,
     "unit": "kg",
-    "moq": "100 kg",
+    "moq": 100,
     "badge": "Certified NPOP Organic",
     "stock": true,
     "imageAlt": "Sun-cured deep purple organic onions with dried paper skins heaped gently outdoors in soft natural farmland lighting",
     "harvest": "Nov 12, 2024",
     "moisture": "Standard Dry",
     "shelf": "3 Months",
-    "origin": "Khot Parivar Organic Farms",
+    "origin": "Khadka Parivar Organic Farms",
     "rating": 4.7,
     "reviews": 38,
-    "farmerName": "Rameshwar Khot",
-    "village": "Dindori, Nashik (14 km)"
+    "farmerId": "f-khadka",
+    "farmerName": "Ramesh Khadka",
+    "village": "Dhulikhel, Kavre (14 km)"
   },
   {
     "id": "f-2",
@@ -527,7 +528,7 @@ export const products: Product[] = [
     "description": "Glossy deep ruby Bhagwa variety with soft edible seeds. Direct harvest dispatched within 24 hours of plucking.",
     "price": 110,
     "unit": "kg",
-    "moq": "50 kg",
+    "moq": 50,
     "badge": "Direct Orchard Pick",
     "stock": true,
     "image": "/images/grapes.jpg",
@@ -535,11 +536,12 @@ export const products: Product[] = [
     "harvest": "Nov 14, 2024",
     "moisture": "N/A",
     "shelf": "20 Days",
-    "origin": "Gaikwad Natural Orchards",
+    "origin": "Gurung Natural Orchards",
     "rating": 4.8,
     "reviews": 51,
-    "farmerName": "Sunita Devi Gaikwad",
-    "village": "Yeola Tehsil, Nashik (28 km)"
+    "farmerId": "f-gurung",
+    "farmerName": "Sunita Gurung",
+    "village": "Pokhara Rural, Kaski (28 km)"
   },
   {
     "id": "f-3",
@@ -552,18 +554,19 @@ export const products: Product[] = [
     "description": "8mm+ super bold green pods. Sun dried with wood smoke curing technique for maximum essential oil retention.",
     "price": 1450,
     "unit": "kg",
-    "moq": "5 kg",
+    "moq": 5,
     "badge": "8mm Bold Pods",
     "stock": true,
     "imageAlt": "Vibrant plump green cardamom pods in a wooden measurement dish displayed on an organic linen surface with soft directional sunlight",
     "harvest": "Oct 2024",
     "moisture": "8.8%",
     "shelf": "18 Months",
-    "origin": "Shinde Agro Forestry Plots",
+    "origin": "Rai Agro Forestry Plots",
     "rating": 4.9,
     "reviews": 27,
-    "farmerName": "Bhausaheb Shinde",
-    "village": "Niphad Grape Valley (22 km)"
+    "farmerId": "f-rai",
+    "farmerName": "Bhola Rai",
+    "village": "Ilam Hills (22 km)"
   },
   {
     "id": "f-4",
@@ -576,18 +579,19 @@ export const products: Product[] = [
     "description": "Prepared from curd of free-grazing Gir cows using Vedic clay-pot wood fire bilona churning.",
     "price": 1200,
     "unit": "Litre",
-    "moq": "2 Litres",
+    "moq": 2,
     "badge": "Traditional Bilona",
     "stock": true,
     "imageAlt": "Rich golden granular homemade clarified butter ghee in an artisanal glass pot with traditional wooden churning rod in background",
     "harvest": "Fresh Batch",
     "moisture": "0.2%",
     "shelf": "12 Months",
-    "origin": "Deshmukh Indigenous Gaushala",
+    "origin": "Thapa Indigenous Gaushala",
     "rating": 4.8,
     "reviews": 44,
-    "farmerName": "Tanaji Rao Deshmukh",
-    "village": "Sinnar Rural, Nashik (18 km)"
+    "farmerId": "f-thapa",
+    "farmerName": "Tanka Bahadur Thapa",
+    "village": "Chitwan Rural (18 km)"
   }
 ];
 
@@ -606,37 +610,37 @@ export const orders: Order[] = [
     id: "BPT-88219",
     market: "managed",
     title: "Standard Sharbati Wheat",
-    quantity: "20 Quintals (Sehore Farm-Gate)",
+    quantity: "20 Quintals (Chitwan Farm-Gate)",
     status: "In Transit",
     escrow: 64000,
-    partner: "Ramesh Patel (FPO #419)",
-    gatePass: "GP-SEH-90124",
+    partner: "Ramesh Khadka (FPO #419)",
+    gatePass: "GP-CHT-90124",
     quality: "11.8% / Grade A+",
-    settlement: "Sehore Krishi Upaj Market",
+    settlement: "Bharatpur Agriculture Market",
     eta: "Today, 6:30 PM",
-    vehicle: "MH-15-DC-9210",
+    vehicle: "BA-15-PA-9210",
     placedAt: "Today, 09:15 AM",
     timeline: [
       { label: "Order Placed", detail: "Escrow secured", done: true },
       { label: "Weighbridge", detail: "Lot weighed and signed", done: true },
       { label: "Quality Check", detail: "Moisture 11.8%, Grade A+", done: true },
-      { label: "In Transit", detail: "NH 48 · 42 km to hub", done: true, current: true },
+      { label: "In Transit", detail: "Prithvi Highway · 42 km to hub", done: true, current: true },
       { label: "Warehouse Inward", detail: "Awaiting unloading signoff", done: false },
     ],
   },
   {
     id: "BPT-87902",
     market: "vendor",
-    title: "Salem Curcumin Turmeric Fingers",
-    quantity: "100 kg (Tamil Nadu Hub)",
+    title: "Ilam Curcumin Turmeric Fingers",
+    quantity: "100 kg (Morang Hub)",
     status: "Quality Check",
     escrow: 18000,
-    partner: "Erode Spices Consortium",
-    gatePass: "GP-ERD-44112",
+    partner: "Ilam Spices Consortium",
+    gatePass: "GP-ILM-44112",
     quality: "Curcumin 3.92% (Clear)",
-    settlement: "Salem APMC Spice Yard",
+    settlement: "Biratnagar Spice Yard",
     eta: "Tomorrow, 11:00 AM",
-    vehicle: "TN-33-AC-4471",
+    vehicle: "KO-2-PA-4471",
     placedAt: "Yesterday, 4:40 PM",
     timeline: [
       { label: "Order Placed", detail: "Escrow secured", done: true },
@@ -649,31 +653,31 @@ export const orders: Order[] = [
   {
     id: "BPT-86411",
     market: "farmer",
-    title: "Organic Nashik Red Onions",
-    quantity: "100 kg (Dindori Farm-Gate)",
+    title: "Organic Kavre Red Onions",
+    quantity: "100 kg (Dhulikhel Farm-Gate)",
     status: "Delivered",
     escrow: 0,
-    partner: "Rameshwar Khot",
-    gatePass: "GP-DIN-11890",
+    partner: "Ramesh Khadka",
+    gatePass: "GP-DHU-11890",
     quality: "Dry / NPOP Organic",
-    settlement: "Dindori Gram Panchayat Market",
+    settlement: "Dhulikhel Municipal Market",
     eta: "Delivered 2 days ago",
-    vehicle: "MH-15-BQ-2210",
+    vehicle: "BA-15-KHA-2210",
     placedAt: "12 Nov, 08:20 AM",
     timeline: [
       { label: "Order Placed", detail: "Escrow secured", done: true },
       { label: "Farm Weighing", detail: "Belpatri weighbridge", done: true },
-      { label: "In Transit", detail: "Delivered to Nashik hub", done: true },
+      { label: "In Transit", detail: "Delivered to Kathmandu hub", done: true },
       { label: "Delivered", detail: "Escrow released to farmer", done: true, current: true },
     ],
   },
 ];
 
 export const account: Account = {
-  name: "Rahul Verma",
-  company: "Kisan Commercial Trade Pvt Ltd",
+  name: "Rajesh Shrestha",
+  company: "Himalayan Commercial Trade Pvt Ltd",
   traderId: "BPT-8821",
-  license: "APMC Registered License",
+  license: "Trade Licence (Bagmati)",
   tier: "Tier 1 High-Volume Escrow",
   avatar: "/images/farmer.jpg",
   stats: [

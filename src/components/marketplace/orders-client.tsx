@@ -51,7 +51,7 @@ function OrderCard({ order }: { order: Order }) {
     order.market === "managed"
       ? [
           { label: "Vendor / Farmer Lot", value: order.partner },
-          { label: "APMC Gate Pass #", value: order.gatePass, mono: true },
+          { label: "Gate Pass #", value: order.gatePass, mono: true },
           { label: "Moisture & Purity", value: order.quality, accent: true },
           { label: "Settlement Market", value: order.settlement },
         ]
@@ -131,7 +131,7 @@ function OrderCard({ order }: { order: Order }) {
             <span className="font-mono text-[11px] text-slate-500">
               {order.status === "Delivered"
                 ? order.eta
-                : `ETA: ${order.eta} (Nashik Central Hub)`}
+                : `ETA: ${order.eta} (Kalimati Central Hub)`}
             </span>
           </div>
 
@@ -196,7 +196,7 @@ function OrderCard({ order }: { order: Order }) {
               className="h-9 rounded-xl border-green-200 bg-green-50 text-xs font-semibold text-green-800 hover:bg-green-100"
             >
               <FileCheck2 className="size-4" />
-              View APMC Gate Pass
+              View Gate Pass
             </Button>
             <Button
               variant="outline"
@@ -240,7 +240,7 @@ export function OrdersClient() {
     },
     {
       id: "invoices",
-      label: "Escrow Invoices & Market Cess",
+      label: "Escrow Invoices & Fees",
       count: orders.length,
     },
   ];
@@ -303,10 +303,10 @@ export function OrdersClient() {
           </span>
           <div>
             <p className="text-sm font-bold text-slate-900">
-              Market cess statements
+              Facilitation fee statements
             </p>
             <p className="text-[11px] text-slate-500">
-              Every trade carries a 1.5% APMC cess line item in its invoice.
+              Every trade carries a 1.5% Belpatri facilitation fee line item in its invoice.
             </p>
           </div>
         </div>

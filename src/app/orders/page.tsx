@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 export const metadata: Metadata = {
   title: "Trade Orders & Dispatches — Belpatri",
   description:
-    "Track APMC weighbridge records, cold logistics GPS and Belpatri escrow settlements.",
+    "Track weighbridge records, cold logistics GPS and Belpatri escrow settlements.",
 };
 
 export default function OrdersPage() {
@@ -34,7 +34,7 @@ export default function OrdersPage() {
             </h1>
           </div>
           <p className="mt-1 text-xs text-slate-500">
-            Real-time APMC weighbridge records, cold logistics GPS tracking and
+            Real-time weighbridge records, cold logistics GPS tracking and
             Belpatri Escrow settlements.
           </p>
         </div>

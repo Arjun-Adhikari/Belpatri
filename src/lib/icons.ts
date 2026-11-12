@@ -50,8 +50,8 @@ export const marketIcons: Record<string, LucideIcon> = {
 
 export const accountTiles: { label: string; description: string; icon: LucideIcon }[] = [
   { label: "Saved Addresses", description: "Delivery yards and hub pickups", icon: MapPin },
-  { label: "Payment & Escrow", description: "Bank accounts, UPI and mandates", icon: CreditCard },
-  { label: "Business Documents", description: "GST, APMC licence and KYB", icon: FileText },
+  { label: "Payment & Escrow", description: "Bank accounts, eSewa, Khalti and mandates", icon: CreditCard },
+  { label: "Business Documents", description: "PAN, VAT and KYB", icon: FileText },
   { label: "Invite & Earn", description: "Bring a trader, earn trade credit", icon: User },
   { label: "Support Desk", description: "Talk to a trade desk executive", icon: Headphones },
   { label: "Settings", description: "Notifications, units and language", icon: Settings },
@@ -75,7 +75,7 @@ export const trustItems: { title: string; description: string; icon: LucideIcon 
   },
   {
     title: "Signed Gate Pass",
-    description: "Every lot carries an APMC weighbridge record.",
+    description: "Every lot carries a Belpatri weighbridge record.",
     icon: Receipt,
   },
 ];

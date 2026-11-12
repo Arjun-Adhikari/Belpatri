@@ -70,7 +70,7 @@ export default async function VendorStorePage({
             <Store className="size-64" strokeWidth={1} />
           </div>
           <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/15 px-3 py-1 text-[10px] font-bold tracking-[0.14em] uppercase backdrop-blur-md">
-            APMC Licensed Storefront
+            Licensed Storefront
           </span>
           <h1 className="mt-3 text-2xl font-extrabold tracking-tight sm:text-3xl">
             {vendor.name}
@@ -175,7 +175,7 @@ export default async function VendorStorePage({
           },
           {
             title: "Signed Gate Pass",
-            description: "APMC weighbridge record per lot.",
+            description: "Weighbridge record per lot.",
             icon: BadgeCheck,
           },
           {

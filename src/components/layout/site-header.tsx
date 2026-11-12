@@ -24,6 +24,8 @@ import {
 } from "@/components/ui/sheet";
 import { Container } from "@/components/layout/container";
 import { SiteLogo } from "@/components/layout/site-logo";
+import { useCartCount, useCartHydrated } from "@/lib/cart-store";
+import { account, orders } from "@/lib/data";
 
 const mobileLinks = [
   { href: "/?market=managed", label: "Managed Market", icon: ShieldCheck },
@@ -34,6 +36,9 @@ const mobileLinks = [
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const cartCount = useCartCount();
+  const hydrated = useCartHydrated();
+  const activeOrders = orders.filter((order) => order.status !== "Delivered").length;
 
   return (
     <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/95 shadow-xs backdrop-blur-md">
@@ -74,7 +79,7 @@ export function SiteHeader() {
               <ReceiptText className="size-4 text-green-700" />
               Orders
               <span className="ml-0.5 flex size-5 items-center justify-center rounded-full bg-green-100 text-[10px] font-bold text-green-800">
-                2
+                {activeOrders}
               </span>
             </Button>
 
@@ -85,9 +90,11 @@ export function SiteHeader() {
             >
               <ShoppingCart className="size-4 text-green-700" />
               <span className="hidden sm:inline">Cart</span>
-              <span className="flex size-5 items-center justify-center rounded-full bg-green-700 text-[10px] font-bold text-white">
-                3
-              </span>
+              {hydrated ? (
+                <span className="flex size-5 items-center justify-center rounded-full bg-green-700 text-[10px] font-bold text-white">
+                  {cartCount}
+                </span>
+              ) : null}
             </Button>
 
             <Button
@@ -108,7 +115,7 @@ export function SiteHeader() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/images/farmer.jpg"
-                alt="Rahul Verma"
+                alt={account.name}
                 className="size-full object-cover"
               />
             </Link>

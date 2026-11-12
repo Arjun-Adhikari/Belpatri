@@ -5,6 +5,7 @@ import "./globals.css";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { MobileTabBar } from "@/components/layout/mobile-tab-bar";
+import { CartHydrator } from "@/components/layout/cart-hydrator";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
@@ -24,7 +25,7 @@ const devanagari = Noto_Sans_Devanagari({
 export const metadata: Metadata = {
   title: "Belpatri — Agri & Commercial Marketplace",
   description:
-    "Trade verified agricultural lots across Managed, Vendor Store and Farmer Direct marketplaces. Escrow protected, APMC registered, logistics included.",
+    "Trade verified agricultural lots across Managed, Vendor Store and Farmer Direct marketplaces. Escrow protected, PAN/VAT verified, logistics included.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -35,6 +36,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="flex min-h-full flex-col bg-background text-foreground">
         <TooltipProvider>
+          <CartHydrator />
           <SiteHeader />
           <main className="flex-1 pb-20 md:pb-0">{children}</main>
           <SiteFooter />

@@ -3,20 +3,14 @@ import Link from "next/link";
 import { ArrowLeft, ShieldCheck } from "lucide-react";
 
 import { Container } from "@/components/layout/container";
-import { CheckoutForm } from "@/components/marketplace/checkout-form";
-import { markets, products } from "@/lib/data";
-import type { CartLine, MarketId } from "@/lib/types";
+import { CheckoutClient } from "@/components/marketplace/checkout-client";
+import { markets } from "@/lib/data";
+import type { MarketId } from "@/lib/types";
 
 export const metadata: Metadata = {
   title: "Logistics Checkout — Belpatri",
   description:
     "Confirm delivery location, payment responsibility and escrow staging before dispatch.",
-};
-
-const defaultCarts: Record<MarketId, CartLine[]> = {
-  managed: [{ productId: "m-1", qty: 2 }],
-  vendor: [{ productId: "v-s-1", qty: 1 }],
-  farmer: [{ productId: "f-1", qty: 1 }],
 };
 
 const validMarkets: MarketId[] = ["managed", "vendor", "farmer"];
@@ -34,23 +28,6 @@ export default async function CheckoutPage({
     ? (requested as MarketId)
     : "managed";
   const marketData = markets.find((item) => item.id === market)!;
-
-  const cartLines = defaultCarts[market];
-  const index = Object.fromEntries(products.map((product) => [product.id, product]));
-  const lines = cartLines.flatMap((line) => {
-    const product = index[line.productId];
-    if (!product) return [];
-    return [
-      {
-        title: product.title,
-        unit: product.unit,
-        qty: line.qty,
-        price: product.price,
-      },
-    ];
-  });
-  const subtotal = lines.reduce((total, line) => total + line.price * line.qty, 0);
-  const cess = Math.round(subtotal * 0.015);
 
   return (
     <Container className="space-y-5 pt-5 pb-12">
@@ -91,13 +68,7 @@ export default async function CheckoutPage({
         </div>
       </div>
 
-      <CheckoutForm
-        market={market}
-        marketLabel={marketData.label}
-        lines={lines}
-        subtotal={subtotal}
-        cess={cess}
-      />
+      <CheckoutClient market={market} marketLabel={marketData.label} />
     </Container>
   );
 }
