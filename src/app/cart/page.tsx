@@ -93,18 +93,18 @@ export default function CartPage() {
             <span className="flex size-9 items-center justify-center rounded-xl bg-green-100 text-green-800">
               <ShoppingCart className="size-5" />
             </span>
-            <h1 className="text-xl font-extrabold tracking-tight text-slate-900 sm:text-2xl">
+            <h1 className="text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl">
               Your Carts
             </h1>
           </div>
-          <p className="mt-1 text-xs text-slate-500">
+          <p className="mt-1 text-[13px] text-slate-500">
             Three isolated sourcing channels. Lots are never mixed across
             marketplaces or sellers.
           </p>
         </div>
         <Button
           variant="outline"
-          className="h-10 rounded-xl border-slate-200 bg-white text-xs font-semibold"
+          className="h-10 rounded-xl border-slate-200 bg-white text-[13px] font-semibold"
           render={<Link href="/" />}
         >
           Continue sourcing
@@ -138,7 +138,7 @@ export default function CartPage() {
                 <span className="truncate sm:hidden">{shortLabel}</span>
                 <span
                   className={cn(
-                    "ml-0.5 flex size-4 shrink-0 items-center justify-center rounded-full text-[9px] font-bold sm:size-5 sm:text-[10px]",
+                    "ml-0.5 flex size-4 shrink-0 items-center justify-center rounded-full text-[10px] font-bold sm:size-5 sm:text-[11px]",
                     active === market
                       ? "bg-green-700 text-white"
                       : "bg-slate-200 text-slate-600",
@@ -167,7 +167,7 @@ export default function CartPage() {
           return (
             <TabsContent key={market} value={market} className="space-y-4">
               {market !== "managed" && sellerName ? (
-                <div className="flex flex-wrap items-center justify-between gap-2 rounded-xl border border-amber-200 bg-amber-50 px-4 py-2.5 text-xs text-amber-950">
+                <div className="flex flex-wrap items-center justify-between gap-2 rounded-xl border border-amber-200 bg-amber-50 px-4 py-2.5 text-[13px] text-amber-950">
                   <span className="flex items-center gap-2">
                     {market === "vendor" ? (
                       <Store className="size-4 text-amber-700" />
@@ -177,7 +177,7 @@ export default function CartPage() {
                     {market === "vendor" ? "Vendor" : "Farmer"} cart locked to{" "}
                     <strong>{sellerName}</strong>
                   </span>
-                  <span className="rounded-full bg-amber-200 px-2 py-0.5 text-[10px] font-bold text-amber-900">
+                  <span className="rounded-full bg-amber-200 px-2 py-0.5 text-[11px] font-bold text-amber-900">
                     Single-
                     {market === "vendor" ? "Vendor" : "Farmer"} Rule
                   </span>
@@ -200,13 +200,13 @@ export default function CartPage() {
                         <p className="text-sm font-bold text-slate-900">
                           {meta.title}
                         </p>
-                        <p className="text-[11px] text-slate-500">
+                        <p className="text-[13px] text-slate-500">
                           {meta.description}
                         </p>
                       </div>
                     </div>
                     <div className="flex shrink-0 items-center gap-3">
-                      <span className="text-[11px] font-semibold whitespace-nowrap text-slate-400">
+                      <span className="text-xs font-semibold whitespace-nowrap text-slate-400">
                         {lines.length} lot{lines.length === 1 ? "" : "s"}
                       </span>
                       {lines.length > 0 ? (
@@ -227,7 +227,7 @@ export default function CartPage() {
                       <h3 className="text-sm font-bold text-slate-700">
                         No lots staged in this cart
                       </h3>
-                      <p className="mt-1 text-xs text-slate-400">
+                      <p className="mt-1 text-[13px] text-slate-400">
                         Browse {markets.find((item) => item.id === market)!.label}{" "}
                         and add a verified lot to begin.
                       </p>
@@ -258,7 +258,7 @@ export default function CartPage() {
                             <div className="min-w-0 flex-1">
                               <div className="flex items-start justify-between gap-2">
                                 <div className="min-w-0">
-                                  <span className="block text-[10px] font-semibold tracking-wider text-slate-400 uppercase">
+                                  <span className="block text-[11px] font-semibold tracking-wider text-slate-400 uppercase">
                                     {product.categoryName}
                                   </span>
                                   <h3 className="line-clamp-1 text-sm font-bold text-slate-900">
@@ -269,7 +269,7 @@ export default function CartPage() {
                                       {product.title}
                                     </Link>
                                   </h3>
-                                  <p className="mt-0.5 text-[11px] text-slate-500">
+                                  <p className="mt-0.5 text-xs text-slate-500">
                                     {npr(product.price)} / {product.unit} · MOQ{" "}
                                     {product.moq} {product.unit}
                                   </p>
@@ -303,7 +303,7 @@ export default function CartPage() {
                     })
                   )}
 
-                  <div className="flex flex-wrap items-center gap-4 rounded-xl border border-slate-200 bg-white/60 px-4 py-3 text-[11px] text-slate-500">
+                  <div className="flex flex-wrap items-center gap-4 rounded-xl border border-slate-200 bg-white/60 px-4 py-3 text-xs text-slate-500">
                     <span className="flex items-center gap-1.5">
                       <BadgeCheck className="size-3.5 text-green-700" />
                       Escrow held until unloading
@@ -323,11 +323,11 @@ export default function CartPage() {
                   <h2 className="text-sm font-bold text-slate-900">
                     Dispatch summary
                   </h2>
-                  <p className="mt-0.5 text-[11px] text-slate-500">
+                  <p className="mt-0.5 text-xs text-slate-500">
                     {markets.find((item) => item.id === market)!.label} division
                   </p>
 
-                  <dl className="mt-4 space-y-2.5 text-xs">
+                  <dl className="mt-4 space-y-2.5 text-[13px]">
                     <div className="flex justify-between">
                       <dt className="text-slate-500">Commodity subtotal</dt>
                       <dd className="font-mono font-semibold text-slate-800">
@@ -369,12 +369,12 @@ export default function CartPage() {
                     <ArrowRight className="size-4" />
                   </Button>
 
-                  <p className="mt-2 flex items-center justify-center gap-1 text-[10px] text-slate-400">
+                  <p className="mt-2 flex items-center justify-center gap-1 text-xs text-slate-400">
                     <Info className="size-3" />
                     Funds remain in escrow until quality signoff.
                   </p>
 
-                  <div className="mt-4 flex items-center gap-2 rounded-xl bg-slate-50 p-3 text-[11px] text-slate-500">
+                  <div className="mt-4 flex items-center gap-2 rounded-xl bg-slate-50 p-3 text-xs text-slate-500">
                     <Wallet className="size-4 shrink-0 text-green-700" />
                     Payable by escrow, eSewa, Khalti or by inviting a financier.
                   </div>

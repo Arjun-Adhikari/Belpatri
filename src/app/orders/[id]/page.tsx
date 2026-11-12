@@ -67,7 +67,7 @@ export default async function OrderDetailPage({
 
   return (
     <Container className="space-y-5 pt-5 pb-12">
-      <nav className="flex flex-wrap items-center gap-2 text-xs text-slate-500">
+      <nav className="flex flex-wrap items-center gap-2 text-[13px] text-slate-500">
         <Link href="/orders" className="transition hover:text-green-800">
           Trade Orders
         </Link>
@@ -78,7 +78,7 @@ export default async function OrderDetailPage({
       <section className="flex flex-col justify-between gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-xs sm:flex-row sm:items-center">
         <div className="space-y-1.5">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="font-mono text-xs font-bold text-slate-500">
+            <span className="font-mono text-[13px] font-bold text-slate-500">
               ORDER #{order.id}
             </span>
             <span
@@ -99,13 +99,13 @@ export default async function OrderDetailPage({
               {order.status}
             </span>
           </div>
-          <h1 className="text-xl font-extrabold tracking-tight text-slate-900">
+          <h1 className="text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl">
             {order.title}
           </h1>
-          <p className="text-xs text-slate-500">{order.quantity}</p>
+          <p className="text-[13px] text-slate-500">{order.quantity}</p>
         </div>
         <div className="text-left sm:text-right">
-          <div className="text-xs font-medium text-slate-500">
+          <div className="text-[13px] font-medium text-slate-500">
             {order.escrow > 0 ? "Escrow held" : "Escrow released"}
           </div>
           <div
@@ -121,7 +121,7 @@ export default async function OrderDetailPage({
 
       <div className="grid gap-4 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)]">
         <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs">
-          <h2 className="flex items-center gap-2 text-xs font-bold tracking-wider text-slate-900 uppercase">
+          <h2 className="flex items-center gap-2 text-sm font-bold tracking-wider text-slate-900 uppercase">
             <Truck className="size-4 text-green-700" />
             Dispatch timeline
           </h2>
@@ -157,7 +157,7 @@ export default async function OrderDetailPage({
                     <div className="flex flex-wrap items-center justify-between gap-2">
                       <p
                         className={cn(
-                          "text-xs font-bold",
+                          "text-[13px] font-bold",
                           step.current && !delivered
                             ? "text-green-900"
                             : step.done
@@ -168,12 +168,12 @@ export default async function OrderDetailPage({
                         {step.label}
                       </p>
                       {step.current && !delivered ? (
-                        <span className="rounded-full bg-green-100 px-2 py-0.5 text-[10px] font-bold text-green-800">
+                        <span className="rounded-full bg-green-100 px-2 py-0.5 text-[11px] font-bold text-green-800">
                           Current stage
                         </span>
                       ) : null}
                     </div>
-                    <p className="mt-0.5 text-[11px] text-slate-500">
+                    <p className="mt-0.5 text-[13px] leading-snug text-slate-500">
                       {step.detail}
                     </p>
                   </div>
@@ -186,11 +186,11 @@ export default async function OrderDetailPage({
         <div className="space-y-4">
           <section className="relative overflow-hidden rounded-2xl border border-green-200 bg-gradient-to-br from-green-50 via-emerald-50 to-lime-50 p-5 shadow-xs">
             <div className="flex items-center justify-between">
-              <h2 className="flex items-center gap-2 text-xs font-bold tracking-wider text-green-900 uppercase">
+              <h2 className="flex items-center gap-2 text-sm font-bold tracking-wider text-green-900 uppercase">
                 <Navigation className="size-4" />
                 Live dispatch
               </h2>
-              <span className="flex items-center gap-1 rounded-full bg-white/80 px-2 py-0.5 text-[10px] font-bold text-green-800">
+              <span className="flex items-center gap-1 rounded-full bg-white/80 px-2 py-0.5 text-[11px] font-bold text-green-800">
                 <span className="size-1.5 animate-pulse rounded-full bg-green-600" />
                 GPS live
               </span>
@@ -204,34 +204,34 @@ export default async function OrderDetailPage({
                 <Truck className="size-4" />
               </span>
               <span className="absolute top-1/2 right-1 size-4 -translate-y-1/2 rounded-full border-2 border-slate-300 bg-white" />
-              <span className="absolute top-0 left-0 text-[10px] font-semibold text-green-900/70">
+              <span className="absolute top-0 left-0 text-[11px] font-semibold text-green-900/70">
                 {order.settlement.split(",")[0]}
               </span>
-              <span className="absolute top-0 right-0 text-[10px] font-semibold text-slate-500">
+              <span className="absolute top-0 right-0 text-[11px] font-semibold text-slate-500">
                 Kathmandu Hub
               </span>
             </div>
 
-            <p className="text-[11px] leading-relaxed text-green-900/70">
+            <p className="text-sm leading-relaxed text-green-900/70">
               Vehicle <span className="font-mono font-bold">{order.vehicle}</span>{" "}
               · {order.eta}
             </p>
-            <p className="mt-1 flex items-center gap-1 text-[11px] text-green-900/60">
+            <p className="mt-1 flex items-center gap-1 text-xs text-green-900/60">
               <MapPin className="size-3" />
               Prithvi Highway, 42 km from destination
             </p>
           </section>
 
           <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs">
-            <h2 className="text-xs font-bold tracking-wider text-slate-900 uppercase">
+            <h2 className="text-sm font-bold tracking-wider text-slate-900 uppercase">
               Dispatch facts
             </h2>
-            <dl className="mt-3 grid gap-3 text-xs sm:grid-cols-2">
+            <dl className="mt-3 grid gap-3 text-[13px] sm:grid-cols-2">
               {facts.map((fact) => (
                 <div key={fact.label} className="flex items-start gap-2">
                   <fact.icon className="mt-0.5 size-3.5 shrink-0 text-green-700" />
                   <div className="min-w-0">
-                    <dt className="text-[10px] text-slate-400">{fact.label}</dt>
+                    <dt className="text-[11px] text-slate-400">{fact.label}</dt>
                     <dd className="truncate font-semibold text-slate-800">
                       {fact.value}
                     </dd>
@@ -244,21 +244,21 @@ export default async function OrderDetailPage({
           <div className="flex flex-col gap-2 sm:flex-row">
             <Button
               variant="outline"
-              className="h-10 flex-1 rounded-xl border-green-200 bg-green-50 text-xs font-semibold text-green-800 hover:bg-green-100"
+              className="h-10 flex-1 rounded-xl border-green-200 bg-green-50 text-[13px] font-semibold text-green-800 hover:bg-green-100"
             >
               <FileCheck2 className="size-4" />
               Gate pass
             </Button>
             <Button
               variant="outline"
-              className="h-10 flex-1 rounded-xl border-slate-200 text-xs font-semibold"
+              className="h-10 flex-1 rounded-xl border-slate-200 text-[13px] font-semibold"
             >
               <Download className="size-4 text-slate-500" />
               Tax invoice
             </Button>
           </div>
 
-          <div className="flex items-center gap-2 rounded-xl border border-slate-200 bg-slate-50/70 p-3 text-[11px] text-slate-500">
+          <div className="flex items-center gap-2 rounded-xl border border-slate-200 bg-slate-50/70 p-3 text-[13px] text-slate-500">
             <ShieldCheck className="size-4 shrink-0 text-green-700" />
             {order.escrow > 0
               ? "Escrow releases within 4 hours of unloading signoff."
@@ -267,7 +267,7 @@ export default async function OrderDetailPage({
 
           <Button
             variant="ghost"
-            className="h-9 w-full rounded-xl text-xs font-semibold text-slate-500"
+            className="h-9 w-full rounded-xl text-[13px] font-semibold text-slate-500"
             render={<Link href="/orders" />}
           >
             <ArrowLeft className="size-3.5" />
@@ -285,13 +285,13 @@ export default async function OrderDetailPage({
             <p className="text-sm font-bold text-slate-900">
               Weighbridge &amp; quality record
             </p>
-            <p className="text-[11px] text-slate-500">
+            <p className="text-xs text-slate-500">
               Partner {order.partner} · Gate pass {order.gatePass}
             </p>
           </div>
         </div>
         <Button
-          className="h-9 rounded-xl text-xs font-bold"
+          className="h-9 rounded-xl text-[13px] font-bold"
           render={<Link href={`/?market=${order.market}`} />}
         >
           Trade More Commodities

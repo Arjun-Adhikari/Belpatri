@@ -82,10 +82,10 @@ export function AccountMenuScreen({
 
       <div className="mx-auto w-full max-w-md pb-8 md:max-w-2xl md:pb-12">
         <div className="hidden px-4 pt-6 md:block">
-          <h1 className="text-2xl font-extrabold tracking-tight text-slate-900">
+          <h1 className="text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl">
             Account
           </h1>
-          <p className="mt-0.5 text-xs text-slate-500">
+          <p className="mt-0.5 text-[13px] text-slate-500">
             Profile, business accounts and preferences for your {APP_NAME}{" "}
             trader account.
           </p>

@@ -16,12 +16,12 @@ export function CategoryPills({
   return (
     <div className="space-y-2.5 pt-1">
       <div className="flex items-center justify-between">
-        <span className="text-xs font-semibold tracking-wider text-slate-400 uppercase">
+        <span className="text-[13px] font-semibold tracking-wider text-slate-400 uppercase">
           Categories
         </span>
         <Link
           href={`/?market=${market}`}
-          className="text-xs font-semibold text-green-700 transition-colors hover:text-green-800 active:scale-95"
+          className="text-[13px] font-semibold text-green-700 transition-colors hover:text-green-800 active:scale-95"
         >
           View All
         </Link>
@@ -40,7 +40,7 @@ export function CategoryPills({
               key={category.id}
               href={`/?${params.toString()}`}
               className={cn(
-                "inline-flex shrink-0 items-center gap-2 rounded-full px-4 py-2 text-xs font-medium shadow-2xs transition-all active:scale-95 sm:text-sm",
+                "inline-flex shrink-0 items-center gap-2 rounded-full px-4 py-2 text-[13px] font-medium shadow-2xs transition-all active:scale-95 sm:text-sm",
                 isActive
                   ? "bg-green-700 font-semibold text-white shadow-xs"
                   : "border border-slate-200 bg-white text-slate-700 hover:border-green-600 hover:text-green-800",

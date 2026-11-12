@@ -55,10 +55,10 @@ export function VendorCatalogue({
   return (
     <div className="space-y-4">
       <div className="flex flex-wrap items-center justify-between gap-2">
-        <span className="text-xs font-semibold tracking-wider text-slate-400 uppercase">
+        <span className="text-[13px] font-semibold tracking-wider text-slate-400 uppercase">
           Shop by category
         </span>
-        <span className="text-[11px] font-medium text-slate-500">
+        <span className="text-xs font-medium text-slate-500">
           {visible.length} {visible.length === 1 ? "item" : "items"} in{" "}
           {activeLabel.toLowerCase()}
         </span>
@@ -112,7 +112,7 @@ function CategoryButton({
       onClick={onClick}
       aria-pressed={active}
       className={cn(
-        "inline-flex shrink-0 items-center gap-2 rounded-full px-4 py-2 text-xs font-medium shadow-2xs transition-all active:scale-95 sm:text-sm",
+        "inline-flex shrink-0 items-center gap-2 rounded-full px-4 py-2 text-[13px] font-medium shadow-2xs transition-all active:scale-95 sm:text-sm",
         active
           ? "bg-green-700 font-semibold text-white shadow-xs"
           : "border border-slate-200 bg-white text-slate-700 hover:border-green-600 hover:text-green-800",
@@ -122,7 +122,7 @@ function CategoryButton({
       {label}
       <span
         className={cn(
-          "flex size-5 items-center justify-center rounded-full text-[10px] font-bold",
+          "flex size-5 items-center justify-center rounded-full text-[11px] font-bold",
           active ? "bg-white/20 text-white" : "bg-slate-100 text-slate-500",
         )}
       >

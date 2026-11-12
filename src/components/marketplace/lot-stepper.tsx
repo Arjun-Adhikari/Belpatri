@@ -50,7 +50,7 @@ export function LotStepper({
       <span
         className={cn(
           "text-center font-mono font-bold tabular-nums",
-          size === "sm" ? "w-6 text-xs" : "w-8 text-sm",
+          size === "sm" ? "w-6 text-[13px]" : "w-8 text-sm",
         )}
       >
         {quantity}
@@ -98,7 +98,7 @@ export function AddLotButton({
         variant="outline"
         disabled
         className={cn(
-          "h-9 rounded-xl border-slate-200 px-3 text-xs font-semibold text-slate-400",
+          "h-9 rounded-xl border-slate-200 px-3 text-[13px] font-semibold text-slate-400",
           className,
         )}
       >
@@ -149,7 +149,7 @@ export function AddLotButton({
       type="button"
       variant="outline"
       className={cn(
-        "h-9 rounded-xl border-green-600 bg-green-50/60 px-3 text-xs font-semibold text-green-700 shadow-2xs hover:bg-green-700 hover:text-white",
+        "h-9 rounded-xl border-green-600 bg-green-50/60 px-3 text-[13px] font-semibold text-green-700 shadow-2xs hover:bg-green-700 hover:text-white",
         compact && "h-8 w-full px-2",
         className,
       )}

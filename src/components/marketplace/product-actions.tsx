@@ -63,7 +63,7 @@ export function ProductActions({
           size="md"
           tone={product.stock ? "outline" : "solid"}
         />
-        <span className="text-xs font-medium text-slate-500">
+        <span className="text-[13px] font-medium text-slate-500">
           {quantity} {product.unit} selected · MOQ {product.moq} {product.unit}
         </span>
       </div>
@@ -88,7 +88,7 @@ export function ProductActions({
         </Button>
       </div>
 
-      <div className="flex items-center justify-between rounded-xl border border-slate-200 bg-slate-50/70 px-4 py-3 text-xs">
+      <div className="flex items-center justify-between rounded-xl border border-slate-200 bg-slate-50/70 px-4 py-3 text-[13px]">
         <span className="text-slate-500">Lot value at current rate</span>
         <span className="font-mono text-sm font-extrabold text-green-800">
           {npr(product.price * quantity)}

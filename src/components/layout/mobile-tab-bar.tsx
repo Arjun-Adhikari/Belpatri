@@ -53,7 +53,7 @@ export function MobileTabBar() {
               >
                 <tab.icon className={cn("size-[22px]", active && "text-green-700")} />
                 {tab.href === "/cart" && hydrated && cartCount > 0 ? (
-                  <span className="absolute -top-0.5 -right-1 flex min-w-4 items-center justify-center rounded-full bg-green-700 px-1 text-[9px] leading-4 font-bold text-white ring-2 ring-white">
+                  <span className="absolute -top-0.5 -right-1 flex min-w-4 items-center justify-center rounded-full bg-green-700 px-1 text-[10px] leading-4 font-bold text-white ring-2 ring-white">
                     {cartCount}
                   </span>
                 ) : null}

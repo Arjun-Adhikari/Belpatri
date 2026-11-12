@@ -81,7 +81,7 @@ function OrderCard({ order }: { order: Order }) {
       >
         <div className="space-y-1">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="font-mono text-xs font-bold text-slate-500">
+            <span className="font-mono text-[13px] font-bold text-slate-500">
               ORDER #{order.id}
             </span>
             <span
@@ -103,7 +103,7 @@ function OrderCard({ order }: { order: Order }) {
           </h3>
         </div>
         <div className="text-right">
-          <div className="text-xs font-medium text-slate-500">
+          <div className="text-[13px] font-medium text-slate-500">
             {order.escrow > 0 ? "Escrow stage status" : "Settlement status"}
           </div>
           <div
@@ -121,7 +121,7 @@ function OrderCard({ order }: { order: Order }) {
 
       <div className="space-y-5 p-5">
         <div className="space-y-2">
-          <div className="flex flex-wrap items-center justify-between gap-2 text-xs font-semibold text-slate-600">
+          <div className="flex flex-wrap items-center justify-between gap-2 text-[13px] font-semibold text-slate-600">
             <span className="flex items-center gap-1 text-green-800">
               <Truck className="size-4" />
               {order.status === "Delivered"
@@ -155,7 +155,7 @@ function OrderCard({ order }: { order: Order }) {
                 />
                 <span
                   className={cn(
-                    "block text-[10px]",
+                    "block text-[11px]",
                     step.current && order.status !== "Delivered"
                       ? "font-bold text-green-900"
                       : step.done
@@ -170,10 +170,10 @@ function OrderCard({ order }: { order: Order }) {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-3 rounded-xl border border-slate-100 bg-slate-50/80 p-3.5 text-xs sm:grid-cols-4">
+        <div className="grid grid-cols-2 gap-3 rounded-xl border border-slate-100 bg-slate-50/80 p-3.5 text-[13px] sm:grid-cols-4">
           {detailRows.map((row) => (
             <div key={row.label}>
-              <span className="block text-[10.5px] text-slate-400">
+              <span className="block text-[11px] text-slate-400">
                 {row.label}
               </span>
               <span
@@ -193,14 +193,14 @@ function OrderCard({ order }: { order: Order }) {
           <div className="flex flex-wrap items-center gap-2">
             <Button
               variant="outline"
-              className="h-9 rounded-xl border-green-200 bg-green-50 text-xs font-semibold text-green-800 hover:bg-green-100"
+              className="h-9 rounded-xl border-green-200 bg-green-50 text-[13px] font-semibold text-green-800 hover:bg-green-100"
             >
               <FileCheck2 className="size-4" />
               View Gate Pass
             </Button>
             <Button
               variant="outline"
-              className="h-9 rounded-xl border-slate-200 bg-white text-xs font-semibold text-slate-700 hover:bg-slate-50"
+              className="h-9 rounded-xl border-slate-200 bg-white text-[13px] font-semibold text-slate-700 hover:bg-slate-50"
               render={<Link href={`/orders/${order.id}`} />}
             >
               <MapPin className="size-4 text-green-700" />
@@ -208,13 +208,13 @@ function OrderCard({ order }: { order: Order }) {
             </Button>
             <Button
               variant="outline"
-              className="hidden h-9 rounded-xl border-slate-200 bg-white text-xs font-semibold text-slate-700 hover:bg-slate-50 sm:inline-flex"
+              className="hidden h-9 rounded-xl border-slate-200 bg-white text-[13px] font-semibold text-slate-700 hover:bg-slate-50 sm:inline-flex"
             >
               <Download className="size-4 text-slate-500" />
               Download Tax Invoice
             </Button>
           </div>
-          <span className="text-[11px] text-slate-400">
+          <span className="text-[13px] text-slate-400">
             {order.escrow > 0
               ? "Escrow released within 4 hours of unloading signoff."
               : "Escrow released to the farmer after delivery."}
@@ -261,7 +261,7 @@ export function OrdersClient() {
             type="button"
             onClick={() => setFilter(item.id)}
             className={cn(
-              "shrink-0 rounded-xl px-4 py-2 text-xs transition-all active:scale-95",
+              "shrink-0 rounded-xl px-4 py-2 text-[13px] transition-all active:scale-95",
               filter === item.id
                 ? "bg-green-700 font-bold text-white shadow-xs"
                 : "border border-slate-200 bg-white font-semibold text-slate-600 hover:text-green-800",
@@ -279,7 +279,7 @@ export function OrdersClient() {
           <h3 className="text-sm font-bold text-slate-700">
             No trades in this view yet
           </h3>
-          <p className="mt-1 text-xs text-slate-400">
+          <p className="mt-1 text-[13px] text-slate-400">
             Completed and active trades will appear here with their gate
             passes.
           </p>
@@ -305,14 +305,14 @@ export function OrdersClient() {
             <p className="text-sm font-bold text-slate-900">
               Facilitation fee statements
             </p>
-            <p className="text-[11px] text-slate-500">
+            <p className="text-[13px] text-slate-500">
               Every trade carries a 1.5% Belpatri facilitation fee line item in its invoice.
             </p>
           </div>
         </div>
         <Button
           variant="outline"
-          className="h-9 rounded-xl border-slate-200 text-xs font-semibold"
+          className="h-9 rounded-xl border-slate-200 text-[13px] font-semibold"
         >
           Download statement
           <Download className="size-3.5" />

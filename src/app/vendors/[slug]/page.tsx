@@ -49,7 +49,7 @@ export default async function VendorStorePage({
 
   return (
     <Container className="space-y-6 pt-5 pb-12">
-      <nav className="flex flex-wrap items-center gap-2 text-xs text-slate-500">
+      <nav className="flex flex-wrap items-center gap-2 text-[13px] text-slate-500">
         <Link href="/" className="transition hover:text-green-800">
           Marketplace
         </Link>
@@ -69,13 +69,13 @@ export default async function VendorStorePage({
           <div className="absolute -right-6 -bottom-14 opacity-10">
             <Store className="size-64" strokeWidth={1} />
           </div>
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/15 px-3 py-1 text-[10px] font-bold tracking-[0.14em] uppercase backdrop-blur-md">
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/15 px-3 py-1 text-[11px] font-bold tracking-[0.14em] uppercase backdrop-blur-md">
             Licensed Storefront
           </span>
           <h1 className="mt-3 text-2xl font-extrabold tracking-tight sm:text-3xl">
             {vendor.name}
           </h1>
-          <p className="mt-1 flex flex-wrap items-center gap-3 text-xs text-green-100/80">
+          <p className="mt-1 flex flex-wrap items-center gap-3 text-[13px] text-green-100/80">
             <span className="flex items-center gap-1">
               <MapPin className="size-3.5" />
               {vendor.location}
@@ -104,44 +104,44 @@ export default async function VendorStorePage({
                   {vendor.name}
                   <BadgeCheck className="size-4 text-green-700" />
                 </p>
-                <p className="text-[11px] text-slate-500">
+                <p className="text-xs text-slate-500">
                   {vendor.specializations.join(" · ")}
                 </p>
               </div>
             </div>
-            <div className="grid grid-cols-3 gap-2 text-center text-[11px]">
+            <div className="grid grid-cols-3 gap-2 text-center text-xs">
               <div className="rounded-xl bg-slate-50 px-3 py-2">
                 <Clock3 className="mx-auto mb-0.5 size-3.5 text-green-700" />
                 <span className="block font-bold text-slate-800">
                   {vendor.leadTime}
                 </span>
-                <span className="text-[10px] text-slate-400">Lead time</span>
+                <span className="text-[11px] text-slate-400">Lead time</span>
               </div>
               <div className="rounded-xl bg-slate-50 px-3 py-2">
                 <PackageCheck className="mx-auto mb-0.5 size-3.5 text-green-700" />
                 <span className="block font-bold text-slate-800">
                   {vendor.minOrder}
                 </span>
-                <span className="text-[10px] text-slate-400">Min order</span>
+                <span className="text-[11px] text-slate-400">Min order</span>
               </div>
               <div className="rounded-xl bg-slate-50 px-3 py-2">
                 <Truck className="mx-auto mb-0.5 size-3.5 text-green-700" />
                 <span className="block font-bold text-slate-800">
                   {catalogue.length}
                 </span>
-                <span className="text-[10px] text-slate-400">Live lots</span>
+                <span className="text-[11px] text-slate-400">Live lots</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-xs text-amber-950">
+      <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-[13px] text-amber-950">
         <span className="flex items-center gap-2">
           <Store className="size-4 text-amber-700" />
           Vendor cart locked to <strong>{vendor.name}</strong>
         </span>
-        <span className="rounded-full bg-amber-200 px-2 py-0.5 text-[10px] font-bold text-amber-900">
+        <span className="rounded-full bg-amber-200 px-2 py-0.5 text-[11px] font-bold text-amber-900">
           Single-Vendor Rule
         </span>
       </div>
@@ -150,14 +150,14 @@ export default async function VendorStorePage({
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div>
             <h2 className="text-lg font-bold text-slate-900">Store catalogue</h2>
-            <p className="text-xs text-slate-500">
+            <p className="text-[13px] text-slate-500">
               Every category listed by {vendor.name}, ready for a single-vendor
               cart.
             </p>
           </div>
           <Link
             href="/?market=vendor"
-            className="inline-flex items-center gap-1 text-xs font-bold text-green-700 transition hover:text-green-800"
+            className="inline-flex items-center gap-1 text-[13px] font-bold text-green-700 transition hover:text-green-800"
           >
             <ArrowLeft className="size-3.5" />
             All vendor stores
@@ -189,8 +189,8 @@ export default async function VendorStorePage({
               <item.icon className="size-[18px]" />
             </span>
             <div>
-              <p className="text-xs font-bold text-slate-900">{item.title}</p>
-              <p className="mt-0.5 text-[11px] leading-relaxed text-slate-600">
+              <p className="text-[13px] font-bold text-slate-900">{item.title}</p>
+              <p className="mt-0.5 text-sm leading-relaxed text-slate-600">
                 {item.description}
               </p>
             </div>

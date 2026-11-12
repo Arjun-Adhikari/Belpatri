@@ -31,7 +31,7 @@ export default async function CheckoutPage({
 
   return (
     <Container className="space-y-5 pt-5 pb-12">
-      <nav className="flex flex-wrap items-center gap-2 text-xs text-slate-500">
+      <nav className="flex flex-wrap items-center gap-2 text-[13px] text-slate-500">
         <Link href="/cart" className="transition hover:text-green-800">
           Carts
         </Link>
@@ -45,11 +45,11 @@ export default async function CheckoutPage({
             <span className="flex size-9 items-center justify-center rounded-xl bg-green-100 text-green-800">
               <ShieldCheck className="size-5" />
             </span>
-            <h1 className="text-xl font-extrabold tracking-tight text-slate-900 sm:text-2xl">
+            <h1 className="text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl">
               Logistics Checkout
             </h1>
           </div>
-          <p className="mt-1 text-xs text-slate-500">
+          <p className="mt-1 text-[13px] text-slate-500">
             Verified escrow &amp; gate-pass clearance
             {market === "managed" ? null : ` · ${marketData.label} marketplace`}
           </p>
@@ -60,7 +60,7 @@ export default async function CheckoutPage({
           </span>
           <Link
             href="/cart"
-            className="inline-flex items-center gap-1 text-xs font-semibold text-slate-500 transition hover:text-green-800"
+            className="inline-flex items-center gap-1 text-[13px] font-semibold text-slate-500 transition hover:text-green-800"
           >
             <ArrowLeft className="size-3.5" />
             Back

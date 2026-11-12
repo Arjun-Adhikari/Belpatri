@@ -73,7 +73,7 @@ export default async function HomePage({
               <h2 className="text-lg font-bold text-slate-900">
                 {vendorList.length} verified vendor stores
               </h2>
-              <p className="text-xs text-slate-500">
+              <p className="text-[13px] text-slate-500">
                 Open a store to browse its categories and listed lots. Every
                 vendor keeps its own isolated cart.
               </p>
@@ -86,12 +86,12 @@ export default async function HomePage({
               <h3 className="text-sm font-bold text-slate-700">
                 No vendor stores match “{query}”
               </h3>
-              <p className="mt-1 text-xs text-slate-400">
+              <p className="mt-1 text-[13px] text-slate-400">
                 Try another store name, city or specialisation.
               </p>
               <Link
                 href="/?market=vendor"
-                className="mt-4 inline-flex items-center gap-1 rounded-xl bg-green-700 px-4 py-2 text-xs font-bold text-white transition hover:bg-green-800"
+                className="mt-4 inline-flex items-center gap-1 rounded-xl bg-green-700 px-4 py-2 text-[13px] font-bold text-white transition hover:bg-green-800"
               >
                 Reset search
                 <ArrowRight className="size-3.5" />
@@ -102,7 +102,7 @@ export default async function HomePage({
               {vendorList.map((vendor) => (
                 <div key={vendor.id} className="min-w-0 space-y-2">
                   <VendorCard vendor={vendor} />
-                  <div className="flex items-center justify-between rounded-xl border border-slate-200 bg-white/60 px-3 py-2 text-[11px] text-slate-500">
+                  <div className="flex items-center justify-between rounded-xl border border-slate-200 bg-white/60 px-3 py-2 text-xs text-slate-500">
                     <span className="flex items-center gap-1.5">
                       <Clock3 className="size-3.5 text-green-700" />
                       {vendor.leadTime}
@@ -123,12 +123,12 @@ export default async function HomePage({
             </div>
           )}
 
-          <div className="flex flex-wrap items-center gap-3 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-xs text-amber-950">
+          <div className="flex flex-wrap items-center gap-3 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-[13px] text-amber-950">
             <span className="flex items-center gap-2">
               <Store className="size-4 text-amber-700" />
               Products from different vendors are never mixed in one cart.
             </span>
-            <span className="rounded-full bg-amber-200 px-2 py-0.5 text-[10px] font-bold text-amber-900">
+            <span className="rounded-full bg-amber-200 px-2 py-0.5 text-[11px] font-bold text-amber-900">
               Single-Vendor Rule
             </span>
           </div>
@@ -138,7 +138,7 @@ export default async function HomePage({
           <CategoryPills market={market} active={category} q={query || undefined} />
 
           <section className="space-y-4">
-            <div className="flex flex-wrap items-center justify-between gap-2 px-0.5 text-xs font-medium text-slate-500">
+            <div className="flex flex-wrap items-center justify-between gap-2 px-0.5 text-[13px] font-medium text-slate-500">
               <span>
                 Showing {filtered.length}{" "}
                 {market === "farmer" ? "farm-gate lots" : "verified lots"}
@@ -159,8 +159,8 @@ export default async function HomePage({
               <item.icon className="size-[18px]" />
             </span>
             <div>
-              <p className="text-xs font-bold text-slate-900">{item.title}</p>
-              <p className="mt-0.5 text-[11px] leading-relaxed text-slate-600">
+              <p className="text-[13px] font-bold text-slate-900">{item.title}</p>
+              <p className="mt-0.5 text-sm leading-relaxed text-slate-600">
                 {item.description}
               </p>
             </div>
@@ -175,7 +175,7 @@ export default async function HomePage({
           </span>
           <div>
             <p className="text-sm font-bold text-slate-900">{marketData.description}</p>
-            <p className="mt-0.5 flex items-center gap-1 text-[11px] text-slate-500">
+            <p className="mt-0.5 flex items-center gap-1 text-[13px] text-slate-500">
               <BadgeCheck className="size-3.5 text-green-700" />
               Separate carts per marketplace. Lots are never mixed across sellers.
             </p>

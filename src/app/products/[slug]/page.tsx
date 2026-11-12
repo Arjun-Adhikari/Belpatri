@@ -89,7 +89,7 @@ export default async function ProductPage({
 
   return (
     <Container className="space-y-8 pt-5 pb-12">
-      <nav className="flex flex-wrap items-center gap-2 text-xs text-slate-500">
+      <nav className="flex flex-wrap items-center gap-2 text-[13px] text-slate-500">
         <Link href="/" className="transition hover:text-green-800">
           Marketplace
         </Link>
@@ -148,14 +148,14 @@ export default async function ProductPage({
         <div className="space-y-5">
           <div className="space-y-2">
             <div className="flex items-center justify-between gap-3">
-              <span className="text-[10.5px] font-semibold tracking-[0.14em] text-slate-400 uppercase">
+              <span className="text-[11px] font-semibold tracking-[0.14em] text-slate-400 uppercase">
                 {product.categoryName}
               </span>
               <span
                 className={
                   product.stock
-                    ? "inline-flex items-center gap-1.5 text-xs font-semibold text-green-700"
-                    : "inline-flex items-center gap-1.5 text-xs font-semibold text-red-600"
+                    ? "inline-flex items-center gap-1.5 text-[13px] font-semibold text-green-700"
+                    : "inline-flex items-center gap-1.5 text-[13px] font-semibold text-red-600"
                 }
               >
                 <span
@@ -212,7 +212,7 @@ export default async function ProductPage({
                 MOQ: {product.moq} {product.unit}
               </span>
             </div>
-            <p className="mt-2 text-[11px] leading-relaxed text-green-900/60">
+            <p className="mt-2 text-sm leading-relaxed text-green-900/60">
               Rate excludes the 1.5% Belpatri facilitation fee. Cold logistics
               and the escrow guarantee are included at checkout.
             </p>
@@ -244,12 +244,12 @@ export default async function ProductPage({
                 )}
                 <BadgeCheck className="size-4 shrink-0 text-green-700" />
               </p>
-              <p className="mt-0.5 flex items-center gap-1 truncate text-[11px] text-slate-500">
+              <p className="mt-0.5 flex items-center gap-1 truncate text-xs text-slate-500">
                 <MapPin className="size-3 shrink-0" />
                 {supplierLocation}
               </p>
             </div>
-            <span className="hidden shrink-0 items-center gap-1 rounded-full bg-green-50 px-2.5 py-1 text-[10px] font-bold text-green-800 sm:flex">
+            <span className="hidden shrink-0 items-center gap-1 rounded-full bg-green-50 px-2.5 py-1 text-[11px] font-bold text-green-800 sm:flex">
               {product.market === "farmer" ? (
                 <Tractor className="size-3.5" />
               ) : (
@@ -265,7 +265,7 @@ export default async function ProductPage({
 
       <div className="grid gap-4 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
         <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs">
-          <h2 className="text-xs font-bold tracking-wider text-slate-900 uppercase">
+          <h2 className="text-sm font-bold tracking-wider text-slate-900 uppercase">
             Commodity Notes
           </h2>
           <p className="mt-2 text-sm leading-relaxed text-slate-600">
@@ -278,10 +278,10 @@ export default async function ProductPage({
                 className="rounded-xl bg-slate-50 p-3 text-center"
               >
                 <spec.icon className="mx-auto mb-1 size-4 text-green-700" />
-                <span className="block text-[10px] font-medium text-slate-400">
+                <span className="block text-[11px] font-medium text-slate-400">
                   {spec.label}
                 </span>
-                <span className="mt-0.5 block text-xs font-bold text-slate-800">
+                <span className="mt-0.5 block text-[13px] font-bold text-slate-800">
                   {spec.value}
                 </span>
               </div>
@@ -290,10 +290,10 @@ export default async function ProductPage({
         </section>
 
         <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs">
-          <h2 className="text-xs font-bold tracking-wider text-slate-900 uppercase">
+          <h2 className="text-sm font-bold tracking-wider text-slate-900 uppercase">
             Escrow &amp; Dispatch Terms
           </h2>
-          <ul className="mt-3 space-y-2.5 text-xs text-slate-600">
+          <ul className="mt-3 space-y-2.5 text-[13px] text-slate-600">
             {[
               "Payment held in Belpatri Escrow until unloading signoff.",
               "Weighbridge slip and gate pass issued for every lot.",
@@ -316,7 +316,7 @@ export default async function ProductPage({
           </h2>
           <Link
             href={`/?market=${product.market}`}
-            className="inline-flex items-center gap-1 text-xs font-bold text-green-700 transition hover:text-green-800"
+            className="inline-flex items-center gap-1 text-[13px] font-bold text-green-700 transition hover:text-green-800"
           >
             <ArrowLeft className="size-3.5" />
             Back to {market.label}

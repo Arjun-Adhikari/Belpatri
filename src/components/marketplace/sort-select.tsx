@@ -13,9 +13,9 @@ export function SortSelect() {
     <Select defaultValue="fastest">
       <SelectTrigger
         size="sm"
-        className="h-8 gap-1 border-none bg-transparent px-1 text-xs font-semibold text-slate-800 shadow-none hover:text-green-800 focus-visible:ring-0"
+        className="h-8 gap-1 border-none bg-transparent px-1 text-[13px] font-semibold text-slate-800 shadow-none hover:text-green-800 focus-visible:ring-0"
       >
-        <span className="text-xs font-medium text-slate-500">Sort by:</span>
+        <span className="text-[13px] font-medium text-slate-500">Sort by:</span>
         <SelectValue />
       </SelectTrigger>
       <SelectContent align="end">

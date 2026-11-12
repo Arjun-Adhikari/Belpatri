@@ -27,19 +27,19 @@ export function VendorCard({ vendor }: { vendor: Vendor }) {
               <h3 className="truncate text-sm font-bold text-slate-900">{vendor.name}</h3>
               <BadgeCheck className="size-3.5 shrink-0 text-green-700" />
             </div>
-            <p className="mt-0.5 flex items-center gap-1 truncate text-[11px] text-slate-500">
+            <p className="mt-0.5 flex items-center gap-1 truncate text-xs text-slate-500">
               <MapPin className="size-3 shrink-0" />
               {vendor.location}
             </p>
             <div className="mt-1 flex flex-wrap items-center gap-2">
-              <span className="flex items-center gap-0.5 rounded border border-amber-200 bg-amber-50 px-1.5 py-0.5 text-[10px] font-bold text-amber-700">
+              <span className="flex items-center gap-0.5 rounded border border-amber-200 bg-amber-50 px-1.5 py-0.5 text-[11px] font-bold text-amber-700">
                 <Star className="size-2.5 fill-amber-500 text-amber-500" />
                 {vendor.rating.toFixed(1)} ({vendor.reviews})
               </span>
-              <span className="text-[10px] font-medium text-slate-500">
+              <span className="text-[11px] font-medium text-slate-500">
                 Min: {vendor.minOrder}
               </span>
-              <span className="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-[10px] text-slate-600">
+              <span className="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-[11px] text-slate-600">
                 {vendor.badge}
               </span>
             </div>
@@ -47,7 +47,7 @@ export function VendorCard({ vendor }: { vendor: Vendor }) {
         </div>
 
         <Button
-          className="h-8 rounded-xl px-3 text-xs font-bold shadow-sm"
+          className="h-8 rounded-xl px-3 text-[13px] font-bold shadow-sm"
           render={<Link href={`/vendors/${vendor.slug}`} />}
         >
           Enter Store
@@ -59,7 +59,7 @@ export function VendorCard({ vendor }: { vendor: Vendor }) {
         {vendor.specializations.map((tag) => (
           <span
             key={tag}
-            className="rounded-full border border-slate-200 bg-slate-50 px-2 py-0.5 text-[10px] text-slate-700"
+            className="rounded-full border border-slate-200 bg-slate-50 px-2 py-0.5 text-xs text-slate-700"
           >
             {tag}
           </span>
@@ -67,7 +67,7 @@ export function VendorCard({ vendor }: { vendor: Vendor }) {
       </div>
 
       <div className="mt-2.5 space-y-1.5 border-t border-slate-100 pt-2">
-        <span className="block text-[10px] font-semibold tracking-wide text-slate-400 uppercase">
+        <span className="block text-[11px] font-semibold tracking-wide text-slate-400 uppercase">
           Store varieties
         </span>
         <div className="flex flex-wrap items-center gap-1.5">
@@ -75,7 +75,7 @@ export function VendorCard({ vendor }: { vendor: Vendor }) {
             <Link
               key={product.id}
               href={`/products/${product.slug}`}
-              className="max-w-[46%] truncate rounded-lg bg-green-100/60 px-2 py-0.5 text-[10px] text-green-900 transition hover:bg-green-100 sm:max-w-none"
+              className="max-w-[46%] truncate rounded-lg bg-green-100/60 px-2 py-0.5 text-xs text-green-900 transition hover:bg-green-100 sm:max-w-none"
             >
               {product.title.split(" (")[0]}
             </Link>
@@ -83,7 +83,7 @@ export function VendorCard({ vendor }: { vendor: Vendor }) {
           {extra > 0 && (
             <Link
               href={`/vendors/${vendor.slug}`}
-              className="text-[10px] font-bold text-green-700 hover:underline"
+              className="text-xs font-bold text-green-700 hover:underline"
             >
               +{extra} more
             </Link>

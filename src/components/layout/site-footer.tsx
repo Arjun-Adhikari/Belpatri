@@ -24,7 +24,7 @@ export function SiteFooter() {
         pathname === "/account" && "hidden md:block",
       )}
     >
-      <Container className="flex flex-col items-center justify-between gap-6 py-8 text-xs text-slate-500 md:flex-row">
+      <Container className="flex flex-col items-center justify-between gap-6 py-8 text-[13px] text-slate-500 md:flex-row">
         <div className="flex items-center gap-3">
           <span className="flex size-7 items-center justify-center rounded-xl bg-green-700 text-white">
             <Leaf className="size-[18px]" />

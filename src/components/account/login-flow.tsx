@@ -121,7 +121,7 @@ export function LoginFlow({ className }: { className?: string }) {
   return (
     <>
       <Button
-        className={cn("h-9 rounded-xl text-xs font-bold shadow-xs", className)}
+        className={cn("h-9 rounded-xl text-[13px] font-bold shadow-xs", className)}
         onClick={() => setOpen(true)}
       >
         <LogIn className="size-4" />
@@ -146,7 +146,7 @@ export function LoginFlow({ className }: { className?: string }) {
                     ? "Business details"
                     : COPY[step].title}
               </DialogTitle>
-              <DialogDescription className="text-xs text-slate-500">
+              <DialogDescription className="text-[13px] text-slate-500">
                 {COPY[step].description}
               </DialogDescription>
             </DialogHeader>
@@ -159,7 +159,7 @@ export function LoginFlow({ className }: { className?: string }) {
                     style={{ width: `${(position / total) * 100}%` }}
                   />
                 </div>
-                <p className="text-[10px] font-bold tracking-[0.14em] text-green-800 uppercase">
+                <p className="text-[11px] font-bold tracking-[0.14em] text-green-800 uppercase">
                   Step {position} of {total}
                   <span className="ml-2 font-medium tracking-normal text-slate-400 normal-case">
                     {audienceLabel(audience)}
@@ -188,7 +188,7 @@ export function LoginFlow({ className }: { className?: string }) {
                     onClick={() => pickAudience("business")}
                   />
                 </div>
-                <p className="flex items-start gap-1.5 text-[11px] leading-relaxed text-slate-500">
+                <p className="flex items-start gap-1.5 text-sm leading-relaxed text-slate-500">
                   <ShieldCheck className="mt-px size-3.5 shrink-0 text-green-700" />
                   Google is used only to verify your email. We never post on your
                   behalf.
@@ -219,7 +219,7 @@ export function LoginFlow({ className }: { className?: string }) {
                   />
                 </div>
 
-                <p className="text-[11px] text-slate-500">
+                <p className="text-[13px] text-slate-500">
                   You can select both if you farm your own produce and also trade
                   other lots.
                 </p>
@@ -227,14 +227,14 @@ export function LoginFlow({ className }: { className?: string }) {
                 <div className="flex items-center justify-between gap-2 border-t border-slate-100 pt-4">
                   <Button
                     variant="ghost"
-                    className="h-9 rounded-xl text-xs font-semibold text-slate-600"
+                    className="h-9 rounded-xl text-[13px] font-semibold text-slate-600"
                     onClick={() => setStep("audience")}
                   >
                     <ArrowLeft className="size-3.5" />
                     Back
                   </Button>
                   <Button
-                    className="h-9 rounded-xl text-xs font-bold"
+                    className="h-9 rounded-xl text-[13px] font-bold"
                     disabled={!roles.vendor && !roles.farmer}
                     onClick={() => setStep("google")}
                   >
@@ -275,7 +275,7 @@ export function LoginFlow({ className }: { className?: string }) {
                   <p className="mt-3 text-sm font-bold text-slate-900">
                     Continue with Google
                   </p>
-                  <p className="mx-auto mt-1 max-w-sm text-xs leading-relaxed text-slate-500">
+                  <p className="mx-auto mt-1 max-w-sm text-sm leading-relaxed text-slate-500">
                     We read your name and email so you do not have to type them
                     again. Nothing is posted to your Google account.
                   </p>
@@ -297,7 +297,7 @@ export function LoginFlow({ className }: { className?: string }) {
                       </>
                     )}
                   </button>
-                  <p className="mt-2 text-[10px] text-slate-400">
+                  <p className="mt-2 text-xs text-slate-400">
                     Prototype only — no real Google sign-in happens.
                   </p>
                 </div>
@@ -305,7 +305,7 @@ export function LoginFlow({ className }: { className?: string }) {
                 <div className="flex items-center justify-between gap-2">
                   <Button
                     variant="ghost"
-                    className="h-9 rounded-xl text-xs font-semibold text-slate-600"
+                    className="h-9 rounded-xl text-[13px] font-semibold text-slate-600"
                     onClick={() =>
                       setStep(audience === "business" ? "business" : "audience")
                     }
@@ -525,7 +525,7 @@ export function LoginFlow({ className }: { className?: string }) {
                   </Field>
                 </Section>
 
-                <label className="flex items-start gap-2.5 rounded-xl border border-slate-200 bg-slate-50/70 px-3 py-2.5 text-[11px] leading-relaxed text-slate-600">
+                <label className="flex items-start gap-2.5 rounded-xl border border-slate-200 bg-slate-50/70 px-3 py-2.5 text-sm leading-relaxed text-slate-600">
                   <input
                     type="checkbox"
                     required
@@ -548,13 +548,13 @@ export function LoginFlow({ className }: { className?: string }) {
                   <Button
                     type="button"
                     variant="ghost"
-                    className="h-9 rounded-xl text-xs font-semibold text-slate-600"
+                    className="h-9 rounded-xl text-[13px] font-semibold text-slate-600"
                     onClick={() => setStep("google")}
                   >
                     <ArrowLeft className="size-3.5" />
                     Back
                   </Button>
-                  <Button type="submit" className="h-9 rounded-xl text-xs font-bold">
+                  <Button type="submit" className="h-9 rounded-xl text-[13px] font-bold">
                     Create account
                     <ArrowRight className="size-3.5" />
                   </Button>
@@ -571,7 +571,7 @@ export function LoginFlow({ className }: { className?: string }) {
                   <h3 className="text-lg font-extrabold text-slate-900">
                     Welcome to Belpatri
                   </h3>
-                  <p className="mx-auto max-w-sm text-xs leading-relaxed text-slate-500">
+                  <p className="mx-auto max-w-sm text-sm leading-relaxed text-slate-500">
                     {audience === "customer"
                       ? "Your customer account and delivery address are saved. Start browsing verified lots."
                       : "Your business account is created. Add your listings and start receiving trade enquiries."}
@@ -607,7 +607,7 @@ export function LoginFlow({ className }: { className?: string }) {
 
                 <div className="flex flex-col gap-2 border-t border-slate-100 pt-4 sm:flex-row sm:justify-center">
                   <Button
-                    className="h-10 rounded-xl px-5 text-xs font-bold"
+                    className="h-10 rounded-xl px-5 text-[13px] font-bold"
                     render={<Link href="/" />}
                     onClick={() => handleOpenChange(false)}
                   >
@@ -616,7 +616,7 @@ export function LoginFlow({ className }: { className?: string }) {
                   </Button>
                   <Button
                     variant="outline"
-                    className="h-10 rounded-xl border-slate-200 px-5 text-xs font-semibold text-slate-700"
+                    className="h-10 rounded-xl border-slate-200 px-5 text-[13px] font-semibold text-slate-700"
                     onClick={() => handleOpenChange(false)}
                   >
                     Close
@@ -663,10 +663,10 @@ function ChoiceCard({
         {title}
         <ArrowRight className="size-3.5 text-slate-300 transition group-hover:translate-x-0.5 group-hover:text-green-700" />
       </span>
-      <span className="text-[11px] leading-relaxed text-slate-500">{description}</span>
+      <span className="text-sm leading-relaxed text-slate-500">{description}</span>
       <span className="mt-1 flex flex-col gap-1 border-t border-slate-100 pt-2">
         {points.map((point) => (
-          <span key={point} className="flex items-center gap-1.5 text-[11px] text-slate-600">
+          <span key={point} className="flex items-center gap-1.5 text-xs text-slate-600">
             <Check className="size-3 text-green-700" />
             {point}
           </span>
@@ -720,8 +720,8 @@ function RoleCard({
         )}
       />
       <span>
-        <span className="block text-xs font-extrabold text-slate-900">{title}</span>
-        <span className="mt-0.5 block text-[11px] leading-relaxed text-slate-500">
+        <span className="block text-[13px] font-extrabold text-slate-900">{title}</span>
+        <span className="mt-0.5 block text-sm leading-relaxed text-slate-500">
           {description}
         </span>
       </span>
@@ -731,7 +731,7 @@ function RoleCard({
 
 function Tag({ children }: { children: ReactNode }) {
   return (
-    <span className="inline-flex items-center gap-1 rounded-full border border-green-200 bg-green-50 px-2 py-0.5 text-[10px] font-bold text-green-800">
+    <span className="inline-flex items-center gap-1 rounded-full border border-green-200 bg-green-50 px-2 py-0.5 text-[11px] font-bold text-green-800">
       {children}
     </span>
   );
@@ -746,7 +746,7 @@ function Section({
 }) {
   return (
     <div className="space-y-3">
-      <p className="text-[10px] font-bold tracking-[0.14em] text-slate-400 uppercase">
+      <p className="text-[11px] font-bold tracking-[0.14em] text-slate-400 uppercase">
         {title}
       </p>
       <div className="grid gap-3 sm:grid-cols-2">{children}</div>

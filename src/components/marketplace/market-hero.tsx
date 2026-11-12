@@ -21,7 +21,7 @@ export function MarketHero({ market }: { market: MarketId }) {
       </div>
 
       <div className="relative z-10 max-w-2xl space-y-3.5">
-        <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/15 px-3 py-1 text-[10px] font-bold tracking-[0.14em] uppercase backdrop-blur-md">
+        <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/15 px-3 py-1 text-[11px] font-bold tracking-[0.14em] uppercase backdrop-blur-md">
           {data.eyebrow}
         </span>
         <h1 className="text-2xl font-extrabold tracking-tight text-white sm:text-3xl">
@@ -34,7 +34,7 @@ export function MarketHero({ market }: { market: MarketId }) {
           {data.features.map((feature, index) => (
             <span
               key={feature}
-              className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/15 px-3.5 py-1.5 text-xs font-semibold text-white backdrop-blur-md"
+              className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/15 px-3.5 py-1.5 text-[13px] font-semibold text-white backdrop-blur-md"
             >
               {index === 0 ? (
                 <BadgeCheck className="size-4 text-green-200" />

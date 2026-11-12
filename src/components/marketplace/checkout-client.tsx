@@ -48,7 +48,7 @@ export function CheckoutClient({
         <h2 className="text-sm font-bold text-slate-700">
           Nothing to check out in this cart
         </h2>
-        <p className="mt-1 text-xs text-slate-400">
+        <p className="mt-1 text-[13px] text-slate-400">
           Add a {marketLabel.toLowerCase()} lot before starting a dispatch.
         </p>
         <div className="mt-4 flex flex-wrap items-center justify-center gap-2">
@@ -57,7 +57,7 @@ export function CheckoutClient({
           </Button>
           <Button
             variant="outline"
-            className="rounded-xl border-slate-200 text-xs font-semibold"
+            className="rounded-xl border-slate-200 text-[13px] font-semibold"
             render={<Link href="/cart" />}
           >
             Back to carts

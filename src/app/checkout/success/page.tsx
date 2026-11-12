@@ -50,12 +50,12 @@ export default async function CheckoutSuccessPage({
           <h1 className="mt-4 text-2xl font-extrabold tracking-tight text-slate-900">
             Order Verified!
           </h1>
-          <p className="mx-auto mt-1.5 max-w-sm text-xs leading-relaxed text-slate-500">
+          <p className="mx-auto mt-1.5 max-w-sm text-sm leading-relaxed text-slate-500">
             Your trade pass <span className="font-mono font-bold">#BPT-9044</span>{" "}
             has been generated and dispatched to the weighing yard.
           </p>
 
-          <div className="mt-5 space-y-2 rounded-2xl border border-slate-200 bg-slate-50/70 p-4 text-left text-xs">
+          <div className="mt-5 space-y-2 rounded-2xl border border-slate-200 bg-slate-50/70 p-4 text-left text-[13px]">
             <div className="flex items-center justify-between gap-3">
               <span className="flex items-center gap-1.5 text-slate-500">
                 <MapPin className="size-3.5 text-green-700" />
@@ -99,7 +99,7 @@ export default async function CheckoutSuccessPage({
             </Button>
             <Button
               variant="outline"
-              className="h-11 w-full rounded-xl text-xs font-semibold"
+              className="h-11 w-full rounded-xl text-[13px] font-semibold"
               render={<Link href="/" />}
             >
               Back to Marketplace
@@ -107,7 +107,7 @@ export default async function CheckoutSuccessPage({
             </Button>
             <Button
               variant="ghost"
-              className="h-9 w-full rounded-xl text-xs font-semibold text-slate-500"
+              className="h-9 w-full rounded-xl text-[13px] font-semibold text-slate-500"
             >
               <Download className="size-3.5" />
               Download provisional invoice
@@ -138,8 +138,8 @@ export default async function CheckoutSuccessPage({
               className="rounded-2xl border border-slate-200 bg-white p-4 shadow-xs"
             >
               <item.icon className="size-4 text-green-700" />
-              <p className="mt-2 text-xs font-bold text-slate-900">{item.title}</p>
-              <p className="mt-0.5 text-[11px] leading-relaxed text-slate-500">
+              <p className="mt-2 text-[13px] font-bold text-slate-900">{item.title}</p>
+              <p className="mt-0.5 text-sm leading-relaxed text-slate-500">
                 {item.description}
               </p>
             </div>

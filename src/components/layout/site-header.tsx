@@ -73,7 +73,7 @@ export function SiteHeader() {
               type="search"
               name="q"
               placeholder="Search items (wheat, chilli) or verified vendor store"
-              className="h-10 w-full rounded-full border border-slate-200 bg-slate-50/70 pl-11 pr-4 text-sm text-slate-800 placeholder:text-slate-400 transition-all focus:border-green-600 focus:bg-white focus:ring-2 focus:ring-green-600/10 focus:outline-none"
+              className="h-10 w-full rounded-full border border-slate-200 bg-slate-50/70 pl-11 pr-4 text-base text-slate-800 placeholder:text-slate-400 transition-all focus:border-green-600 focus:bg-white focus:ring-2 focus:ring-green-600/10 focus:outline-none md:text-sm"
               aria-label="Search commodities or vendors"
             />
           </form>
@@ -81,25 +81,25 @@ export function SiteHeader() {
           <div className="ml-auto flex items-center gap-1.5 sm:gap-2.5">
             <Button
               variant="outline"
-              className="hidden h-10 rounded-full border-slate-200 bg-slate-50/60 text-xs font-semibold text-slate-700 hover:border-green-300 hover:bg-green-50 hover:text-green-800 md:inline-flex"
+              className="hidden h-10 rounded-full border-slate-200 bg-slate-50/60 text-[13px] font-semibold text-slate-700 hover:border-green-300 hover:bg-green-50 hover:text-green-800 md:inline-flex"
               render={<Link href="/orders" />}
             >
               <ReceiptText className="size-4 text-green-700" />
               Orders
-              <span className="ml-0.5 flex size-5 items-center justify-center rounded-full bg-green-100 text-[10px] font-bold text-green-800">
+              <span className="ml-0.5 flex size-5 items-center justify-center rounded-full bg-green-100 text-[11px] font-bold text-green-800">
                 {activeOrders}
               </span>
             </Button>
 
             <Button
               variant="outline"
-              className="hidden h-10 rounded-full border-green-200 bg-green-50/50 text-xs font-semibold text-green-800 hover:bg-green-100 md:inline-flex"
+              className="hidden h-10 rounded-full border-green-200 bg-green-50/50 text-[13px] font-semibold text-green-800 hover:bg-green-100 md:inline-flex"
               render={<Link href="/cart" />}
             >
               <ShoppingCart className="size-4 text-green-700" />
               <span className="hidden sm:inline">Cart</span>
               {hydrated ? (
-                <span className="flex size-5 items-center justify-center rounded-full bg-green-700 text-[10px] font-bold text-white">
+                <span className="flex size-5 items-center justify-center rounded-full bg-green-700 text-[11px] font-bold text-white">
                   {cartCount}
                 </span>
               ) : null}
@@ -136,7 +136,7 @@ export function SiteHeader() {
             type="search"
             name="q"
             placeholder="Search commodities or vendors"
-            className="h-10 w-full rounded-full border border-slate-200 bg-slate-50/70 pl-10 pr-4 text-sm text-slate-800 placeholder:text-slate-400 focus:border-green-600 focus:bg-white focus:outline-none"
+            className="h-10 w-full rounded-full border border-slate-200 bg-slate-50/70 pl-10 pr-4 text-base text-slate-800 placeholder:text-slate-400 focus:border-green-600 focus:bg-white focus:outline-none md:text-sm"
             aria-label="Search commodities or vendors"
           />
         </form>
@@ -148,7 +148,7 @@ export function SiteHeader() {
             <SheetTitle className="flex items-center gap-2 text-green-800">
               <SiteLogo compact />
             </SheetTitle>
-            <SheetDescription className="text-xs text-slate-500">
+            <SheetDescription className="text-[13px] text-slate-500">
               Agri-commercial marketplace
             </SheetDescription>
           </SheetHeader>

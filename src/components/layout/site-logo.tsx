@@ -23,7 +23,7 @@ export function SiteLogo({
           Belpatri
         </span>
         {!compact && (
-          <span className="mt-1 hidden text-[9.5px] font-semibold tracking-[0.14em] text-slate-400 uppercase sm:block">
+          <span className="mt-1 hidden text-[11px] font-semibold tracking-[0.14em] text-slate-400 uppercase sm:block">
             Shopping, made simple.
           </span>
         )}

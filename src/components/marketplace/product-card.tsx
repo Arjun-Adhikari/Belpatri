@@ -51,14 +51,14 @@ export function ProductCard({
         </div>
 
         <div className={dense ? "space-y-0.5 sm:space-y-1" : "space-y-1"}>
-          <span className="block text-[10.5px] font-semibold tracking-wider text-slate-400 uppercase">
+          <span className="block text-[11px] font-semibold tracking-wider text-slate-400 uppercase">
             {product.categoryName}
           </span>
           <h3
             className={cn(
               "font-bold text-slate-900 transition-colors group-hover:text-green-800",
               dense
-                ? "line-clamp-2 text-[13px] sm:line-clamp-1 sm:text-base"
+                ? "line-clamp-2 text-sm sm:line-clamp-1 sm:text-base"
                 : "line-clamp-1 text-base",
             )}
           >
@@ -66,12 +66,12 @@ export function ProductCard({
           </h3>
 
           {product.market === "managed" ? (
-            <div className="flex items-center gap-1.5 pt-0.5 text-xs font-medium text-green-700">
+            <div className="flex items-center gap-1.5 pt-0.5 text-[13px] font-medium text-green-700">
               <BadgeCheck className="size-[15px]" />
               Belpatri Certified
             </div>
           ) : (
-            <div className="flex flex-wrap items-center gap-x-2 gap-y-1 pt-0.5 text-xs">
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-1 pt-0.5 text-[13px]">
               <span
                 className={cn(
                   "flex items-center gap-1 font-medium text-slate-600",
@@ -88,7 +88,7 @@ export function ProductCard({
               {product.rating ? (
                 <span
                   className={cn(
-                    "flex items-center gap-0.5 rounded border border-amber-200 bg-amber-50 px-1.5 py-0.5 text-[10px] font-bold text-amber-700",
+                    "flex items-center gap-0.5 rounded border border-amber-200 bg-amber-50 px-1.5 py-0.5 text-[11px] font-bold text-amber-700",
                     dense && "hidden sm:flex",
                   )}
                 >
@@ -120,7 +120,7 @@ export function ProductCard({
             >
               {npr(product.price)}
             </span>
-            <span className="text-xs text-slate-400">/{product.unit}</span>
+            <span className="text-[13px] text-slate-400">/{product.unit}</span>
           </div>
           <span className="inline-block text-[11px] font-medium text-slate-500">
             Min: {product.moq} {product.unit}

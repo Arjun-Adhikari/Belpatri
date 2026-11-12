@@ -45,7 +45,7 @@ export function MenuTile({
         <span className="block text-[15px] leading-tight font-medium text-slate-900">
           {item.title}
         </span>
-        <span className="mt-0.5 block text-xs leading-snug text-slate-500">
+        <span className="mt-0.5 block text-[13px] leading-snug text-slate-500">
           {item.subtitle}
         </span>
       </span>
@@ -113,7 +113,7 @@ export function LogoutTile({ onTap }: { onTap?: () => void }) {
         <span className="block text-[15px] leading-tight font-medium text-slate-900">
           Logout
         </span>
-        <span className="mt-0.5 block text-xs leading-snug text-slate-500">
+        <span className="mt-0.5 block text-[13px] leading-snug text-slate-500">
           Log out from Belpatri account
         </span>
       </span>

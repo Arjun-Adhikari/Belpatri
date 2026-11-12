@@ -78,19 +78,19 @@ export function CheckoutForm({
                 <h2 className="text-sm font-bold text-slate-900">
                   1. Delivery location
                 </h2>
-                <p className="text-[11px] text-slate-500">
+                <p className="text-[13px] text-slate-500">
                   Weighbridge and warehouse bay for this dispatch.
                 </p>
               </div>
             </div>
-            <span className="rounded-full bg-green-100 px-2.5 py-1 text-[10px] font-bold text-green-800">
+            <span className="rounded-full bg-green-100 px-2.5 py-1 text-[11px] font-bold text-green-800">
               {marketLabel} division
             </span>
           </div>
 
           <div className="grid gap-4 p-5 sm:grid-cols-2">
             <div className="space-y-1.5 sm:col-span-2">
-              <Label htmlFor="firm" className="text-[11px] text-slate-500">
+              <Label htmlFor="firm" className="text-xs text-slate-500">
                 Commercial firm / trader name
               </Label>
               <div className="relative">
@@ -104,7 +104,7 @@ export function CheckoutForm({
             </div>
 
             <div className="space-y-1.5 sm:col-span-2">
-              <Label htmlFor="destination" className="text-[11px] text-slate-500">
+              <Label htmlFor="destination" className="text-xs text-slate-500">
                 Destination warehouse bay
               </Label>
               <Input
@@ -115,7 +115,7 @@ export function CheckoutForm({
             </div>
 
             <div className="space-y-1.5">
-              <Label htmlFor="phone" className="text-[11px] text-slate-500">
+              <Label htmlFor="phone" className="text-xs text-slate-500">
                 Contact phone (driver updates)
               </Label>
               <Input
@@ -126,18 +126,18 @@ export function CheckoutForm({
             </div>
 
             <div className="space-y-1.5">
-              <Label htmlFor="gst" className="text-[11px] text-slate-500">
+              <Label htmlFor="gst" className="text-xs text-slate-500">
                 PAN / VAT for tax invoice
               </Label>
               <Input
                 id="gst"
                 defaultValue="601234567"
-                className="h-11 rounded-xl font-mono text-xs"
+                className="h-11 rounded-xl font-mono"
               />
             </div>
 
             <div className="sm:col-span-2">
-              <label className="flex items-start gap-2.5 rounded-xl border border-slate-200 bg-slate-50/60 p-3 text-[11px] text-slate-600">
+              <label className="flex items-start gap-2.5 rounded-xl border border-slate-200 bg-slate-50/60 p-3 text-[13px] text-slate-600">
                 <input
                   type="checkbox"
                   defaultChecked
@@ -158,7 +158,7 @@ export function CheckoutForm({
               <h2 className="text-sm font-bold text-slate-900">
                 2. Payment responsibility
               </h2>
-              <p className="text-[11px] text-slate-500">
+              <p className="text-[13px] text-slate-500">
                 Escrow is staged before the gate pass is authorised.
               </p>
             </div>
@@ -183,10 +183,10 @@ export function CheckoutForm({
                     mode === "self" ? "text-green-700" : "text-slate-500",
                   )}
                 />
-                <span className="block text-xs font-bold text-slate-900">
+                <span className="block text-[13px] font-bold text-slate-900">
                   Pay myself
                 </span>
-                <span className="mt-0.5 block text-[10px] text-slate-500">
+                <span className="mt-0.5 block text-xs text-slate-500">
                   Escrow / eSewa / Khalti
                 </span>
               </button>
@@ -208,10 +208,10 @@ export function CheckoutForm({
                     mode === "invite" ? "text-green-700" : "text-slate-500",
                   )}
                 />
-                <span className="block text-xs font-bold text-slate-900">
+                <span className="block text-[13px] font-bold text-slate-900">
                   Invite payer
                 </span>
-                <span className="mt-0.5 block text-[10px] text-slate-500">
+                <span className="mt-0.5 block text-xs text-slate-500">
                   Send link to financier / partner
                 </span>
               </button>
@@ -219,11 +219,11 @@ export function CheckoutForm({
 
             {mode === "invite" ? (
               <div className="space-y-2.5 rounded-xl border border-green-200 bg-green-50/60 p-4">
-                <div className="flex items-center gap-2 text-xs font-semibold text-green-800">
+                <div className="flex items-center gap-2 text-[13px] font-semibold text-green-800">
                   <Link2 className="size-4" />
                   Shareable escrow payment link
                 </div>
-                <p className="text-[11px] leading-relaxed text-green-900/70">
+                <p className="text-sm leading-relaxed text-green-900/70">
                   The order reservation stays locked for 90 minutes.
                   Dispatch begins once the invoice is cleared.
                 </p>
@@ -231,12 +231,12 @@ export function CheckoutForm({
                   <Input
                     readOnly
                     value={inviteLink}
-                    className="h-9 flex-1 rounded-lg border-green-200 bg-white font-mono text-[11px] text-slate-600"
+                    className="h-9 flex-1 rounded-lg border-green-200 bg-white font-mono text-base text-slate-600 md:text-sm"
                   />
                   <Button
                     type="button"
                     variant="outline"
-                    className="h-9 shrink-0 rounded-lg border-green-200 bg-white text-xs font-semibold text-green-800 hover:bg-green-100"
+                    className="h-9 shrink-0 rounded-lg border-green-200 bg-white text-[13px] font-semibold text-green-800 hover:bg-green-100"
                     onClick={copyLink}
                   >
                     <Copy className="size-3.5" />
@@ -245,7 +245,7 @@ export function CheckoutForm({
                 </div>
               </div>
             ) : (
-              <div className="flex items-center gap-2.5 rounded-xl border border-slate-200 bg-slate-50/70 p-3.5 text-[11px] text-slate-600">
+              <div className="flex items-center gap-2.5 rounded-xl border border-slate-200 bg-slate-50/70 p-3.5 text-[13px] text-slate-600">
                 <Lock className="size-4 shrink-0 text-green-700" />
                 <span>
                   A payment mandate will be raised on your verified Nabil Bank escrow
@@ -256,7 +256,7 @@ export function CheckoutForm({
           </div>
         </section>
 
-        <div className="flex items-start gap-2.5 rounded-2xl border border-slate-200 bg-white p-4 text-[11px] text-slate-500 shadow-xs">
+        <div className="flex items-start gap-2.5 rounded-2xl border border-slate-200 bg-white p-4 text-[13px] text-slate-500 shadow-xs">
           <ShieldCheck className="mt-0.5 size-4 shrink-0 text-green-700" />
           Belpatri holds 100% of the payable amount in escrow. Funds are only
           released after the destination weighbridge signs off unloading.
@@ -267,7 +267,7 @@ export function CheckoutForm({
         <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs">
           <div className="flex items-center justify-between">
             <h2 className="text-sm font-bold text-slate-900">Order summary</h2>
-            <span className="rounded-full bg-slate-100 px-2.5 py-1 text-[10px] font-bold text-slate-600">
+            <span className="rounded-full bg-slate-100 px-2.5 py-1 text-[11px] font-bold text-slate-600">
               {lines.reduce((count, line) => count + line.qty, 0)} lots
             </span>
           </div>
@@ -276,13 +276,13 @@ export function CheckoutForm({
             {lines.map((line) => (
               <li
                 key={line.title}
-                className="flex items-start justify-between gap-3 text-xs"
+                className="flex items-start justify-between gap-3 text-[13px]"
               >
                 <div className="min-w-0">
                   <p className="line-clamp-1 font-semibold text-slate-800">
                     {line.title}
                   </p>
-                  <p className="text-[10px] text-slate-400">
+                  <p className="text-xs text-slate-400">
                     {line.qty} × {npr(line.price)}/{line.unit}
                   </p>
                 </div>
@@ -293,7 +293,7 @@ export function CheckoutForm({
             ))}
           </ul>
 
-          <dl className="mt-3 space-y-2 text-xs">
+          <dl className="mt-3 space-y-2 text-[13px]">
             <div className="flex justify-between">
               <dt className="text-slate-500">Commodity subtotal</dt>
               <dd className="font-mono font-semibold text-slate-800">
@@ -328,7 +328,7 @@ export function CheckoutForm({
 
           <Button
             variant="ghost"
-            className="mt-1.5 h-9 w-full rounded-xl text-xs font-semibold text-slate-500"
+            className="mt-1.5 h-9 w-full rounded-xl text-[13px] font-semibold text-slate-500"
             render={<Link href="/cart" />}
           >
             <ArrowLeft className="size-3.5" />
@@ -337,20 +337,20 @@ export function CheckoutForm({
         </section>
 
         <section className="rounded-2xl border border-green-200 bg-green-50/60 p-4">
-          <p className="flex items-center gap-1.5 text-[11px] font-bold text-green-900">
+          <p className="flex items-center gap-1.5 text-xs font-bold text-green-900">
             <ShoppingBag className="size-3.5" />
             Isolated checkout
           </p>
-          <p className="mt-1 text-[11px] leading-relaxed text-green-900/70">
+          <p className="mt-1 text-sm leading-relaxed text-green-900/70">
             This checkout only contains{" "}
             {marketLabel.toLowerCase()} lots. Adding another marketplace lot
             creates a separate order and gate pass.
           </p>
-          <div className="mt-2 flex items-center justify-between text-[11px]">
+          <div className="mt-2 flex items-center justify-between text-xs">
             <span className="text-green-900/70">Market division</span>
             <span className="font-bold text-green-900">{marketLabel}</span>
           </div>
-          <div className="mt-1 flex items-center justify-between text-[11px]">
+          <div className="mt-1 flex items-center justify-between text-xs">
             <span className="text-green-900/70">Dispatch mode</span>
             <span className="flex items-center gap-1 font-bold text-green-900">
               Escrow staged
