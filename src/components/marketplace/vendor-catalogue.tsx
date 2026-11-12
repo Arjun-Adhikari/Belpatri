@@ -84,7 +84,11 @@ export function VendorCatalogue({
         ))}
       </div>
 
-      <ProductGrid items={visible} resetHref={`/vendors/${vendorSlug}`} />
+      <ProductGrid
+        items={visible}
+        resetHref={`/vendors/${vendorSlug}`}
+        denseOnMobile
+      />
     </div>
   );
 }

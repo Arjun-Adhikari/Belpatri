@@ -322,7 +322,11 @@ export default async function ProductPage({
             Back to {market.label}
           </Link>
         </div>
-        <ProductGrid items={related} resetHref={`/?market=${product.market}`} />
+        <ProductGrid
+          items={related}
+          resetHref={`/?market=${product.market}`}
+          denseOnMobile
+        />
       </section>
     </Container>
   );
