@@ -35,22 +35,6 @@ export function SiteFooter() {
             </span>
           </div>
 
-          <nav
-            aria-label="Footer"
-            className="mt-4 grid grid-cols-2 gap-x-4 border-t border-slate-100 pt-2"
-          >
-            {footerLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="flex min-h-10 items-center gap-2 py-2 text-[13px] font-medium text-slate-600 transition-colors active:text-green-700"
-              >
-                <span className="size-1 shrink-0 rounded-full bg-green-600" />
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-
           <p className="mt-4 border-t border-slate-100 pt-4 text-xs leading-relaxed text-slate-400">
             © 2026 Belpatri Agri-Commercial Technologies Inc.
           </p>
