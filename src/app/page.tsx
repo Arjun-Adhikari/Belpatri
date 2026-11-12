@@ -1,10 +1,8 @@
 import Link from "next/link";
 import {
   ArrowRight,
-  BadgeCheck,
   Clock3,
   MapPin,
-  Sparkles,
   Store,
 } from "lucide-react";
 
@@ -15,8 +13,7 @@ import { MarketTabs } from "@/components/marketplace/market-tabs";
 import { ProductGrid } from "@/components/marketplace/product-grid";
 import { SortSelect } from "@/components/marketplace/sort-select";
 import { VendorCard } from "@/components/marketplace/vendor-card";
-import { vendors, markets, products } from "@/lib/data";
-import { trustItems } from "@/lib/icons";
+import { vendors, products } from "@/lib/data";
 import type { MarketId } from "@/lib/types";
 
 const validMarkets: MarketId[] = ["managed", "vendor", "farmer"];
@@ -35,8 +32,6 @@ export default async function HomePage({
     : "managed";
   const category = typeof params.category === "string" ? params.category : "all";
   const query = typeof params.q === "string" ? params.q.trim() : "";
-
-  const marketData = markets.find((item) => item.id === market)!;
 
   const filtered = products.filter((product) => {
     if (product.market !== market) return false;
@@ -151,37 +146,6 @@ export default async function HomePage({
           </section>
         </>
       )}
-
-      <section className="hidden gap-3 rounded-2xl border border-green-200 bg-green-50/60 p-4 sm:grid-cols-2 md:grid lg:grid-cols-4">
-        {trustItems.map((item) => (
-          <div key={item.title} className="flex items-start gap-3">
-            <span className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-white text-green-700 shadow-xs">
-              <item.icon className="size-[18px]" />
-            </span>
-            <div>
-              <p className="text-[13px] font-bold text-slate-900">{item.title}</p>
-              <p className="mt-0.5 text-sm leading-relaxed text-slate-600">
-                {item.description}
-              </p>
-            </div>
-          </div>
-        ))}
-      </section>
-
-      <section className="hidden flex-wrap items-center justify-between gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-xs md:flex">
-        <div className="flex items-center gap-3">
-          <span className="flex size-10 items-center justify-center rounded-xl bg-green-100 text-green-800">
-            <Sparkles className="size-5" />
-          </span>
-          <div>
-            <p className="text-sm font-bold text-slate-900">{marketData.description}</p>
-            <p className="mt-0.5 flex items-center gap-1 text-[13px] text-slate-500">
-              <BadgeCheck className="size-3.5 text-green-700" />
-              Separate carts per marketplace. Lots are never mixed across sellers.
-            </p>
-          </div>
-        </div>
-      </section>
     </Container>
   );
 }
