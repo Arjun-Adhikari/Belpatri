@@ -4,7 +4,7 @@ import { AccountMenuScreen } from "@/components/account/account-menu-screen";
 import { account } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Account Menu — Belpatri",
+  title: "Account — Belpatri",
   description:
     "KYC, business accounts, trade limits, security and support for your Belpatri trader profile.",
 };

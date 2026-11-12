@@ -77,13 +77,13 @@ export function AccountMenuScreen({
         >
           <ArrowLeft className="size-5" />
         </button>
-        <span className="text-[18px] font-semibold text-slate-900">Menu</span>
+        <span className="text-[18px] font-semibold text-slate-900">Account</span>
       </header>
 
       <div className="mx-auto w-full max-w-md pb-8 md:max-w-2xl md:pb-12">
         <div className="hidden px-4 pt-6 md:block">
           <h1 className="text-2xl font-extrabold tracking-tight text-slate-900">
-            Menu
+            Account
           </h1>
           <p className="mt-0.5 text-xs text-slate-500">
             Profile, business accounts and preferences for your {APP_NAME}{" "}
