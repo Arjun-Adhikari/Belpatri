@@ -152,7 +152,7 @@ export default async function HomePage({
         </>
       )}
 
-      <section className="grid gap-3 rounded-2xl border border-green-200 bg-green-50/60 p-4 sm:grid-cols-2 lg:grid-cols-4">
+      <section className="hidden gap-3 rounded-2xl border border-green-200 bg-green-50/60 p-4 sm:grid-cols-2 md:grid lg:grid-cols-4">
         {trustItems.map((item) => (
           <div key={item.title} className="flex items-start gap-3">
             <span className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-white text-green-700 shadow-xs">
@@ -168,7 +168,7 @@ export default async function HomePage({
         ))}
       </section>
 
-      <section className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-xs">
+      <section className="hidden flex-wrap items-center justify-between gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-xs md:flex">
         <div className="flex items-center gap-3">
           <span className="flex size-10 items-center justify-center rounded-xl bg-green-100 text-green-800">
             <Sparkles className="size-5" />
