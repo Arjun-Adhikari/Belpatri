@@ -25,6 +25,8 @@ export function MobileTabBar() {
   const cartCount = useCartCount();
   const hydrated = useCartHydrated();
 
+  if (pathname === "/account") return null;
+
   return (
     <nav className="fixed inset-x-0 bottom-0 z-40 border-t border-slate-200 bg-white/95 pb-[env(safe-area-inset-bottom)] shadow-[0_-4px_20px_rgba(15,23,42,0.08)] backdrop-blur-md md:hidden">
       <div className="mx-auto flex h-16 max-w-md items-center justify-around px-2">

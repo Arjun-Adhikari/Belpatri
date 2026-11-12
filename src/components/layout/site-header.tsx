@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   Bell,
   ChevronRight,
@@ -26,6 +27,7 @@ import { Container } from "@/components/layout/container";
 import { SiteLogo } from "@/components/layout/site-logo";
 import { useCartCount, useCartHydrated } from "@/lib/cart-store";
 import { account, orders } from "@/lib/data";
+import { cn } from "@/lib/utils";
 
 const mobileLinks = [
   { href: "/?market=managed", label: "Managed Market", icon: ShieldCheck },
@@ -36,12 +38,18 @@ const mobileLinks = [
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
   const cartCount = useCartCount();
   const hydrated = useCartHydrated();
   const activeOrders = orders.filter((order) => order.status !== "Delivered").length;
 
   return (
-    <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/95 shadow-xs backdrop-blur-md">
+    <header
+      className={cn(
+        "sticky top-0 z-40 border-b border-slate-200 bg-white/95 shadow-xs backdrop-blur-md",
+        pathname === "/account" && "hidden md:block",
+      )}
+    >
       <Container>
         <div className="flex h-16 items-center gap-3 sm:h-20 sm:gap-6">
           <Button
